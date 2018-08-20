@@ -34,7 +34,6 @@ export default {
   height: 0;
   overflow: hidden;
 
-  background-color: grey;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
