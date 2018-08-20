@@ -7,9 +7,10 @@
 
 <script>
 export default {
-  props: [
-    "title", "subtitle",
-  ],
+  props: {
+    title: { type: [String, Number], default: 'Heading...' },
+    subtitle: { type: [String, Number], default: 'sub heading...' },
+  },
 }
 </script>
 
@@ -17,29 +18,29 @@ export default {
 @import '~/assets/css/myset.scss';
 .Heading{
   font-size: 44rem;
-
-  padding: 0.9em 0.5em 0em;
-  text-align: left;
+  padding: 0 4vw;
   color: #333;
+  text-align: left;
 
   &__title{
     font-size: 44rem;
-    line-height: 1.1;
+    padding: 0.4em 0 0.2em;
     font-weight: bold;
     word-wrap: break-word;
   }
   &__subtitle{
     font-size: 20rem;
-    line-height: 1.5;
+    padding: 0;
     font-weight: normal;
   }
 
   &__title, &__subtitle{
-    text-transform: uppercase;
+    // text-transform: uppercase;
     background: $pink-gradient;
     background-clip: text;
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    // -webkit-text-fill-color: transparent;
+    color: transparent;
   }
 }
 
