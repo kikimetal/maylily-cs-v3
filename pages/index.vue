@@ -7,8 +7,12 @@
 
       <HeroImage data-aos="fade-up" v-if="$store.state.ww.md" />
 
-      <Card data-aos="fade-up" />
-      <Card data-aos="fade-up" />
+      <div class="card-container">
+        <Card data-aos="fade-up" to="/website" />
+        <Card data-aos="fade-up" to="/website" />
+        <Card data-aos="fade-up" to="/website" />
+        <Card data-aos="fade-up" to="/website" />
+      </div>
 
       <Heading data-aos="fade-up" title="LazyLoadImg" subtitle="LazyLoadImg" />
       <LazyLoadImg data-aos="fade-up" filename="kikigirl.jpg"/>
@@ -50,5 +54,19 @@ export default {
   color: $general;
   font-size: 40px;
   font-family: FuturaBold;
+}
+
+.card-container{
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 2em 0;
+
+  & > *{
+    margin: 4%;
+    width: 96%;
+  }
 }
 </style>
