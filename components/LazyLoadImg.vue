@@ -57,7 +57,7 @@ export default {
 
     user-select: none;
     pointer-events: none;
-    transition: opacity 0.5s ease-out 0.9s;
+    transition: opacity 0.5s ease-out 0.6s;
 
     &.loaded{
       opacity: 0;

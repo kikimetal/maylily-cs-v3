@@ -23,9 +23,8 @@ export default {
 @import '~/assets/css/myset.scss';
 
 .Card{
-  font-family: FuturaBold;
   text-align: center;
-  color: white;
+  color: $white;
   width: 90%;
   background: $primary;
   margin: 0 auto;
@@ -37,7 +36,8 @@ export default {
     line-height: 2.2;
   }
   .img{
-
+    transform-origin: center;
+    transform: scale(1.01);
   }
 }
 </style>

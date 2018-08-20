@@ -59,12 +59,13 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped="false">
 // AOS のスタイルをインポート
 @import '~/node_modules/aos/dist/aos.css';
+@import '~/assets/css/myset.scss';
 
 #layout-default{
-  background: #fff;
+  background: $white;
   overflow-x: hidden;
 }
 
