@@ -1,9 +1,11 @@
 <template lang="html">
-  <div class="Card">
-    <h1 class="title">{{ title }}</h1>
-    <LazyLoadImg class="img" :filename="imgfilename" />
-  </div>
-
+  <router-link
+  class="Card"
+  :to="to">
+    <div class="shadow" />
+    <h1 class="title">{{ title }}!</h1>
+    <LazyLoadImg class="img" :filename="imgfilename"/>
+  </router-link>
 </template>
 
 <script>
@@ -13,6 +15,8 @@ export default {
     LazyLoadImg,
   },
   props: {
+    to: { type: [String, Object], default: '/' },
+    disable: { type: Boolean, default: false },
     imgfilename: { type: [String, Number], default: 'adobe-stock__rose-aroma.jpg' },
     title: { type: [String, Number], default: 'INSERT TITLE...' },
   },
@@ -23,21 +27,44 @@ export default {
 @import '~/assets/css/myset.scss';
 
 .Card{
+  font-size: 26rem;
+  position: relative;
   text-align: center;
-  color: $white;
-  width: 90%;
-  background: $primary;
-  margin: 0 auto;
-  border-radius: $border-radius;
-  box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
-  overflow: hidden;
+  color: $primary;
+  overflow: visible;
+  cursor: pointer;
 
+  transform-origin: center;
+  transition: all 0.3s $ease-out;
+  &:hover{
+    animation: touchme 0.9s $ease-out;
+    @keyframes touchme{
+      0%{ transform: scale(1); }
+      18%{ transform: scale(0.98); }
+      100%{ transform: scale(1); }
+    }
+  }
+
+  .shadow{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    background: $white;
+    border-radius: $border-radius;
+    box-shadow: 0 3px 10px 0 $shadow;
+    z-index: -1;
+  }
   .title{
-    line-height: 2.2;
+    line-height: 2.4;
+    z-index: 2;
   }
   .img{
-    transform-origin: center;
-    transform: scale(1.01);
+    border-bottom-left-radius: $border-radius;
+    border-bottom-right-radius: $border-radius;
+    z-index: 3;
   }
 }
 </style>
