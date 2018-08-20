@@ -1,5 +1,5 @@
-<template>
-  <section class="page-container">
+<template lang="html">
+  <!-- <section class="page-container"> -->
     <div>
       <Heading title="WEBSITE" subtitle="kikimetal.com ver2 with Nuxt." />
 
@@ -22,7 +22,7 @@
       </div>
 
     </div>
-  </section>
+  <!-- </section> -->
 </template>
 
 <script>

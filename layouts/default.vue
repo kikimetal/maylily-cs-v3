@@ -5,7 +5,9 @@
       <Btn :to="{ path: '/image', params: {} }" exact text="image" :overrideStyle="{color: 'inherit'}" />
       <Btn :to="{ path: '/website', params: {} }" exact text="website" :overrideStyle="{color: 'inherit'}" />
     </nav>
-    <nuxt/>
+    <div class="page-container">
+      <nuxt/>
+    </div>
   </div>
 </template>
 
@@ -89,7 +91,7 @@ nav.global{
 }
 
 /* page transition のための設定 */
-.page-container {
+.page-container > div{
   width: 100%;
   min-height: 100vh;
   transform-origin: 50% calc(50vh + var(--scrollY));

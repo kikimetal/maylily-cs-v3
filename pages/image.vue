@@ -1,5 +1,5 @@
 <template>
-  <section class="page-container">
+  <!-- <section class="page-container"> -->
     <div>
       <Heading title="Image" subtitle="kikimetal.com ver2 with Nuxt." />
 
@@ -10,7 +10,7 @@
       </div>
 
     </div>
-  </section>
+  <!-- </section> -->
 </template>
 
 <script>

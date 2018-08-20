@@ -61,8 +61,8 @@ module.exports = {
   },
 
   css: [
-    'assets/myreset.scss',
-    'assets/common.scss',
+    'assets/css/myreset.scss',
+    'assets/css/common.scss',
   ],
 
   router: {

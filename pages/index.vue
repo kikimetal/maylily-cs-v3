@@ -1,23 +1,19 @@
 <template lang="html">
-  <section class="page-container">
-    <div>
+  <div class="page">
 
-      <Logotype data-aos="fade-up" fill="rgb(230, 80, 147)"/>
-      <HeroImage data-aos="fade-up" v-if="$store.state.ww.md" />
+      <Logotype fill="rgb(230, 80, 147)"/>
+      <HeroImage v-if="$store.state.ww.md" />
 
-      <Card data-aos="fade-up" />
-
-      <h1 data-aos="fade-up" :style="{fontSize: '70px', padding: '100px 0'}">HELLO</h1>
+      <Card />
 
       <Heading data-aos="fade-up" title="LazyLoadImg" subtitle="LazyLoadImg" />
       <LazyLoadImg data-aos="fade-up" filename="kikigirl.jpg"/>
-      <LazyLoadImg filename="kikigirl.jpg"/>
-      <LazyLoadImg filename="kikigirl.jpg"/>
+      <LazyLoadImg data-aos="fade-up" filename="kikigirl.jpg"/>
+      <LazyLoadImg data-aos="fade-up" filename="kikigirl.jpg"/>
 
       <Converter data-aos="fade-up" />
 
-    </div>
-  </section>
+  </div>
 </template>
 
 <script>
@@ -28,8 +24,6 @@ import Logotype from '~/components/Logotype.vue'
 import Card from '~/components/Card.vue'
 import HeroImage from '~/components/HeroImage.vue'
 import Converter from '~/components/Converter.vue'
-
-import AOS from 'aos'
 
 export default {
   components: {
@@ -45,7 +39,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.content{
-  white-space: pre-line;
+@import '~/assets/css/myset.scss';
+
+.page{
+
 }
 </style>

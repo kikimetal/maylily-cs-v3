@@ -14,6 +14,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '~/assets/css/myset.scss';
 .Heading{
   font-size: 44rem;
 
@@ -35,7 +36,7 @@ export default {
 
   &__title, &__subtitle{
     text-transform: uppercase;
-    background: linear-gradient(90deg, rgb(255, 172, 190) 0%, rgb(226, 171, 255) 100%);
+    background: $pink-gradient;
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;

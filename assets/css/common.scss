@@ -1,0 +1,28 @@
+@import '~/assets/css/myset.scss';
+
+:root{
+  --scrollY: 0px;
+}
+/* nuxt page transition */
+.page-enter-active {
+  transition:
+    // filter ease-out .5s,
+    opacity ease-out .5s,
+    transform $ease-out .6s;
+}
+.page-leave-active {
+  transition:
+    // filter ease-out .3s,
+    opacity ease-out .3s,
+    transform $ease-out .3s;
+}
+.page-leave-to {
+  // filter: blur(10px);
+  opacity: 0;
+  transform: scale(0.9);
+}
+.page-enter{
+  // filter: blur(10px);
+  opacity: 0;
+  transform: scale(1.1);
+}
