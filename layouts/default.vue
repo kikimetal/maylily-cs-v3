@@ -59,7 +59,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped="false">
+<style lang="scss">
 // AOS のスタイルをインポート
 @import '~/node_modules/aos/dist/aos.css';
 @import '~/assets/css/myset.scss';
