@@ -1,5 +1,10 @@
 @import '~/assets/css/myset.scss';
 
+@font-face {
+  font-family: "FuturaBold";
+  src: url("~/assets/fonts/Futura/Futura-Bold.ttf") format("truetype");
+}
+
 :root{
   --scrollY: 0px;
 }
