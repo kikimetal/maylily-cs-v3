@@ -2,9 +2,13 @@
   <div class="page">
 
       <Logotype fill="rgb(230, 80, 147)"/>
-      <HeroImage v-if="$store.state.ww.md" />
 
-      <Card />
+      <h1 data-aos="zoom-in" class="hero-title">Enrich your life from Fragrance</h1>
+
+      <HeroImage data-aos="fade-up" v-if="$store.state.ww.md" />
+
+      <Card data-aos="fade-up" />
+      <Card data-aos="fade-up" />
 
       <Heading data-aos="fade-up" title="LazyLoadImg" subtitle="LazyLoadImg" />
       <LazyLoadImg data-aos="fade-up" filename="kikigirl.jpg"/>
@@ -41,7 +45,10 @@ export default {
 <style lang="scss" scoped>
 @import '~/assets/css/myset.scss';
 
-.page{
-
+.hero-title{
+  padding: 1em 20px;
+  color: $general;
+  font-size: 40px;
+  font-family: FuturaBold;
 }
 </style>
