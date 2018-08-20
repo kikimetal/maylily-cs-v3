@@ -1,5 +1,5 @@
 <template lang="html">
-  <div id="layout-default">
+  <div id="layout-default" @touchstart="()=>{}">
     <nav class="global">
       <Btn :to="{ path: '/', params: {} }" exact text="home" :overrideStyle="{color: 'inherit'}" />
       <Btn :to="{ path: '/image', params: {} }" exact text="image" :overrideStyle="{color: 'inherit'}" />
