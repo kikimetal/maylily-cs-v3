@@ -2,19 +2,19 @@
   <section class="page-container">
     <div>
 
-      <Logotype fill="rgb(230, 80, 147)"/>
-      <HeroImage v-if="$store.state.ww.md" />
+      <Logotype data-aos="fade-up" fill="rgb(230, 80, 147)"/>
+      <HeroImage data-aos="fade-up" v-if="$store.state.ww.md" />
 
-      <Card />
+      <Card data-aos="fade-up" />
 
-      <Heading title="LazyLoadImg" subtitle="LazyLoadImg" />
+      <h1 data-aos="fade-up" :style="{fontSize: '70px', padding: '100px 0'}">HELLO</h1>
+
+      <Heading data-aos="fade-up" title="LazyLoadImg" subtitle="LazyLoadImg" />
+      <LazyLoadImg data-aos="fade-up" filename="kikigirl.jpg"/>
       <LazyLoadImg filename="kikigirl.jpg"/>
       <LazyLoadImg filename="kikigirl.jpg"/>
-      <LazyLoadImg filename="kikigirl.jpg"/>
 
-      <!-- <Converter /> -->
-      <h1>HELLO</h1>
-      <h1>HELLO</h1>
+      <Converter data-aos="fade-up" />
 
     </div>
   </section>
@@ -29,6 +29,8 @@ import Card from '~/components/Card.vue'
 import HeroImage from '~/components/HeroImage.vue'
 import Converter from '~/components/Converter.vue'
 
+import AOS from 'aos'
+
 export default {
   components: {
     Heading,
@@ -38,7 +40,7 @@ export default {
     Card,
     HeroImage,
     Converter,
-  }
+  },
 }
 </script>
 

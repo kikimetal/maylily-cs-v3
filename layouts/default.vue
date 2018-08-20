@@ -10,6 +10,7 @@
 </template>
 
 <script>
+import AOS from 'aos'
 import Btn from '~/components/Btn.vue'
 
 export default {
@@ -39,6 +40,12 @@ export default {
       this.setPropertyScrollY()
       window.addEventListener('scroll', this.handleScroll)
       window.addEventListener('resize', this.handleResize)
+      AOS.init({
+        offset: 200,
+        easing: 'ease-out-cubic',
+        duration: 600,
+        delay: 0,
+      })
     }
   },
   destroyed () {
@@ -50,11 +57,15 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
+// AOS のスタイルをインポート
+@import '~/node_modules/aos/dist/aos.css';
+
 #layout-default{
   background: #fff;
   overflow-x: hidden;
 }
+
 nav.global{
   font-size: 20rem;
 
