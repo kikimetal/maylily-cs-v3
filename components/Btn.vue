@@ -28,7 +28,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .Btn{
   font-size: 20px;
   padding: 0.5em 1.4em;

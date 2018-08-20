@@ -1,4 +1,4 @@
-<template>
+<template lang="html">
   <div id="layout-default">
     <nav class="global">
       <Btn :to="{ path: '/', params: {} }" exact text="home" :overrideStyle="{color: 'inherit'}" />
@@ -8,41 +8,6 @@
     <nuxt/>
   </div>
 </template>
-
-<style>
-#layout-default{
-  background: #fff;
-  overflow-x: hidden;
-}
-nav.global{
-  font-size: 20rem;
-
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: auto;
-  width: 100%;
-  height: 50px;
-  padding: 0 .2em;
-
-  display: flex;
-  flex-flow: row;
-  justify-content: space-around;
-  align-items: center;
-
-  color: rgb(109, 98, 119);
-  background: rgba(255, 255, 255, 0.3);
-  z-index: 999;
-}
-
-/* page transition のための設定 */
-.page-container {
-  width: 100%;
-  min-height: 100vh;
-  transform-origin: 50% calc(50vh + var(--scrollY));
-}
-</style>
 
 <script>
 import Btn from '~/components/Btn.vue'
@@ -83,5 +48,39 @@ export default {
     }
   }
 }
-
 </script>
+
+<style lang="scss" scoped>
+#layout-default{
+  background: #fff;
+  overflow-x: hidden;
+}
+nav.global{
+  font-size: 20rem;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: auto;
+  width: 100%;
+  height: 50px;
+  padding: 0 .2em;
+
+  display: flex;
+  flex-flow: row;
+  justify-content: space-around;
+  align-items: center;
+
+  color: rgb(109, 98, 119);
+  background: rgba(255, 255, 255, 0.3);
+  z-index: 999;
+}
+
+/* page transition のための設定 */
+.page-container {
+  width: 100%;
+  min-height: 100vh;
+  transform-origin: 50% calc(50vh + var(--scrollY));
+}
+</style>

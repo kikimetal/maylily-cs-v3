@@ -67,7 +67,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .transition-container{
   position: relative;
   .transition-item{

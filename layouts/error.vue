@@ -1,4 +1,4 @@
-<template>
+<template lang="html">
   <div class="error-page">
     <div v-if="error.statusCode === 404">
       <Heading title="ページが見つかりません。" />
@@ -24,7 +24,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
   .error-page{
     display: flex;
     flex-flow: column;

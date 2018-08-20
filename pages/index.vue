@@ -1,4 +1,4 @@
-<template>
+<template lang="html">
   <section class="page-container">
     <div>
 
@@ -12,6 +12,10 @@
       <LazyLoadImg filename="kikigirl.jpg"/>
       <LazyLoadImg filename="kikigirl.jpg"/>
 
+      <!-- <Converter /> -->
+      <h1>HELLO</h1>
+      <h1>HELLO</h1>
+
     </div>
   </section>
 </template>
@@ -23,6 +27,7 @@ import LazyLoadImg from '~/components/LazyLoadImg.vue'
 import Logotype from '~/components/Logotype.vue'
 import Card from '~/components/Card.vue'
 import HeroImage from '~/components/HeroImage.vue'
+import Converter from '~/components/Converter.vue'
 
 export default {
   components: {
@@ -32,9 +37,13 @@ export default {
     Logotype,
     Card,
     HeroImage,
+    Converter,
   }
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
+.content{
+  white-space: pre-line;
+}
 </style>

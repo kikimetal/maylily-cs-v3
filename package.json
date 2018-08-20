@@ -13,6 +13,7 @@
     "precommit": "npm run lint"
   },
   "dependencies": {
+    "aos": "^2.3.3",
     "axios": "^0.18.0",
     "nuxt": "^1.0.0"
   },

@@ -1,11 +1,7 @@
 <template lang="html">
   <div class="Heading">
-    <h1 class="Heading__title">
-      {{ title }}
-    </h1>
-    <h2 class="Heading__subtitle">
-      {{ subtitle }}
-    </h2>
+    <h1 class="Heading__title">{{ title }}</h1>
+    <h2 class="Heading__subtitle">{{ subtitle }}</h2>
   </div>
 </template>
 
@@ -17,7 +13,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .Heading{
   font-size: 44rem;
 

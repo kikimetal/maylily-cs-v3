@@ -3,6 +3,8 @@
     <div>
       <Heading title="Image" subtitle="kikimetal.com ver2 with Nuxt." />
 
+      <Converter />
+
       <div v-for="(site, index) in sites" :key="index + site.date">
         <Heading :title="site.title" :subtitle="index" />
       </div>
@@ -14,6 +16,7 @@
 <script>
 import Btn from '~/components/Btn.vue'
 import Heading from '~/components/Heading.vue'
+import Converter from '~/components/Converter.vue'
 
 import sites from '~/assets/websites.json'
 
@@ -21,6 +24,7 @@ export default {
   components: {
     Btn,
     Heading,
+    Converter,
   },
   data () {
     return { sites }
@@ -35,6 +39,6 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
 
 </style>

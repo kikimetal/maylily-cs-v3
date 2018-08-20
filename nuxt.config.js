@@ -12,7 +12,7 @@ module.exports = {
       { hid: 'description', name: 'description', content: 'kikimetal.com ver2 with Nuxt' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
     ]
   },
   /*
