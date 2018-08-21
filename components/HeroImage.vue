@@ -63,7 +63,7 @@ export default {
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    // border-radius: $border-radius;
+    border-radius: $border-radius;
     box-shadow: 0 20px 70px 0 rgba($pinkgrey, 0.3);
     z-index: 1;
 
@@ -134,15 +134,16 @@ export default {
     }
     .sub{
       position: absolute;
-      top: auto;
+      top: 74vh;
       left: 0;
       right: 0;
-      bottom: 1vh;
+      bottom: auto;
       text-align: center;
       font-size: 14rem;
       line-height: 2;
       color: $grey;
       z-index: 4;
+      border-radius: $border-radius;
 
       span{
         overflow: visible;
@@ -162,7 +163,7 @@ export default {
         padding: 1em 0;
         width: 90%;
         background: $white;
-        box-shadow: 0 10px 40px 0 $shadow;
+        box-shadow: 0 6px 36px 0 $shadow;
       }
     }
   }
@@ -188,6 +189,7 @@ export default {
         text-align: right;
       }
       .sub{
+        top: auto;
         bottom: 5vh;
         font-size: 24rem;
       }
