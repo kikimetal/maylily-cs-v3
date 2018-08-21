@@ -1,7 +1,13 @@
 <template lang="html">
-  <div class="HeroImage">
-    <div class="image" />
-    <div class="mask" />
+  <div
+  :class="['HeroImage', ...$store.state.ww.sizes]">
+    <h1
+    class="heading">
+      <span :style="{display: 'inline-block'}" data-aos="fade-up" data-aos-delay="100" data-aos-duration="300">Enrich</span>
+      <span :style="{display: 'inline-block'}" data-aos="fade-up" data-aos-delay="200" data-aos-duration="600">your life</span>
+      <span :style="{display: 'inline-block'}" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1200">from</span>
+      <span :style="{display: 'inline-block'}" data-aos="fade-up" data-aos-delay="400" data-aos-duration="2000">Fragrance</span>
+    </h1>
   </div>
 </template>
 
@@ -11,43 +17,33 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '~/assets/css/myset.scss';
+
 .HeroImage{
+  font-size: 40rem;
   position: relative;
-  top: 0;
-  left: 0;
+  width: 100%;
+  height: 100vh; // override js
+  background: $grey-gradient;
 
-  width: 100vw;
-  height: 100vh;
-  max-height: 52vw;
-  overflow: hidden;
-  background: #fff;
-  transform: translateX(-20vw);
-
-  .image{
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
-    background: url("~/assets/img/adobe-stock__rose-aroma.jpg");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    transform: translateX(-1px);
-  }
-
-  .mask{
+  .heading{
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: url('~/assets/img/heroimage-mask.png');
-    // background-position: center;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    // transform: scale(1.01);
+    margin: auto;
+    width: max-content;
+    max-width: 100%;
+    height: min-content;
+    padding: 1em 0;
+    font-family: FuturaBold;
+    color: $general;
+    line-height: 1.2;
+  }
+
+  &.md{
+    font-size: 5vw;
   }
 }
 </style>

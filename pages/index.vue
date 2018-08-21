@@ -1,25 +1,16 @@
 <template lang="html">
   <div class="page">
 
-      <Logotype fill="rgb(230, 80, 147)"/>
+    <HeroImage />
 
-      <h1 data-aos="zoom-in" class="hero-title">Enrich your life from Fragrance</h1>
+    <Heading data-aos="fade-up" title="News Release" subtitle="最新の情報をお届けします✨" />
 
-      <HeroImage data-aos="fade-up" v-if="$store.state.ww.md" />
-
-      <div class="card-container">
-        <Card data-aos="fade-up" to="/website" />
-        <Card data-aos="fade-up" to="/website" />
-        <Card data-aos="fade-up" to="/website" />
-        <Card data-aos="fade-up" to="/website" />
-      </div>
-
-      <Heading data-aos="fade-up" title="LazyLoadImg" subtitle="LazyLoadImg" />
-      <LazyLoadImg data-aos="fade-up" filename="kikigirl.jpg"/>
-      <LazyLoadImg data-aos="fade-up" filename="kikigirl.jpg"/>
-      <LazyLoadImg data-aos="fade-up" filename="kikigirl.jpg"/>
-
-      <Converter data-aos="fade-up" />
+    <div :class="['card-container', ...$store.state.ww.sizes]">
+      <Card data-aos="fade-up" to="/website" />
+      <Card data-aos="fade-up" to="/website" />
+      <Card data-aos="fade-up" to="/website" />
+      <Card data-aos="fade-up" to="/website" />
+    </div>
 
   </div>
 </template>
@@ -31,7 +22,7 @@ import LazyLoadImg from '~/components/LazyLoadImg.vue'
 import Logotype from '~/components/Logotype.vue'
 import Card from '~/components/Card.vue'
 import HeroImage from '~/components/HeroImage.vue'
-import Converter from '~/components/Converter.vue'
+// import Converter from '~/components/Converter.vue'
 
 export default {
   components: {
@@ -41,20 +32,13 @@ export default {
     Logotype,
     Card,
     HeroImage,
-    Converter,
+    // Converter,
   },
 }
 </script>
 
 <style lang="scss" scoped>
 @import '~/assets/css/myset.scss';
-
-.hero-title{
-  padding: 1em 20px;
-  color: $general;
-  font-size: 40px;
-  font-family: FuturaBold;
-}
 
 .card-container{
   width: 100%;
@@ -67,6 +51,14 @@ export default {
   & > *{
     margin: 4%;
     width: 96%;
+  }
+  &.md > *{
+    margin: 1%;
+    width: 47%;
+  }
+  &.lg > *{
+    margin: 1%;
+    width: 31%;
   }
 }
 </style>

@@ -10,6 +10,7 @@ const store = () => new Vuex.Store({
       md: false,
       lg: false,
       xl: false,
+      sizes: ['sm'],
     },
   },
   mutations: {
@@ -22,6 +23,11 @@ const store = () => new Vuex.Store({
       state.ww.md = ww > 768
       state.ww.lg = ww > 1024
       state.ww.xl = ww > 1600
+      const sizes = ['sm']
+      state.ww.md && sizes.push('md')
+      state.ww.lg && sizes.push('lg')
+      state.ww.xl && sizes.push('xl')
+      state.ww.sizes = sizes
     }
   }
 })
