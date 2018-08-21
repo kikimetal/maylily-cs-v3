@@ -1,5 +1,5 @@
 <template lang="html">
-  <div class="page">
+  <div :class="['page', $store.state.ww.size]">
 
     <HeroImage />
 
@@ -39,26 +39,42 @@ export default {
 
 <style lang="scss" scoped>
 @import '~/assets/css/myset.scss';
+.page{
+  .card-container{
+    margin: auto;
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 2em 0;
 
-.card-container{
-  width: 100%;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
-  align-items: center;
-  padding: 2em 0;
-
-  & > *{
-    margin: 4%;
-    width: 96%;
   }
-  &.md > *{
-    margin: 1%;
-    width: 47%;
+  &.sm{
+    .card-container{
+      & > *{
+        margin: 5%;
+        width: 90%;
+      }
+    }
   }
-  &.lg > *{
-    margin: 1%;
-    width: 31%;
+  &.md{
+    .card-container{
+      width: 88%;
+      & > *{
+        margin: 1%;
+        width: 48%;
+      }
+    }
+  }
+  &.lg, &.xl{
+    .card-container{
+      width: 1100px;
+      & > *{
+        margin: calc(7 / 6 * 1%);
+        width: 31%;
+      }
+    }
   }
 }
 </style>
