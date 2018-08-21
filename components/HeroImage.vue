@@ -134,7 +134,7 @@ export default {
     }
     .sub{
       position: absolute;
-      top: 74vh;
+      top: 75vh;
       left: 0;
       right: 0;
       bottom: auto;
@@ -159,11 +159,12 @@ export default {
 
     .heading{
       .sub{
+        line-height: 1.7;
         margin: auto;
-        padding: 1em 0;
+        padding: 1.3em 0;
         width: 90%;
         background: $white;
-        box-shadow: 0 6px 36px 0 $shadow;
+        box-shadow: $shadow-set;
       }
     }
   }
