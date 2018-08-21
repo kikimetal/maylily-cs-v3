@@ -1,10 +1,11 @@
 <template lang="html">
   <div id="layout-default" @touchstart="()=>{}">
-    <nav class="global">
+    <!-- <nav class="global">
       <Btn :to="{ path: '/', params: {} }" exact text="home" :overrideStyle="{color: 'inherit'}" />
       <Btn :to="{ path: '/image', params: {} }" exact text="image" :overrideStyle="{color: 'inherit'}" />
       <Btn :to="{ path: '/website', params: {} }" exact text="website" :overrideStyle="{color: 'inherit'}" />
-    </nav>
+    </nav> -->
+    <img class="bars" src="~/assets/img/bars.svg" alt="メニューボタン">
     <div class="page-container">
       <nuxt/>
     </div>
@@ -89,6 +90,15 @@ nav.global{
   color: rgb(109, 98, 119);
   background: rgba(255, 255, 255, 0.3);
   z-index: 999;
+}
+
+.bars{
+  position: fixed;
+  top: 8vh;
+  right: 5vw;
+  width: calc(20px + 1.6vw);
+  height: auto;
+  z-index: 9999;
 }
 
 /* page transition のための設定 */
