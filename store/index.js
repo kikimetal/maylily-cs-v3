@@ -3,7 +3,6 @@ import Vuex from 'vuex'
 const store = () => new Vuex.Store({
 
   state: {
-    counter: 0,
     ww: {
       value: 1000,
       sm: true,
@@ -15,10 +14,7 @@ const store = () => new Vuex.Store({
     },
   },
   mutations: {
-    increment (state) {
-      state.counter++
-    },
-    setww (state) {
+    setWindowWidth (state) {
       const ww = window.innerWidth
       state.ww.value = ww
       state.ww.md = ww > 768
