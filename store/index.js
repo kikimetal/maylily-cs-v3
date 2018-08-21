@@ -10,6 +10,7 @@ const store = () => new Vuex.Store({
       md: false,
       lg: false,
       xl: false,
+      size: 'sm',
       sizes: ['sm'],
     },
   },
@@ -23,10 +24,22 @@ const store = () => new Vuex.Store({
       state.ww.md = ww > 768
       state.ww.lg = ww > 1024
       state.ww.xl = ww > 1600
-      const sizes = ['sm']
-      state.ww.md && sizes.push('md')
-      state.ww.lg && sizes.push('lg')
-      state.ww.xl && sizes.push('xl')
+
+      let size = 'sm'
+      let sizes = ['sm']
+      if (state.ww.md) {
+        size = 'md'
+        sizes.push('md')
+      }
+      if (state.ww.lg) {
+        size = 'lg'
+        sizes.push('lg')
+      }
+      if (state.ww.xl) {
+        size = 'xl'
+        sizes.push('xl')
+      }
+      state.ww.size = size
       state.ww.sizes = sizes
     }
   }
