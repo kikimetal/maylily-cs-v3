@@ -62,9 +62,9 @@ export default {
     z-index: 1;
 
     &.blur{
-      transform: translateY(1vh);
-      filter: blur(5vw);
-      opacity: 0.8;
+      transform: translateY(20px);
+      filter: blur(70px);
+      opacity: 0.5;
       z-index: 1;
     }
   }
@@ -80,7 +80,7 @@ export default {
       margin: auto;
       width: max-content;
       max-width: 86%;
-      text-align: right;
+      text-align: left;
       color: $lightgrey;
       word-wrap: break-word;
       font-size: 1em;
@@ -113,16 +113,16 @@ export default {
     }
   }
 
-  &.md{
+  &.md, &.lg, &.xl{
     font-size: 60rem;
     .heading{
       .main{
+        text-align: right;
         bottom: calc(15vh + 0.7em);
       }
     }
   }
-  &.lg,
-  &.xl{
+  &.lg, &.xl{
     font-size: 80rem;
     .heading{
       .main{
