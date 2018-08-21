@@ -12,8 +12,11 @@ const store = () => new Vuex.Store({
       size: 'sm',
       sizes: ['sm'],
     },
+    isShowNav: false,
+
   },
   mutations: {
+
     setWindowWidth (state) {
       const ww = window.innerWidth
       state.ww.value = ww
@@ -37,6 +40,14 @@ const store = () => new Vuex.Store({
       }
       state.ww.size = size
       state.ww.sizes = sizes
+    },
+
+    toggleNav(state, isShow){
+      if (isShow === undefined) {
+        state.isShowNav = !state.isShowNav
+      }else{
+        state.isShowNav = isShow
+      }
     }
   }
 })
