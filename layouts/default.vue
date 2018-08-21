@@ -5,7 +5,7 @@
       <Btn :to="{ path: '/image', params: {} }" exact text="image" :overrideStyle="{color: 'inherit'}" />
       <Btn :to="{ path: '/website', params: {} }" exact text="website" :overrideStyle="{color: 'inherit'}" />
     </nav> -->
-    <img class="bars" src="~/assets/img/bars.svg" alt="メニューボタン">
+    <img :class="['bars', $store.state.ww.size]" src="~/assets/img/bars.svg" alt="メニューボタン">
     <div class="page-container">
       <nuxt/>
     </div>
@@ -94,11 +94,17 @@ nav.global{
 
 .bars{
   position: fixed;
-  top: 8vh;
+  top: 5vh;
   right: 5vw;
-  width: calc(20px + 1.6vw);
+  width: calc(30px);
   height: auto;
   z-index: 9999;
+
+  &.md, &.lg, &.xl{
+    top: 8vh;
+    right: 5vw;
+    width: calc(20px + 1.6vw);
+  }
 }
 
 /* page transition のための設定 */
