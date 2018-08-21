@@ -54,7 +54,7 @@ export default {
 
     background: $white;
     border-radius: $border-radius;
-    box-shadow: 0 3px 10px 0 $shadow;
+    box-shadow: $shadow-set;
     z-index: -1;
   }
   .title{
