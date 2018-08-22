@@ -56,7 +56,7 @@ export default {
     margin: auto;
     width: 90vw;
     height: 90vw;
-    background: url('~/assets/img/adobe-stock__rose-aroma.jpg');
+    background: url('~/assets/img/rose-aroma.jpg');
     background-repeat: no-repeat;
     background-position: 10% center;
     background-size: cover;
@@ -107,7 +107,7 @@ export default {
     .main{
       overflow: visible;
       position: absolute;
-      top: 10vh;
+      top: 4vh;
       left: 0;
       right: 0;
       bottom: 0;
@@ -135,6 +135,7 @@ export default {
       left: 0;
       right: 0;
       bottom: auto;
+      padding: 0 2em;
       text-align: center;
       font-size: 14rem;
       line-height: 2;
@@ -152,7 +153,7 @@ export default {
   }
 
   &.sm{
-    margin-bottom: 15vw;
+    margin-bottom: 10vw;
 
     .heading{
       .sub{
@@ -189,7 +190,7 @@ export default {
       .sub{
         top: auto;
         bottom: 5vh;
-        font-size: 24rem;
+        font-size: 18rem;
       }
     }
   }
@@ -197,7 +198,11 @@ export default {
     font-size: 80rem;
     .heading{
       .main{
+        font-size: 1.1em;
         bottom: calc(10vh + 0.7em);
+      }
+      .sub{
+        font-size: 22rem;
       }
     }
   }

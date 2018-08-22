@@ -17,7 +17,7 @@ export default {
   props: {
     to: { type: [String, Object], default: '/' },
     disable: { type: Boolean, default: false },
-    imgfilename: { type: [String, Number], default: 'adobe-stock__rose-aroma.jpg' },
+    imgfilename: { type: [String, Number], default: 'rose-aroma.jpg' },
     title: { type: [String, Number], default: 'INSERT TITLE...' },
   },
 }

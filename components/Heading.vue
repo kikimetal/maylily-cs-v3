@@ -36,7 +36,8 @@ export default {
 
   &__title, &__subtitle{
     // text-transform: uppercase;
-    background: $pink-gradient;
+    // background: $pink-gradient;
+    background: $primary-gradient;
     width: max-content;
     background-clip: text;
     -webkit-background-clip: text;
