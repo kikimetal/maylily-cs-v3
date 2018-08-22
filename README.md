@@ -11,7 +11,7 @@ Nuxt + Firebase でやる！
 - [x] firebase カスタムドメイン設定
 - [x] FetchAsGoogle でレンダリング大丈夫そうか確認
 - [ ] 実機IEで表示確認
-- [ ] ソフト404回避
+- [x] ソフト404回避(今回は generate で行くからおk)
 
 ## Nuxt/Vueの学び
 
