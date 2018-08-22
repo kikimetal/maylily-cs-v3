@@ -7,7 +7,6 @@
     <div class="page-container">
       <nuxt/>
     </div>
-    <Footer />
 
   </div>
 </template>
@@ -16,13 +15,11 @@
 import AOS from 'aos'
 import Nav from '~/components/Nav.vue'
 import NavTrigger from '~/components/NavTrigger.vue'
-import Footer from '~/components/Footer.vue'
 
 export default {
   components: {
     Nav,
     NavTrigger,
-    Footer,
   },
   methods: {
     setPropertyScrollY () {
@@ -97,13 +94,5 @@ nav.global{
   color: rgb(109, 98, 119);
   background: rgba(255, 255, 255, 0.3);
   z-index: 999;
-}
-
-.footer{
-  padding: 200px 0;
-  font-size: 55px;
-  background: $pinkgrey;
-  color: $white;
-  text-align: center;
 }
 </style>
