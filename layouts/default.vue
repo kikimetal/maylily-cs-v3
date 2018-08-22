@@ -8,6 +8,8 @@
       <nuxt/>
     </div>
 
+    <img src="~/assets/img/rose-aroma.jpg" :style="{display: 'none'}" alt="">
+
   </div>
 </template>
 
@@ -74,11 +76,6 @@ export default {
     width: 100%;
     min-height: 100vh;
     transform-origin: 50% calc(50vh + var(--scrollY));
-  }
-
-  /* Nav が見えている時の背景エフェクト */
-  &.blur{
-    filter: blur(40px);
   }
 }
 </style>
