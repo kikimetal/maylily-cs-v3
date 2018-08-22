@@ -1,12 +1,9 @@
 <template lang="html">
   <div :class="['HeroImage', $store.state.ww.size]">
 
-    <img class="logo" src="~/assets/img/logo.png" />
+    <img class="logo" src="~/assets/img/logo.png" alt="メイリリィのロゴ" />
     <div class="background">
-      <span />
-      <span />
-      <span />
-      <span />
+      <span /><span /><span /><span />
     </div>
 
     <div class="heading">
@@ -61,10 +58,10 @@ export default {
     height: 90vw;
     background: url('~/assets/img/adobe-stock__rose-aroma.jpg');
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: 10% center;
     background-size: cover;
     border-radius: $border-radius;
-    box-shadow: 0 20px 70px 0 rgba($pinkgrey, 0.3);
+    box-shadow: 0 20px 70px 0 rgba($pinkgrey, 0.2);
     z-index: 1;
 
     & > span{
@@ -155,7 +152,7 @@ export default {
   }
 
   &.sm{
-    margin-bottom: 10vw;
+    margin-bottom: 15vw;
 
     .heading{
       .sub{
