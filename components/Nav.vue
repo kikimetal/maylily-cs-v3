@@ -1,7 +1,7 @@
 <template lang="html">
   <transition name="container">
     <nav
-    class="Nav"
+    :class="['Nav', $store.state.ww.size]"
     v-if="$store.state.isShowNav"
     @click="$store.commit('toggleNav', false)"
     >
@@ -44,7 +44,7 @@ export default {
   left: 0;
   right: 0;
   bottom: 0;
-  padding-left: 5vw;
+  padding: 0 0 0 5vw;
 
   display: flex;
   flex-flow: column wrap;
@@ -52,11 +52,12 @@ export default {
   align-items: flex-start;
 
   background: $white;
+  // background: rgba($white, 0.6);
   color: $primary;
   z-index: 999;
 
   .link{
-    margin-bottom: 5vw;
+    margin-bottom: 0.5em;
     width: 90vw;
     text-transform: uppercase;
     border-bottom: 1px solid rgba($primary, 0.2);
@@ -71,6 +72,15 @@ export default {
       font-weight: bold;
     }
   }
+
+  &.md, &.lg, &.xl{
+    font-size: 46rem;
+    padding: 0;
+    align-items: center;
+    .link{
+      width: 9em;
+    }
+  }
 }
 
 // transition setting
@@ -81,12 +91,13 @@ export default {
 }
 .container-leave-active {
   transition:
-    opacity ease-out .3s,
-    transform $ease-out .3s;
+    opacity ease-out .4s .2s,
+    transform $ease-out .6s;
 }
 .container-leave-to {
   opacity: 0;
-  transform: scale(1.3);
+  transform: scale(1.1);
+  // transform: translateX(5vw);
 }
 .container-enter{
   opacity: 0;
