@@ -4,7 +4,7 @@
     <Nav />
     <NavTrigger />
 
-    <div class="page-container">
+    <div :class="['page-container', {blur: $store.state.isShowNav}]">
       <nuxt/>
     </div>
 
@@ -67,32 +67,18 @@ export default {
   background: $white;
   overflow-x: hidden;
 }
-/* page transition のための設定 */
-.page-container > div{
-  width: 100%;
-  min-height: 100vh;
-  transform-origin: 50% calc(50vh + var(--scrollY));
-}
 
-nav.global{
-  font-size: 20rem;
+.page-container{
+  /* page transition のための設定 */
+  & > div{
+    width: 100%;
+    min-height: 100vh;
+    transform-origin: 50% calc(50vh + var(--scrollY));
+  }
 
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: auto;
-  width: 100%;
-  height: 50px;
-  padding: 0 .2em;
-
-  display: flex;
-  flex-flow: row;
-  justify-content: space-around;
-  align-items: center;
-
-  color: rgb(109, 98, 119);
-  background: rgba(255, 255, 255, 0.3);
-  z-index: 999;
+  /* Nav が見えている時の背景エフェクト */
+  &.blur{
+    filter: blur(40px);
+  }
 }
 </style>
