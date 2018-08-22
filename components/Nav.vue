@@ -7,14 +7,15 @@
     >
       <router-link
       class="link"
-      v-for="(link, index) in links" :key="'link-' + index"
+      v-for="(route, index) in routes" :key="'route-' + index"
       data-aos="fade-left"
       data-aos-offset="0"
       :data-aos-delay="50 * index"
       :data-aos-duration="700 + 50 * index"
-      :to="link.to"
-      :exact="link.exact">
-        {{ link.name }}
+      :to="route.path"
+      :exact="route.exact">
+        <span class="subtitle">{{ route.subtitle }}</span>
+        <span class="title">{{ route.title }}</span>
       </router-link>
 
     </nav>
@@ -23,45 +24,13 @@
 
 <script>
 import Btn from '~/components/Btn.vue'
-
+import ROUTES from '~/assets/routes.js'
 export default {
   components: {
     Btn,
   },
-  data () {
-    return {
-      links: [
-        {
-          name: 'Home',
-          to: { path: '/', params: {} },
-          exact: true,
-        },{
-          name: 'News',
-          to: { path: '/image', params: {} },
-          exact: true,
-        },{
-          name: 'Company',
-          to: { path: '/website', params: {} },
-          exact: true,
-        },{
-          name: 'Brand',
-          to: { path: '/website', params: {} },
-          exact: true,
-        },{
-          name: 'Bulgarian Rose',
-          to: { path: '/website', params: {} },
-          exact: true,
-        },{
-          name: 'OEM',
-          to: { path: '/website', params: {} },
-          exact: true,
-        },{
-          name: 'Contact',
-          to: { path: '/website', params: {} },
-          exact: true,
-        },
-      ]
-    }
+  props: {
+    routes: { default: () => ROUTES }
   }
 }
 </script>
@@ -69,6 +38,7 @@ export default {
 <style lang="scss" scoped>
 @import '~/assets/css/myset.scss';
 .Nav{
+  font-size: 9.5vw;
   position: fixed;
   top: 0;
   left: 0;
@@ -88,10 +58,18 @@ export default {
   .link{
     margin-bottom: 5vw;
     width: 90vw;
-    font-size: 10vw;
-    line-height: 1.2;
     text-transform: uppercase;
-    border-bottom: 1px solid rgba($primary, 0.5);
+    border-bottom: 1px solid rgba($primary, 0.2);
+    line-height: 1.1;
+
+    .subtitle{
+      display: block;
+      font-size: 0.36em;
+    }
+    .title{
+      display: block;
+      font-weight: bold;
+    }
   }
 }
 
