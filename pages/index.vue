@@ -7,11 +7,12 @@
 
     <div :class="['card-container', ...$store.state.ww.sizes]">
       <Card data-aos="fade-up" to="/website" />
-      <Card data-aos="fade-up" to="/website" />
-      <Card data-aos="fade-up" to="/website" />
-      <Card data-aos="fade-up" to="/website" />
+      <Card data-aos="fade-up" :data-aos-delay="$store.state.ww.md && 100" to="/website" />
+      <Card data-aos="fade-up" :data-aos-delay="$store.state.ww.lg && 200" to="/website" />
+      <Card data-aos="fade-up" :data-aos-delay="$store.state.ww.lg && 300" to="/website" />
     </div>
 
+    <Footer />
   </div>
 </template>
 
@@ -22,7 +23,7 @@ import LazyLoadImg from '~/components/LazyLoadImg.vue'
 import Logotype from '~/components/Logotype.vue'
 import Card from '~/components/Card.vue'
 import HeroImage from '~/components/HeroImage.vue'
-// import Converter from '~/components/Converter.vue'
+import Footer from '~/components/Footer.vue'
 
 export default {
   components: {
@@ -32,7 +33,7 @@ export default {
     Logotype,
     Card,
     HeroImage,
-    // Converter,
+    Footer,
   },
 }
 </script>
