@@ -18,13 +18,13 @@ export default {
 @import '~/assets/css/myset.scss';
 .Heading{
   font-size: 44rem;
-  padding: 0 4vw;
+  padding: 8vw 4vw 4vw;
   color: #333;
   text-align: left;
 
   &__title{
     font-size: 44rem;
-    padding: 0.4em 0 0.2em;
+    padding: 0.1em 0 0.2em;
     font-weight: bold;
     word-wrap: break-word;
   }
