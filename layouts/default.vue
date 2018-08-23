@@ -65,11 +65,6 @@ export default {
 // AOS のスタイルをインポート
 @import '~/node_modules/aos/dist/aos.css';
 
-#layout-default{
-  background: $white;
-  overflow-x: hidden;
-}
-
 .page-container{
   /* page transition のための設定 */
   & > div{
@@ -78,4 +73,40 @@ export default {
     transform-origin: 50% calc(50vh + var(--scrollY));
   }
 }
+
+// section layout
+.page-container .page section{
+  font-size: 15rem;
+  padding: 1.5em 1.4em;
+  line-height: 1.7;
+  color: $general;
+  p{
+    // padding: 0.4em 0 1.6em;
+    padding-top: 0.4em;
+  }
+  h1{
+    // font-family: FuturaBold;
+    margin-bottom: 0.5em;
+    font-size: 2.1em;
+    font-weight: bold;
+    line-height: 1.2;
+    // color: rgba($general, 0.3);
+    color: $primary;
+    text-transform: uppercase;
+    border-bottom: 1px solid rgba($general, 0.2);
+  }
+  h2{
+    font-size: 1.2em;
+    line-height: 2;
+    font-weight: bold;
+    // color: $primary;
+  }
+  img{
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+    padding-right: 10%;
+  }
+}
+
 </style>
