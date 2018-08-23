@@ -3,16 +3,19 @@
 
     <Heading title="About Us" subtitle="企業情報" />
 
-    <nav class="local-nav-container">
-      <router-link
+    <CardContainer>
+      <Card
       class="link"
-      v-for="(route, index) in routesInAbout"
-      :key="'route-in-about-' + index"
-      :to="route.path">
-        <span>{{ route.title }}</span>
-        <span>{{ route.subtitle }}</span>
-      </router-link>
-    </nav>
+      v-for="(link, i) in linksInAbout"
+      :key="'link-in-about-' + i"
+      :title="link.title"
+      :subtitle="link.subtitle"
+      :to="link.to"
+      :exact="link.exact"
+      data-aos="fade-up"
+      :data-aos-delay="i * 100"
+      />
+    </CardContainer>
 
 
   </div>
@@ -20,41 +23,45 @@
 
 <script>
 import Heading from '~/components/Heading.vue'
+import Card from '~/components/Card.vue'
+import CardContainer from '~/components/CardContainer.vue'
 
 export default {
   components: {
     Heading,
+    Card,
+    CardContainer,
   },
   data () {
     return {
-      routesInAbout: [
+      linksInAbout: [
         {
           title: 'vision',
           subtitle: '社会貢献活動',
-          path: '/about/vision',
+          to: '/about/vision',
           exact: true,
         },
         {
           title: 'message',
           subtitle: '社会貢献活動',
-          path: '/about/message',
+          to: '/about/message',
           exact: true,
         },
         {
           title: 'outline',
           subtitle: '社会貢献活動',
-          path: '/about/outline',
+          to: '/about/outline',
           exact: true,
         },
         {
           title: 'csr',
           subtitle: '社会貢献活動',
-          path: '/about/csr',
+          to: '/about/csr',
           exact: true,
         },
       ]
     }
-  }
+  },
 }
 </script>
 
