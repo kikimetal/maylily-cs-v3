@@ -5,12 +5,19 @@
 
     <Heading data-aos="fade-up" title="News Release" subtitle="最新の情報をお届けします✨" />
 
-    <div :class="['card-container', ...$store.state.ww.sizes]">
-      <Card data-aos="fade-up" to="/website" />
-      <Card data-aos="fade-up" :data-aos-delay="$store.state.ww.md && 100" to="/website" />
-      <Card data-aos="fade-up" :data-aos-delay="$store.state.ww.lg && 200" to="/website" />
-      <Card data-aos="fade-up" :data-aos-delay="$store.state.ww.lg && 300" to="/website" />
-    </div>
+    <CardContainer>
+      <Card
+      class="link"
+      v-for="(link, i) in linksInNews"
+      :key="'link-in-about-' + i"
+      :title="link.title"
+      :subtitle="link.subtitle"
+      :to="link.to"
+      :exact="link.exact"
+      data-aos="fade-up"
+      :data-aos-delay="i * 100"
+      />
+    </CardContainer>
 
     <Footer />
   </div>
@@ -22,6 +29,7 @@ import Btn from '~/components/Btn.vue'
 import LazyLoadImg from '~/components/LazyLoadImg.vue'
 import Logotype from '~/components/Logotype.vue'
 import Card from '~/components/Card.vue'
+import CardContainer from '~/components/CardContainer.vue'
 import HeroImage from '~/components/HeroImage.vue'
 import Footer from '~/components/Footer.vue'
 
@@ -32,50 +40,31 @@ export default {
     LazyLoadImg,
     Logotype,
     Card,
+    CardContainer,
     HeroImage,
     Footer,
+  },
+  data () {
+    return {
+      linksInNews: [
+        {
+          title: '新しくしました！',
+          subtitle: 'ホームページをリニューアルしました',
+          to: '/news',
+          exact: true,
+        },
+        {
+          title: 'ガーメント新作',
+          subtitle: 'ベースフレグランス「ネイビー」を発表',
+          to: '/news',
+          exact: true,
+        },
+      ]
+    }
   },
 }
 </script>
 
 <style lang="scss" scoped>
-@import '~/assets/css/myset.scss';
-.page{
-  .card-container{
-    margin: auto;
-    width: 100%;
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: flex-start;
-    align-items: center;
-    padding: 2em 0;
-
-  }
-  &.sm{
-    .card-container{
-      & > *{
-        margin: 5%;
-        width: 90%;
-      }
-    }
-  }
-  &.md{
-    .card-container{
-      width: 88%;
-      & > *{
-        margin: 1%;
-        width: 48%;
-      }
-    }
-  }
-  &.lg, &.xl{
-    .card-container{
-      width: 1100px;
-      & > *{
-        margin: calc(7 / 6 * 1%);
-        width: 31%;
-      }
-    }
-  }
-}
+// @import '~/assets/css/myset.scss';
 </style>
