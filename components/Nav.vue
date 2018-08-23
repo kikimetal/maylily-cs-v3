@@ -38,7 +38,7 @@ export default {
 <style lang="scss" scoped>
 @import '~/assets/css/myset.scss';
 .Nav{
-  font-size: 9.5vw;
+  font-size: 9.2vw;
   position: fixed;
   top: 0;
   left: 0;
