@@ -20,7 +20,7 @@ const store = () => new Vuex.Store({
     setWindowWidth (state) {
       const ww = window.innerWidth
       state.ww.value = ww
-      state.ww.md = ww > 500
+      state.ww.md = ww > 600
       state.ww.lg = ww > 960
       state.ww.xl = ww > 1600
 
