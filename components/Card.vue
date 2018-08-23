@@ -3,7 +3,8 @@
   class="Card"
   :to="to">
     <div class="shadow" />
-    <h1 class="title">{{ title }}!</h1>
+    <h1 class="title">{{ title }}</h1>
+    <h2 class="subtitle">{{ subtitle }}</h2>
     <LazyLoadImg class="img" :filename="imgfilename"/>
   </router-link>
 </template>
@@ -16,9 +17,10 @@ export default {
   },
   props: {
     to: { type: [String, Object], default: '/' },
-    disable: { type: Boolean, default: false },
+    // disable: { type: Boolean, default: false },
     imgfilename: { type: [String, Number], default: 'rose-aroma.jpg' },
-    title: { type: [String, Number], default: 'INSERT TITLE...' },
+    title: { type: [String, Number], default: 'INSERT TITLE' },
+    subtitle: { type: [String, Number], default: 'subtitle subtitle.' },
   },
 }
 </script>
@@ -58,7 +60,12 @@ export default {
     z-index: -1;
   }
   .title{
-    line-height: 2.4;
+    line-height: 2;
+    z-index: 2;
+  }
+  .subtitle{
+    font-size: 0.4em;
+    line-height: 1.4;
     z-index: 2;
   }
   .img{
