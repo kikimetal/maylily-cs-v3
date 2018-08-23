@@ -1,7 +1,7 @@
 <template lang="html">
   <div class="Heading">
-    <h1 class="Heading__title">{{ title }}</h1>
-    <h2 class="Heading__subtitle">{{ subtitle }}</h2>
+    <h1 class="title">{{ title }}</h1>
+    <h2 class="subtitle">{{ subtitle }}</h2>
   </div>
 </template>
 
@@ -17,24 +17,24 @@ export default {
 <style lang="scss" scoped>
 @import '~/assets/css/myset.scss';
 .Heading{
-  font-size: 44rem;
+  font-size: 40rem;
   padding: 8vw 4vw 4vw;
   color: #333;
   text-align: left;
 
-  &__title{
-    font-size: 44rem;
+  .title{
+    font-size: 1em;
     padding: 0.1em 0 0.2em;
     font-weight: bold;
     word-wrap: break-word;
   }
-  &__subtitle{
-    font-size: 20rem;
+  .subtitle{
+    font-size: 0.5em;
     padding: 0;
     font-weight: normal;
   }
 
-  &__title, &__subtitle{
+  .title, .subtitle{
     // text-transform: uppercase;
     // background: $pink-gradient;
     background: $primary-gradient;
