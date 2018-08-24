@@ -1,48 +1,88 @@
 <template>
   <div :class="['page', $store.state.ww.size]">
 
-    <Heading title="Vision/Mission" subtitle="企業理念" />
+    <!-- <Heading
+      type="photogenic"
+      :title="['Vision', '/', 'Mission']"
+      subtitle="企業理念"
+      imgsrc="rose-aroma.jpg"
+      alt="企業理念のイメージ画像"
+      /> -->
+    <Heading
+      type="basic"
+      :title="['Vision', '/', 'Mission']"
+      subtitle="企業理念"
+      />
 
     <section>
-      <h1>Mission</h1>
-      <p>
-        「衣・食・住・健・美」の生活文化を事業領域に定め、今までにない新しい価値やライフスタイルの創造を通じて、世界中のあらゆる人々の生活に幸せと彩りを届け、心豊かな社会の実現に貢献します。
-      </p>
-    </section>
-
-    <section>
-      <h1>Vision</h1>
+      <!-- <h1>Our Vision</h1> -->
+      <Heading
+        type="photogenic"
+        :title="['Our', 'Vision']"
+        subtitle="私たちが目指すもの"
+        imgsrc="01.jpg"
+        alt="企業理念のイメージ画像"
+        />
       <p>
         香りのプロフェッショナルという強みを活かしながら、自由な発想と独自の技術で常識を打破し、感動ある商品を生み出すことで、既存の枠にとらわれない新しい生活文化を提案し、新たなマーケットを開拓し続けるオンリーワン企業をめざします。
       </p>
     </section>
 
     <section>
-      <h1>Value</h1>
-      <h2>Integrity：誠実な行動</h2>
+      <!-- <h1>Our Mission</h1> -->
+      <Heading
+        type="photogenic"
+        :title="['Our', 'Mission']"
+        subtitle="今、私たちの臨むもの"
+        imgsrc="flower.jpg"
+        alt="企業理念のイメージ画像"
+        />
+      <p>
+        「衣・食・住・健・美」の生活文化を事業領域に定め、今までにない新しい価値やライフスタイルの創造を通じて、世界中のあらゆる人々の生活に幸せと彩りを届け、心豊かな社会の実現に貢献します。
+      </p>
+    </section>
+
+    <section>
+      <!-- <h1>Our Value</h1> -->
+      <Heading
+        type="photogenic"
+        :title="['Our', 'Value']"
+        subtitle="私たちの価値観"
+        imgsrc="rose-aroma.jpg"
+        alt="企業理念のイメージ画像"
+        />
+      <h3>Integrity：誠実な行動</h3>
       <p>
         私たちは法令・社会規範を遵守し、あらゆる場面で、あらゆる人々に対して、誠実、親切、公正に接する。
       </p>
-      <h2>Creativity：発想力と創造性</h2>
+      <h3>Creativity：発想力と創造性</h3>
       <p>
         既成概念にとらわれない柔軟で豊かな発想力で、オリジナリティあふれる新しい価値を創造する。
       </p>
-      <h2>Challenge：挑戦し続ける</h2>
+      <h3>Challenge：挑戦し続ける</h3>
       <p>
         困難なことにも強い意志と情熱を持って積極的に挑み、粘り強く新たな可能性を拓いていく。
       </p>
-      <h2>Fun：「楽しい」を探求</h2>
+      <h3>Fun：「楽しい」を探求</h3>
       <p>
         私たち自身が「楽しい」「面白い」と感じるものを。その「楽しい」がお客様の「感動」につながる。
       </p>
-      <h2>Harmony：協調性と主体性</h2>
+      <h3>Harmony：協調性と主体性</h3>
       <p>
         一人一人が個性と能力を活かし、互いにリスペクトし合いながら、自ら考え、自ら行動する。
       </p>
     </section>
 
     <section>
-      <h1>社名の由来</h1>
+      <!-- <h1>社名の由来</h1> -->
+      <Heading
+        type="photogenic"
+        :title="['Maylily']"
+        subtitle="社名の由来"
+        imgsrc="flower.jpg"
+        alt="企業理念のイメージ画像"
+        />
+
       <p>社名の「May lily」は、英語でスズランを意味する言葉です。</p>
       <p>
         鮮やかな緑の葉の影に、鈴のような小さな白い花が重なって咲くスズランは、清楚で可憐な美しさがある花です。
@@ -68,7 +108,14 @@
     </section>
 
     <section>
-      <h1>ロゴマーク</h1>
+      <!-- <h1>ロゴマーク</h1> -->
+      <Heading
+        type="photogenic"
+        :title="['Our', 'Mark']"
+        subtitle="ロゴマークについて"
+        imgsrc="flower.jpg"
+        alt="企業理念のイメージ画像"
+        />
       <p>
         私たちは2018年7月より、この新しいシンボルマークを導入しました。
         4つの白い円は、スズランの花と新しい価値を創造する力を、
