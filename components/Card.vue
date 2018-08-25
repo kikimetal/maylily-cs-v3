@@ -17,7 +17,6 @@ export default {
   },
   props: {
     to: { type: [String, Object], default: '/' },
-    // disable: { type: Boolean, default: false },
     imgsrc: { type: [String, Number], default: 'rose-aroma.jpg' },
     title: { type: [String, Number], default: 'INSERT TITLE' },
     subtitle: { type: [String, Number], default: 'subtitle subtitle.' },
