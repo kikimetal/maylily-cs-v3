@@ -20,7 +20,7 @@
         type="photogenic"
         :title="['Our', 'Vision']"
         subtitle="私たちが目指すもの"
-        imgsrc="01.jpg"
+        imgsrc="OurVision.jpg"
         alt="企業理念のイメージ画像"
         />
       <p>
@@ -34,7 +34,7 @@
         type="photogenic"
         :title="['Our', 'Mission']"
         subtitle="今、私たちの臨むもの"
-        imgsrc="flower.jpg"
+        imgsrc="OurMission.jpg"
         alt="企業理念のイメージ画像"
         />
       <p>
@@ -48,7 +48,7 @@
         type="photogenic"
         :title="['Our', 'Value']"
         subtitle="私たちの価値観"
-        imgsrc="rose-aroma.jpg"
+        imgsrc="OurValue.jpg"
         alt="企業理念のイメージ画像"
         />
       <h3>Integrity：誠実な行動</h3>
@@ -77,9 +77,9 @@
       <!-- <h1>社名の由来</h1> -->
       <Heading
         type="photogenic"
-        :title="['Maylily']"
+        :title="'&quot;Maylily&quot;'"
         subtitle="社名の由来"
-        imgsrc="flower.jpg"
+        imgsrc="naming.jpg"
         alt="企業理念のイメージ画像"
         />
 
@@ -97,14 +97,12 @@
         また、ヨーロッパでは、春の訪れを知らせるスズランは「幸福をもたらす花」として愛されてきました。
         結婚式で花嫁にスズランの花束を贈ったり、フランスでは、５月１日「スズランの日」に大切な人とスズランを贈り合い、幸福を祈ります。
       </p>
-      <p>
-        “心豊かな暮らしに役立つ製品を提供し、人々に幸せを届け、世界に幸せの輪を広げる”<br/>
-        “社会との調和をめざし、会社の強みや人材・リソースを活用して、社会貢献に取り組む”<br/>
-        “ベンチャー企業として常にチャレンジを行い、強くたくましく成長する企業をめざす”
-      </p>
-      <p>
-        これがメイリリィという社名に込めた想いです。
-      </p>
+
+      <h3>“心豊かな暮らしに役立つ製品を提供し、人々に幸せを届け、世界に幸せの輪を広げる”</h3>
+      <h3>“社会との調和をめざし、会社の強みや人材・リソースを活用して、社会貢献に取り組む”</h3>
+      <h3>“ベンチャー企業として常にチャレンジを行い、強くたくましく成長する企業をめざす”</h3>
+
+      <p>これがメイリリィという社名に込めた想いです。</p>
     </section>
 
     <section>
@@ -113,8 +111,9 @@
         type="photogenic"
         :title="['Our', 'Mark']"
         subtitle="ロゴマークについて"
-        imgsrc="flower.jpg"
-        alt="企業理念のイメージ画像"
+        imgsrc="OurMark.jpg"
+        alt="ロゴマークの画像"
+        :imgstyle="{boxShadow: '0 0 50px 0 rgba(93, 126, 157, 0.06) inset'}"
         />
       <p>
         私たちは2018年7月より、この新しいシンボルマークを導入しました。
@@ -122,7 +121,6 @@
         緑の三角形は、先駆的な製品を開発し、事業を開拓していく企業姿勢を、
         青い扇形は、メイリリィが届ける幸せが世界に広がるようにとの願いを表現しています。
       </p>
-      <img src="~/assets/img/logo.png" alt="ロゴマークの画像です">
     </section>
 
     <Footer />
