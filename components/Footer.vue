@@ -8,7 +8,7 @@
     data-aos="fade-up"
     data-aos-offset="-100"
     data-aos-delay="0"
-    :data-aos-duration="400 + 50 * index"
+    :data-aos-duration="500 + 50 * index"
     :to="route.path"
     :exact="route.exact">
       <span class="subtitle">{{ route.subtitle }}</span>
