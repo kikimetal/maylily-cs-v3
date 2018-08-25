@@ -43,11 +43,11 @@ export default {
   }
 
   // センター寄せしつつ最後のカードは左寄せの場合
-  // &.md, &.lg, &.xl{
-  // justify-content: center;
-  //   & > *:last-child:nth-child(n+3){
-  //     margin-right: auto;
-  //   }
-  // }
+  &.md, &.lg, &.xl{
+  justify-content: center;
+    & > *:last-child:nth-child(n+3){
+      margin-right: auto;
+    }
+  }
 }
 </style>
