@@ -3,12 +3,36 @@
 
     <HeroImage />
 
-    <Heading type="basic" data-aos="fade-up" title="News Release" subtitle="最新の情報をお届けします✨" />
+    <Heading
+      type="basic"
+      data-aos="fade-up"
+      :title="['News', 'Release']"
+      subtitle="最新の情報をお届けします✨" />
 
     <CardContainer>
       <Card
       class="link"
       v-for="(link, i) in linksInNews"
+      :key="'link-in-about-' + i"
+      :title="link.title"
+      :subtitle="link.subtitle"
+      :to="link.to"
+      :exact="link.exact"
+      data-aos="fade-up"
+      :data-aos-delay="i * 100"
+      />
+    </CardContainer>
+
+    <Heading
+      type="basic"
+      data-aos="fade-up"
+      :title="['Pick', 'Up']"
+      subtitle="注目の情報です✨" />
+
+    <CardContainer>
+      <Card
+      class="link"
+      v-for="(link, i) in linksInPickUp"
       :key="'link-in-about-' + i"
       :title="link.title"
       :subtitle="link.subtitle"
@@ -57,7 +81,21 @@ export default {
           to: '/news',
           exact: true,
         },
-      ]
+      ],
+      linksInPickUp: [
+        {
+          title: '新しくしました！',
+          subtitle: 'ホームページをリニューアルしました',
+          to: '/news',
+          exact: true,
+        },
+        {
+          title: 'ガーメント新作',
+          subtitle: 'ベースフレグランス「ネイビー」を発表',
+          to: '/news',
+          exact: true,
+        },
+      ],
     }
   },
 }
