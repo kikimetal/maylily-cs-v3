@@ -7,7 +7,6 @@
         :imgsrc="imgsrc"
         :imgstyle="imgstyle"
         :alt="alt" />
-      <!-- <h1 class="title">{{ title }}</h1> -->
       <div class="title-container" data-aos="fade-up" data-aos-offset="0">
         <h1 class="title">
           <span v-for="(word, i) in titleArray" :key="'title-word-' + i">{{ word }}</span>
@@ -30,7 +29,7 @@
     </div>
 
     <!-- type basic -->
-    <div v-else class="Heading basic">
+    <div v-else :class="['Heading', 'basic', { pagetop: pagetop }]">
       <h1 class="title">
         <span v-for="(word, i) in titleArray" :key="'title-word-' + i">{{ word }}</span>
       </h1>
@@ -50,7 +49,8 @@ export default {
     LazyLoadImg,
   },
   props: {
-    type: { type: String, default: '' },
+    type: { type: String, default: 'basic' },
+    pagetop: { type: Boolean, default: false },
     title: { type: [String, Number, Array], default: 'Heading...' },
     subtitle: { type: [String, Number, Array], default: 'sub heading...' },
     imgsrc: { type: String, default: 'kikigirl.jpg' },
@@ -64,9 +64,9 @@ export default {
     }
   },
   created () {
-    if (process.browser) {
-      console.log(typeof this.imgsrc)
-    }
+    // if (process.browser) {
+    //   console.log(typeof this.imgsrc)
+    // }
   }
 }
 </script>
@@ -94,15 +94,16 @@ export default {
   }
 
   &.basic{
-    padding: 8vw 0 4vw;
+    padding: 2em 0 1.8em;
+    text-align: center;
     .title{
-      font-size: 2em;
-      padding: 0.1em 0 0.2em;
+      font-size: 1.6em;
+      padding: 0.1em 0;
       font-weight: bold;
       word-wrap: break-word;
     }
     .subtitle{
-      font-size: 0.9em;
+      font-size: 0.7em;
       padding: 0;
       font-weight: normal;
     }
@@ -145,6 +146,10 @@ export default {
       font-size: 15rem;
       padding-top: 0.5em;
     }
+  }
+
+  &.pagetop{
+    padding: 7em 0 4em;
   }
 }
 
