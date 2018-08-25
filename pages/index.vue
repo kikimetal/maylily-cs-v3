@@ -14,6 +14,7 @@
       class="link"
       v-for="(link, i) in linksInNews"
       :key="'link-in-about-' + i"
+      :date="link.date"
       :title="link.title"
       :subtitle="link.subtitle"
       :to="link.to"
@@ -72,13 +73,15 @@ export default {
     return {
       linksInNews: [
         {
-          title: '新しくしました！',
-          subtitle: 'ホームページをリニューアルしました',
+          date: '2018.08.03',
+          title: ['Webサイト', 'リニューアルの', 'お知らせ'],
+          subtitle: '有限会社メイリリィは、ウェブサイトをリニューアルいたしましたのでお知らせします。',
           to: '/news',
           imgsrc: 'rose-aroma.jpg',
           exact: true,
         },
         {
+          date: '2018.08.03',
           title: 'ガーメント新作',
           subtitle: 'ベースフレグランス「ネイビー」を発表',
           to: '/news',
