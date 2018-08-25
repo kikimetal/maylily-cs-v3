@@ -94,7 +94,7 @@ export default {
   }
 
   &.basic{
-    padding: 3em 0 2.7em;
+    padding: 3em 0 2.5em;
     text-align: center;
     .title{
       font-size: 1.6em;
