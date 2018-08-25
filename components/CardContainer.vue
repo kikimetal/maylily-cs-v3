@@ -18,7 +18,7 @@ export default {
   flex-flow: row wrap;
   justify-content: flex-start;
   align-items: center;
-  padding: 2em 0;
+  // padding: 2em 0;
   overflow: visible;
 
   &.sm{
@@ -41,7 +41,7 @@ export default {
       width: 31%;
     }
   }
-  
+
   // センター寄せしつつ最後のカードは左寄せの場合
   // &.md, &.lg, &.xl{
   // justify-content: center;
