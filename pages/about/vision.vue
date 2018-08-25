@@ -2,7 +2,8 @@
   <div :class="['page', $store.state.ww.size]">
 
     <Heading
-      type="top"
+      type="basic"
+      :pagetop="true"
       :title="['Vision', '/', 'Mission']"
       subtitle="企業理念"
       />
