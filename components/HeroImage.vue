@@ -60,8 +60,8 @@ export default {
     background-repeat: no-repeat;
     background-position: 10% center;
     background-size: cover;
-    border-radius: $border-radius;
-    box-shadow: 0 20px 70px 0 rgba($pinkgrey, 0.2);
+    // border-radius: $border-radius;
+    box-shadow: 0 20px 70px 0 rgba($pinkgrey, 0.4);
     z-index: 1;
 
     & > span{
@@ -141,7 +141,7 @@ export default {
       line-height: 2;
       color: $grey;
       z-index: 4;
-      border-radius: $border-radius;
+      // border-radius: $border-radius;
 
       span{
         overflow: visible;
