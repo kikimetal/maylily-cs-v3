@@ -1,10 +1,11 @@
 <template lang="html">
-  <div>
+  <div class="Heading-container">
 
     <!-- type photogenic -->
     <div v-if="type === 'photogenic'" class="Heading photogenic">
       <LazyLoadImg
         :imgsrc="imgsrc"
+        :imgstyle="imgstyle"
         :alt="alt" />
       <!-- <h1 class="title">{{ title }}</h1> -->
       <div class="title-container" data-aos="fade-up" data-aos-offset="0">
@@ -54,6 +55,7 @@ export default {
     subtitle: { type: [String, Number, Array], default: 'sub heading...' },
     imgsrc: { type: String, default: 'kikigirl.jpg' },
     alt: { type: String, default: '画像です' },
+    imgstyle: { type: Object, default: null },
   },
   data () {
     return {
@@ -71,6 +73,10 @@ export default {
 
 <style lang="scss" scoped>
 @import '~/assets/css/myset.scss';
+
+.Heading-container{
+  overflow: visible;
+}
 
 .Heading{
   font-size: 24rem;
