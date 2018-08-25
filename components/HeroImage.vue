@@ -162,7 +162,7 @@ export default {
         padding: 1.3em 0;
         width: 90%;
         background: $white;
-        box-shadow: $shadow-set;
+        box-shadow: $shadow-set-pale;
       }
     }
   }
