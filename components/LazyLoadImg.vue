@@ -1,21 +1,26 @@
 <template lang="html">
-  <div class="LazyLoadImg" :style="{ backgroundImage: 'url(' + require('~/assets/img/' + filename) + ')' }">
-    <div class="LazyLoadImg__placeholder" :class="{loaded: isLoaded}">
-      <img class="LazyLoadImg__placeholder__loader-gif" src="~/assets/img/loading.svg" alt="" />
-      <span class="LazyLoadImg__placeholder__loader-text">LOADING</span>
+  <div class="LazyLoadImg" :style="imgstyleOverride">
+    <div class="placeholder" :class="{loaded: isLoaded}">
+      <img class="loader-gif" src="~/assets/img/loading.svg" alt="" />
+      <span class="loader-text">LOADING</span>
     </div>
-    <img class="LazyLoadImg__fake" :src="require('~/assets/img/' + filename)" @load="loaded"/>
+    <img class="fake" :src="require('~/assets/img/' + imgsrc)" @load="loaded"/>
   </div>
 </template>
 
 <script>
 export default {
   props: {
-    filename: { type: String, default: 'kikigirl.jpg' },
+    imgsrc: { type: String, default: 'kikigirl.jpg' },
+    imgstyle: { type: Object, default: null },
   },
   data () {
     return {
       isLoaded: false,
+      imgstyleOverride: {
+        backgroundImage: 'url(' + require('~/assets/img/' + this.imgsrc) + ')',
+        ...this.imgstyle,
+      },
     }
   },
   methods: {
@@ -27,10 +32,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '~/assets/css/myset.scss';
+
 .LazyLoadImg{
+  // 読み込み後の待機時間
+  $delay: 0.4s;
+
   position: relative;
   width: 100%;
-  padding-top: 100%;
+  padding-top: 90%;
   height: 0;
   overflow: hidden;
 
@@ -38,7 +48,7 @@ export default {
   background-size: cover;
   background-repeat: no-repeat;
 
-  &__placeholder{
+  .placeholder{
     position: absolute;
     top: 0;
     left: 0;
@@ -49,41 +59,42 @@ export default {
     flex-flow: column;
     justify-content: center;
     align-items: center;
-    --stripe-color-01: rgb(255, 240, 245);
-    --stripe-color-02: rgb(202, 238, 242);
-    $stripe-size: 30px;
-    background: repeating-linear-gradient(90deg, var(--stripe-color-01), var(--stripe-color-01) $stripe-size, var(--stripe-color-02) $stripe-size, var(--stripe-color-02) $stripe-size*2);
+    // $color01: rgb(255, 240, 245);
+    $color02: rgb(202, 238, 242);
+    // $stripe-size: 30px;
+    // background: repeating-linear-gradient(90deg, $color01, $color01 $stripe-size, $color02 $stripe-size, $color02 $stripe-size*2);
+    background: $color02;
 
     user-select: none;
     pointer-events: none;
-    transition: opacity 0.5s ease-out 0.6s;
+    transition: opacity 0.5s ease-out $delay;
 
     &.loaded{
       opacity: 0;
     }
 
-    .LazyLoadImg__placeholder__loader-gif{
-      width: 210px;
+    .loader-gif{
+      width: 60px;
       height: auto;
-      transition: transform 0.5s ease-out 0.9s;
+      transition: transform 0.5s ease-out ($delay + 0.3s);
     }
-    .LazyLoadImg__placeholder__loader-text{
+    .loader-text{
       font-size: 24rem;
       // font-weight: lighter;
       margin-top: -0.5em;
-      color: #fff;
+      color: $white;
       text-shadow: 0 2px 10px rgba(119, 92, 114, 0.45);
       transition: transform 0.5s ease-out 0.9s;
     }
     &.loaded{
-      .LazyLoadImg__placeholder__loader-gif,
-      .LazyLoadImg__placeholder__loader-text{
+      .loader-gif,
+      .loader-text{
         transform: scale(0.8);
       }
     }
   }
 
-  &__fake{
+  .fake{
     display: none;
   }
 
