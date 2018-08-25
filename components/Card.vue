@@ -85,7 +85,6 @@ export default {
 
   .title-container{
     position: relative;
-    // padding: 1em 0.5em 0.7em;
     padding: 0.8em 0.6em 0.9em;
     z-index: 3;
     text-align: left;
