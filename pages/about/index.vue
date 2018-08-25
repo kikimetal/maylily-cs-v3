@@ -17,6 +17,7 @@
       :subtitle="link.subtitle"
       :to="link.to"
       :exact="link.exact"
+      :imgsrc="link.imgsrc"
       data-aos="fade-up"
       :data-aos-delay="i * 100"
       />
@@ -46,24 +47,28 @@ export default {
           title: 'vision',
           subtitle: '社会貢献活動',
           to: '/about/vision',
+          imgsrc: 'OurMission.jpg',
           exact: true,
         },
         {
           title: 'message',
           subtitle: '社会貢献活動',
           to: '/about/message',
+          imgsrc: 'OurMission.jpg',
           exact: true,
         },
         {
           title: 'outline',
           subtitle: '社会貢献活動',
           to: '/about/outline',
+          imgsrc: 'OurMission.jpg',
           exact: true,
         },
         {
           title: 'csr',
           subtitle: '社会貢献活動',
           to: '/about/csr',
+          imgsrc: 'OurMission.jpg',
           exact: true,
         },
       ]

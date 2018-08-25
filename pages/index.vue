@@ -18,6 +18,7 @@
       :subtitle="link.subtitle"
       :to="link.to"
       :exact="link.exact"
+      :imgsrc="link.imgsrc"
       data-aos="fade-up"
       :data-aos-delay="i * 100"
       />
@@ -38,6 +39,7 @@
       :subtitle="link.subtitle"
       :to="link.to"
       :exact="link.exact"
+      :imgsrc="link.imgsrc"
       data-aos="fade-up"
       :data-aos-delay="i * 100"
       />
@@ -73,12 +75,14 @@ export default {
           title: '新しくしました！',
           subtitle: 'ホームページをリニューアルしました',
           to: '/news',
+          imgsrc: 'rose-aroma.jpg',
           exact: true,
         },
         {
           title: 'ガーメント新作',
           subtitle: 'ベースフレグランス「ネイビー」を発表',
           to: '/news',
+          imgsrc: 'rose-aroma.jpg',
           exact: true,
         },
       ],
@@ -87,12 +91,14 @@ export default {
           title: '新しくしました！',
           subtitle: 'ホームページをリニューアルしました',
           to: '/news',
+          imgsrc: 'rose-aroma.jpg',
           exact: true,
         },
         {
           title: 'ガーメント新作',
           subtitle: 'ベースフレグランス「ネイビー」を発表',
           to: '/news',
+          imgsrc: 'rose-aroma.jpg',
           exact: true,
         },
       ],
