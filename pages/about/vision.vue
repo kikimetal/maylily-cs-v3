@@ -1,21 +1,13 @@
 <template>
   <div :class="['page', $store.state.ww.size]">
 
-    <!-- <Heading
-      type="photogenic"
-      :title="['Vision', '/', 'Mission']"
-      subtitle="企業理念"
-      imgsrc="rose-aroma.jpg"
-      alt="企業理念のイメージ画像"
-      /> -->
     <Heading
-      type="basic"
+      type="top"
       :title="['Vision', '/', 'Mission']"
       subtitle="企業理念"
       />
 
     <section>
-      <!-- <h1>Our Vision</h1> -->
       <Heading
         type="photogenic"
         :title="['Our', 'Vision']"
@@ -29,7 +21,6 @@
     </section>
 
     <section>
-      <!-- <h1>Our Mission</h1> -->
       <Heading
         type="photogenic"
         :title="['Our', 'Mission']"
@@ -43,7 +34,6 @@
     </section>
 
     <section>
-      <!-- <h1>Our Value</h1> -->
       <Heading
         type="photogenic"
         :title="['Our', 'Value']"
@@ -74,7 +64,6 @@
     </section>
 
     <section>
-      <!-- <h1>社名の由来</h1> -->
       <Heading
         type="photogenic"
         :title="'&quot;Maylily&quot;'"
@@ -106,7 +95,6 @@
     </section>
 
     <section>
-      <!-- <h1>ロゴマーク</h1> -->
       <Heading
         type="photogenic"
         :title="['Our', 'Mark']"
