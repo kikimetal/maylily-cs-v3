@@ -77,31 +77,20 @@ export default {
 // section layout
 .page-container .page section{
   font-size: 15rem;
-  padding: 1.5em 1.4em;
-  line-height: 1.7;
+  padding: 2.2em 1.4em;
   color: $general;
-  p{
-    // padding: 0.4em 0 1.6em;
-    padding-top: 0.4em;
+  & > p{
+    padding: 0.6em 0 0.7em;
+    line-height: 1.7;
+    opacity: 0.8;
   }
-  h1{
-    // font-family: FuturaBold;
-    margin-bottom: 0.5em;
-    font-size: 2.1em;
+  & > h3{
+    font-size: 1.1em;
+    padding: 0.7em 0;
+    line-height: 1.5;
     font-weight: bold;
-    line-height: 1.2;
-    // color: rgba($general, 0.3);
-    color: $primary;
-    text-transform: uppercase;
-    border-bottom: 1px solid rgba($general, 0.2);
   }
-  h2{
-    font-size: 1.2em;
-    line-height: 2;
-    font-weight: bold;
-    // color: $primary;
-  }
-  img{
+  & > img{
     margin: 0 auto;
     max-width: 100%;
     height: auto;
