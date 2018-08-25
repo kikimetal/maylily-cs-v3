@@ -4,13 +4,15 @@
   :to="to">
 
     <div class="shadow" />
+
     <LazyLoadImg
       class="img"
       :imgsrc="imgsrc"
       :imgstyle="imgstyle"
       :alt="alt" />
-    <span class="date" v-if="date">{{ date }}</span>
+
     <div class="title-container">
+      <span class="date" v-if="date">{{ date }}</span>
       <h1 class="title">
         <span v-for="(word, i) in titleArray" :key="'title-word-' + i">{{ word }}</span>
       </h1>
@@ -50,10 +52,10 @@ export default {
 @import '~/assets/css/myset.scss';
 
 .Card{
-  font-size: 26rem;
+  font-size: 28rem;
   position: relative;
   text-align: center;
-  color: $primary;
+  color: $general;
   overflow: visible;
   cursor: pointer;
   transform-origin: center;
@@ -76,47 +78,55 @@ export default {
     bottom: 0;
 
     background: $white;
-    // border-radius: $border-radius;
+    border-radius: $border-radius;
     box-shadow: $shadow-set;
     z-index: -1;
   }
 
-  .date{
-    font-size: 0.8em;
-    position: absolute;
-    top: 0.3em;
-    left: 0.3em;
-    background: rgba($white, 0.3);
-    padding: 0.2em 0.7em;
-    color: $grey;
-    z-index: 3;
-  }
-
   .title-container{
     position: relative;
-    top: -1em;
-    padding: 0.6em;
-    // background: $white;
+    // padding: 1em 0.5em 0.7em;
+    padding: 0.8em 0.6em 0.9em;
     z-index: 3;
-  }
+    text-align: left;
+    line-height: 1;
 
-  .title, .subtitle{
-    line-height: 1.2;
-    span{
-      display: inline-block;
-      padding-right: 0.2em;
-      &:last-child{
-        padding-right: 0;
+    .date{
+      padding-bottom: 1.1em;
+      display: block;
+      font-size: 14rem;
+      font-weight: bold;
+      color: rgba($general, 0.4);
+    }
+    .title, .subtitle{
+      span{
+        display: inline-block;
+        padding: 0 0.05em;
+        &:last-child{
+          padding-right: 0;
+        }
       }
     }
-  }
-  .subtitle{
-    font-size: 0.4em;
+    .title{
+      padding: 0 0 0.2em;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+    .subtitle{
+      padding: 0.4em 0 0;
+      line-height: 1.3;
+      font-size: 15rem;
+      font-weight: bold;
+      color: rgba($general, 0.6);
+    }
+    .date, .subtitle{
+      padding-left: 0.2em;
+    }
   }
 
   .img{
-    // border-bottom-left-radius: $border-radius;
-    // border-bottom-right-radius: $border-radius;
+    border-top-left-radius: $border-radius;
+    border-top-right-radius: $border-radius;
     z-index: 2;
   }
 }
