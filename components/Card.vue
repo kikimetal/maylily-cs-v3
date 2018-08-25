@@ -5,7 +5,7 @@
     <div class="shadow" />
     <h1 class="title">{{ title }}</h1>
     <h2 class="subtitle">{{ subtitle }}</h2>
-    <LazyLoadImg class="img" :filename="imgfilename"/>
+    <LazyLoadImg class="img" :imgsrc="imgsrc"/>
   </router-link>
 </template>
 
@@ -18,7 +18,7 @@ export default {
   props: {
     to: { type: [String, Object], default: '/' },
     // disable: { type: Boolean, default: false },
-    imgfilename: { type: [String, Number], default: 'rose-aroma.jpg' },
+    imgsrc: { type: [String, Number], default: 'rose-aroma.jpg' },
     title: { type: [String, Number], default: 'INSERT TITLE' },
     subtitle: { type: [String, Number], default: 'subtitle subtitle.' },
   },
