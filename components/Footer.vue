@@ -7,8 +7,8 @@
     v-for="(route, index) in routes" :key="'route-' + index"
     data-aos="fade-up"
     data-aos-offset="-100"
-    :data-aos-delay="50 * index"
-    :data-aos-duration="700 + 50 * index"
+    data-aos-delay="0"
+    :data-aos-duration="400 + 50 * index"
     :to="route.path"
     :exact="route.exact">
       <span class="subtitle">{{ route.subtitle }}</span>
@@ -44,6 +44,8 @@ export default {
   flex-flow: column wrap;
   justify-content: space-around;
   align-items: center;
+  box-shadow: 0 0 50px rgba($primary, 0.4) inset;
+
   .heading{
     font-size: 1.3em;
     font-weight: bold;
@@ -61,7 +63,7 @@ export default {
     position: absolute;
     left: 0;
     right: 0;
-    bottom: 1em;
+    bottom: 1.6em;
     font-size: 12rem;
     color: rgba($white, 0.6);
   }
