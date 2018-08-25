@@ -74,7 +74,7 @@ export default {
       linksInNews: [
         {
           date: '2018.08.03',
-          title: ['Webサイト', 'リニューアルの', 'お知らせ'],
+          title: ['Webサイトを', 'リニューアルしました'],
           subtitle: '有限会社メイリリィは、ウェブサイトをリニューアルいたしましたのでお知らせします。',
           to: '/news',
           imgsrc: 'rose-aroma.jpg',
@@ -82,8 +82,8 @@ export default {
         },
         {
           date: '2018.08.03',
-          title: 'ガーメント新作',
-          subtitle: 'ベースフレグランス「ネイビー」を発表',
+          title: ['ベースフレグランス', '"ネイビー"'],
+          subtitle: '香水ブランド「GARMENT」は、新しくベースフレグランス「ネイビー」を発表しました。',
           to: '/news',
           imgsrc: 'rose-aroma.jpg',
           exact: true,
