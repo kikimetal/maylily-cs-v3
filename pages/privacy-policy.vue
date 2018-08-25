@@ -1,16 +1,24 @@
 <template>
    <div :class="['page', $store.state.ww.size]">
 
-    <Heading title="個人情報保護方針" subtitle="" />
+    <Heading
+      type="basic"
+      pagetop
+      :title="['Privacy', 'policy']"
+      subtitle="個人情報保護方針"
+      />
 
+    <Footer />
   </div>
 </template>
 
 <script>
 import Heading from '~/components/Heading.vue'
+import Footer from '~/components/Footer.vue'
 export default {
   components: {
     Heading,
+    Footer,
   },
 }
 </script>

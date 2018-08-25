@@ -3,7 +3,7 @@
 
     <Heading
       type="basic"
-      :pagetop="true"
+      pagetop
       :title="['Vision', '/', 'Mission']"
       subtitle="企業理念"
       />

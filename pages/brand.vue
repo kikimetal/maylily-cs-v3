@@ -1,7 +1,12 @@
 <template>
    <div :class="['page', $store.state.ww.size]">
 
-     <Heading title="Brand" subtitle="" />
+     <Heading
+       type="basic"
+       pagetop
+       :title="['Brand']"
+       subtitle="ブランド事業"
+       />
 
      <Footer />
   </div>

@@ -1,18 +1,27 @@
 <template>
    <div :class="['page', $store.state.ww.size]">
 
-    <Heading title="お問い合わ" subtitle="" />
+    <Heading
+      type="basic"
+      pagetop
+      :title="['Contact']"
+      subtitle="お問い合わせ"
+      />
+
     <ContactForm />
 
+    <Footer />
   </div>
 </template>
 
 <script>
 import Heading from '~/components/Heading.vue'
+import Footer from '~/components/Footer.vue'
 import ContactForm from '~/components/ContactForm.vue'
 export default {
   components: {
     Heading,
+    Footer,
     ContactForm,
   },
 }

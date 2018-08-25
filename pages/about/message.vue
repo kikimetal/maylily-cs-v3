@@ -1,16 +1,24 @@
 <template>
    <div :class="['page', $store.state.ww.size]">
 
-    <Heading title="Message" subtitle="代表挨拶" />
+    <Heading
+      type="basic"
+      pagetop
+      :title="['Message']"
+      subtitle="代表挨拶"
+      />
 
+    <Footer />
   </div>
 </template>
 
 <script>
 import Heading from '~/components/Heading.vue'
+import Footer from '~/components/Footer.vue'
 export default {
   components: {
     Heading,
+    Footer,
   },
 }
 </script>

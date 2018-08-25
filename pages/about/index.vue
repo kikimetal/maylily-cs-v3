@@ -1,7 +1,12 @@
 <template>
    <div :class="['page', $store.state.ww.size]">
 
-    <Heading title="About Us" subtitle="企業情報" />
+    <Heading
+      type="basic"
+      pagetop
+      :title="['About', 'Us']"
+      subtitle="企業情報"
+      />
 
     <CardContainer>
       <Card
