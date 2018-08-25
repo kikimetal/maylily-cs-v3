@@ -17,7 +17,7 @@
       />
     </CardContainer>
 
-
+    <Footer />
   </div>
 </template>
 
@@ -25,12 +25,14 @@
 import Heading from '~/components/Heading.vue'
 import Card from '~/components/Card.vue'
 import CardContainer from '~/components/CardContainer.vue'
+import Footer from '~/components/Footer.vue'
 
 export default {
   components: {
     Heading,
     Card,
     CardContainer,
+    Footer,
   },
   data () {
     return {

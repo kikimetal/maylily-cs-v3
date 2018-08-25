@@ -3,14 +3,17 @@
 
      <Heading title="News Release" subtitle="" />
 
+     <Footer />
   </div>
 </template>
 
 <script>
 import Heading from '~/components/Heading.vue'
+import Footer from '~/components/Footer.vue'
 export default {
   components: {
     Heading,
+    Footer,
   },
   data () {
     return {
