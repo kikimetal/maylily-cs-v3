@@ -3,7 +3,7 @@
 
     <HeroImage />
 
-    <Heading data-aos="fade-up" title="News Release" subtitle="最新の情報をお届けします✨" />
+    <Heading type="basic" data-aos="fade-up" title="News Release" subtitle="最新の情報をお届けします✨" />
 
     <CardContainer>
       <Card
@@ -26,7 +26,6 @@
 <script>
 import Heading from '~/components/Heading.vue'
 import Btn from '~/components/Btn.vue'
-import LazyLoadImg from '~/components/LazyLoadImg.vue'
 import Logotype from '~/components/Logotype.vue'
 import Card from '~/components/Card.vue'
 import CardContainer from '~/components/CardContainer.vue'
@@ -37,7 +36,6 @@ export default {
   components: {
     Heading,
     Btn,
-    LazyLoadImg,
     Logotype,
     Card,
     CardContainer,
