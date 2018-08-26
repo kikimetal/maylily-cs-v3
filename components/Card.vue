@@ -1,6 +1,6 @@
 <template lang="html">
   <router-link
-  class="Card"
+  :class="['Card', $store.state.ww.size]"
   :to="to">
 
     <div class="shadow" />
@@ -11,7 +11,7 @@
       :imgstyle="imgstyle"
       :alt="alt" />
 
-    <div class="title-container">
+    <div class="title-container" :style="{textAlign: align}">
       <span class="date" v-if="date">{{ date }}</span>
       <h1 class="title">
         <span v-for="(word, i) in titleArray" :key="'title-word-' + i">{{ word }}</span>
@@ -38,6 +38,7 @@ export default {
     subtitle: { type: [String, Number, Array], default: 'subtitle subtitle.' },
     imgstyle: { type: Object, default: null },
     alt: { type: String, default: '画像です' },
+    align: { type: String, default: 'left' },
   },
   data () {
     return {
@@ -107,9 +108,9 @@ export default {
       }
     }
     .title{
-      padding: 0 0 0.2em;
       font-weight: bold;
       text-transform: uppercase;
+      line-height: 1.1;
     }
     .subtitle{
       padding: 0.4em 0 0;
@@ -119,7 +120,10 @@ export default {
       color: rgba($general, 0.6);
     }
     .date, .subtitle{
-      padding-left: 0.2em;
+      padding-left: 0.1em;
+    }
+    .date + .title{
+      padding-bottom: 0.1em;
     }
   }
 
@@ -127,6 +131,16 @@ export default {
     border-top-left-radius: $border-radius;
     border-top-right-radius: $border-radius;
     z-index: 2;
+  }
+
+  &.md{
+    font-size: 29rem;
+  }
+  &.lg{
+    font-size: 31rem;
+  }
+  &.xl{
+    font-size: 33rem;
   }
 }
 </style>
