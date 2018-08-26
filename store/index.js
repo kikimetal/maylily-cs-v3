@@ -13,7 +13,15 @@ const store = () => new Vuex.Store({
       sizes: ['sm'],
     },
     isShowNav: false,
-
+    modal: {
+      isShow: false,
+      content: {
+        title: 'modal title',
+        subtitle: 'modal subtitle',
+        text: ['modal', 'modal', 'modal'],
+        links: [{ exist: false, url: '/' }],
+      },
+    }
   },
   mutations: {
 
@@ -42,12 +50,23 @@ const store = () => new Vuex.Store({
       state.ww.sizes = sizes
     },
 
-    toggleNav(state, isShow){
+    toggleNav (state, isShow) {
       if (isShow === undefined) {
         state.isShowNav = !state.isShowNav
       }else{
         state.isShowNav = isShow
       }
+    },
+
+    showModal (state, content) {
+      const exist = !state.modal.isShow && content
+      if (!exist) return
+      state.modal.isShow = true
+      state.modal.content = content
+    },
+
+    hideModal (state) {
+      state.modal.isShow = false
     }
   }
 })
