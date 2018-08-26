@@ -4,7 +4,7 @@
       <img class="loader-gif" src="~/assets/img/loading.svg" alt="" />
       <span class="loader-text">LOADING</span>
     </div>
-    <img class="fake" :src="require('~/assets/img/' + imgsrc)" @load="loaded"/>
+    <img class="fake" :src="fixedImgsrc" @load="loaded"/>
   </div>
 </template>
 
@@ -15,10 +15,15 @@ export default {
     imgstyle: { type: Object, default: null },
   },
   data () {
+
+    const isExternal = this.imgsrc.indexOf('http') === 0
+    const fixedImgsrc = isExternal ? this.imgsrc : require('~/assets/img/' + this.imgsrc)
+
     return {
       isLoaded: false,
+      fixedImgsrc: fixedImgsrc,
       imgstyleOverride: {
-        backgroundImage: 'url(' + require('~/assets/img/' + this.imgsrc) + ')',
+        backgroundImage: 'url(' + fixedImgsrc + ')',
         ...this.imgstyle,
       },
     }
