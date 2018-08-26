@@ -3,11 +3,11 @@
   :class="['Modal', $store.state.ww.size]"
   @click="$store.commit('hideModal')">
 
-    <transition name="modal-background">
+    <transition name="background">
       <div class="background" v-show="$store.state.modal.isShow" />
     </transition>
 
-    <transition name="page">
+    <transition name="content">
       <div class="content" v-show="$store.state.modal.isShow">
         <h1 class="title">{{ $store.state.modal.content.title }}</h1>
         <h2 class="subtitle">{{ $store.state.modal.content.subtitle }}</h2>
@@ -63,7 +63,6 @@ export default {
     box-shadow: $shadow-set;
     overflow-x: hidden;
     overflow-y: scroll;
-    transition: all 0.3s ease;
 
     line-height: 2;
 
@@ -83,21 +82,40 @@ export default {
   }
 }
 
-.modal-background-enter{
+.background-enter{
   opacity: 0;
   transform: scaleY(0);
 }
-.modal-background-enter-active {
+.background-enter-active {
   transition:
     opacity ease-out 1s,
     transform $ease-out .8s;
 }
-.modal-background-leave-active{
+.background-leave-active{
   transition: all 1.1s $ease-out;
   pointer-events: none;
   user-select: none;
 }
-.modal-background-leave-to{
+.background-leave-to{
   opacity: 0;
+}
+
+.content-enter-active {
+  transition:
+    opacity .8s ease .2s,
+    transform .6s $ease-out .2s;
+}
+.content-leave-active {
+  transition:
+    opacity ease-out .3s,
+    transform $ease-out .3s;
+}
+.content-leave-to {
+  opacity: 0;
+  transform: scale(0.96);
+}
+.content-enter{
+  opacity: 0;
+  transform: scale(1.08);
 }
 </style>
