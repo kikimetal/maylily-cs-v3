@@ -17,7 +17,7 @@ export default {
   display: flex;
   flex-flow: row wrap;
   justify-content: flex-start;
-  align-items: center;
+  align-items: flex-start;
   // padding: 2em 0;
   overflow: visible;
 
@@ -28,16 +28,21 @@ export default {
     }
   }
   &.md{
-    width: 88%;
+    width: 86%;
     & > *{
+      // 横に2個
       margin: 1%;
+      margin-bottom: 4%;
       width: 48%;
     }
   }
   &.lg, &.xl{
-    width: 1100px;
+    width: 96%;
+    max-width: 1200px;
     & > *{
+      // 横に3個
       margin: calc(7 / 6 * 1%);
+      margin-bottom: 3%;
       width: 31%;
     }
   }
