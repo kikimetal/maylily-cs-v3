@@ -10,6 +10,8 @@
 
     <img src="~/assets/img/rose-aroma.jpg" :style="{display: 'none'}" alt="">
 
+    <Modal />
+
   </div>
 </template>
 
@@ -17,11 +19,13 @@
 import AOS from 'aos'
 import Nav from '~/components/Nav.vue'
 import NavTrigger from '~/components/NavTrigger.vue'
+import Modal from '~/components/Modal.vue'
 
 export default {
   components: {
     Nav,
     NavTrigger,
+    Modal,
   },
   methods: {
     setPropertyScrollY () {
