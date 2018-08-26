@@ -93,23 +93,23 @@ export default {
         const words = row['modal-links-word'].split(separator)
         const urls = row['modal-links-url'].split(separator)
         const links = words.map((word, i) => ({
-          word: word.trim(),
+          word: word,
           to: urls[i].trim() || '/',
           external: urls[i].trim().indexOf('http') === 0
         }))
         // fixed object for type=modal Card.
         return {
-          date: row.date.trim(),
-          title: row.title.trim().split(separator),
-          subtitle: row.subtitle.trim().split(separator),
+          date: row.date,
+          title: row.title.split(separator),
+          subtitle: row.subtitle.split(separator),
           align: row.align.trim() || 'left',
           imgsrc: row.imgsrc.trim(),
           // type は今は modal しかないけど、普通のリンクとかに拡張対応するときはここで変更
           type: row.type.trim() || 'modal',
           modal: {
-            title: row['modal-title'].trim().split(separator),
-            subtitle: row['modal-subtitle'].trim().split(separator),
-            text: row['modal-text'].trim().split(separator),
+            title: row['modal-title'].split(separator),
+            subtitle: row['modal-subtitle'].split(separator),
+            text: row['modal-text'].split(separator),
             links: links,
           },
         }
