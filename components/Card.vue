@@ -45,7 +45,7 @@ export default {
     alt: { type: String, default: '画像です' },
     align: { type: String, default: 'left' },
     // modal content に渡すための詳細データ
-    detail: { type: Object, default: null },
+    modal: { type: Object, default: null },
   },
   data () {
     return {
@@ -55,10 +55,10 @@ export default {
   },
   methods: {
     handleClick (e) {
-      const exist = this.type === 'modal' && this.detail
+      const exist = this.type === 'modal' && this.modal
       if (!exist) return
       e.preventDefault()
-      this.$store.commit('showModal', this.detail)
+      this.$store.commit('showModal', this.modal)
     },
   },
 }
