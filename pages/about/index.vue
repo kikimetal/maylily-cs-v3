@@ -18,6 +18,7 @@
       :to="link.to"
       :exact="link.exact"
       :imgsrc="link.imgsrc"
+      align="center"
       data-aos="fade-up"
       :data-aos-delay="i * 100"
       />
