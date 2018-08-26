@@ -35,6 +35,7 @@ export default {
     },
     handleResize () {
       this.setWindowWidthToStore()
+      AOS.refresh()
     },
   },
   created () {
