@@ -19,7 +19,11 @@ const store = () => new Vuex.Store({
         title: 'modal title',
         subtitle: 'modal subtitle',
         text: ['modal', 'modal', 'modal'],
-        links: [{ exist: false, url: '/' }],
+        links: [{
+          external: false,
+          word: 'top',
+          to : '/',
+        }],
       },
     }
   },
@@ -63,6 +67,7 @@ const store = () => new Vuex.Store({
       if (!exist) return
       state.modal.isShow = true
       state.modal.content = content
+      // console.log('store', content) // TODO: remove
     },
 
     hideModal (state) {
