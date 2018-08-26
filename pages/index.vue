@@ -52,7 +52,6 @@
 
 <script>
 import Heading from '~/components/Heading.vue'
-import Btn from '~/components/Btn.vue'
 import Logotype from '~/components/Logotype.vue'
 import Card from '~/components/Card.vue'
 import CardContainer from '~/components/CardContainer.vue'
@@ -62,7 +61,6 @@ import Footer from '~/components/Footer.vue'
 export default {
   components: {
     Heading,
-    Btn,
     Logotype,
     Card,
     CardContainer,

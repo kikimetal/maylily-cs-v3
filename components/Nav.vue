@@ -23,11 +23,9 @@
 </template>
 
 <script>
-import Btn from '~/components/Btn.vue'
 import ROUTES from '~/assets/routes.js'
 export default {
   components: {
-    Btn,
   },
   props: {
     routes: { default: () => ROUTES }

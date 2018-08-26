@@ -13,7 +13,7 @@
         :imgstyle="imgstyle"
         :alt="alt" />
 
-      <div class="title-container" :style="{textAlign: align}">
+      <div class="title-container" :style="{ textAlign: align }">
         <span class="date" v-if="date">{{ date }}</span>
         <h1 class="title">
           <span v-for="(word, i) in titleArray" :key="'title-word-' + i">{{ word }}</span>
@@ -55,6 +55,7 @@ export default {
   },
   methods: {
     handleClick (e) {
+      // console.log('Card', this.modal) // TODO: remove
       const exist = this.type === 'modal' && this.modal
       if (!exist) return
       e.preventDefault()
