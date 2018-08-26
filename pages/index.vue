@@ -33,9 +33,9 @@
 
     <CardContainer>
       <Card
-      class="link"
       v-for="(link, i) in linksInPickUp"
       :key="'link-in-about-' + i"
+      type="link"
       :title="link.title"
       :subtitle="link.subtitle"
       :to="link.to"
