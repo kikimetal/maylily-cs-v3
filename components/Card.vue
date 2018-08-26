@@ -1,27 +1,31 @@
 <template lang="html">
-  <router-link
+  <div
   :class="['Card', $store.state.ww.size]"
-  :to="to">
+  @click="handleClick">
 
-    <div class="shadow" />
+    <router-link :to="this.type === 'modal' ? '' : to">
 
-    <LazyLoadImg
-      class="img"
-      :imgsrc="imgsrc"
-      :imgstyle="imgstyle"
-      :alt="alt" />
+      <div class="shadow" />
 
-    <div class="title-container" :style="{textAlign: align}">
-      <span class="date" v-if="date">{{ date }}</span>
-      <h1 class="title">
-        <span v-for="(word, i) in titleArray" :key="'title-word-' + i">{{ word }}</span>
-      </h1>
-      <h2 class="subtitle">
-        <span v-for="(word, i) in subtitleArray" :key="'subtitle-word-' + i">{{ word }}</span>
-      </h2>
-    </div>
+      <LazyLoadImg
+        class="card-img"
+        :imgsrc="imgsrc"
+        :imgstyle="imgstyle"
+        :alt="alt" />
 
-  </router-link>
+      <div class="title-container" :style="{textAlign: align}">
+        <span class="date" v-if="date">{{ date }}</span>
+        <h1 class="title">
+          <span v-for="(word, i) in titleArray" :key="'title-word-' + i">{{ word }}</span>
+        </h1>
+        <h2 class="subtitle">
+          <span v-for="(word, i) in subtitleArray" :key="'subtitle-word-' + i">{{ word }}</span>
+        </h2>
+      </div>
+
+    </router-link>
+
+  </div>
 </template>
 
 <script>
@@ -31,6 +35,7 @@ export default {
     LazyLoadImg,
   },
   props: {
+    type: { type: String, default: 'link' },
     to: { type: [String, Object], default: '/' },
     imgsrc: { type: [String, Number], default: 'rose-aroma.jpg' },
     date: { type: String, default: '' },
@@ -39,12 +44,22 @@ export default {
     imgstyle: { type: Object, default: null },
     alt: { type: String, default: '画像です' },
     align: { type: String, default: 'left' },
+    // modal content に渡すための詳細データ
+    detail: { type: Object, default: null },
   },
   data () {
     return {
       titleArray: typeof this.title === 'object' ? this.title : new Array(this.title),
       subtitleArray: typeof this.subtitle === 'object' ? this.subtitle : new Array(this.subtitle),
     }
+  },
+  methods: {
+    handleClick (e) {
+      const exist = this.type === 'modal' && this.detail
+      if (!exist) return
+      e.preventDefault()
+      this.$store.commit('showModal', this.detail)
+    },
   },
 }
 </script>
@@ -127,7 +142,7 @@ export default {
     }
   }
 
-  .img{
+  .card-img{
     border-top-left-radius: $border-radius;
     border-top-right-radius: $border-radius;
     z-index: 2;
