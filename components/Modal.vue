@@ -9,10 +9,32 @@
 
     <transition name="content">
       <div class="content" v-show="$store.state.modal.isShow">
-        <h1 class="title">{{ $store.state.modal.content.title }}</h1>
-        <h2 class="subtitle">{{ $store.state.modal.content.subtitle }}</h2>
+        <h1 class="title">
+          <span v-for="(span, i) in $store.state.modal.content.title" :key="'modal-title-span-' + i">{{ span }}</span>
+        </h1>
+        <h2 class="subtitle">
+          <span v-for="(span, i) in $store.state.modal.content.subtitle" :key="'modal-subtitle-span-' + i">{{ span }}</span>
+        </h2>
         <div class="text">
           <p v-for="(p, i) in $store.state.modal.content.text" :key="'modal-text-p-' + i">{{ p }}</p>
+        </div>
+        <div
+          class="links"
+          v-for="(link, i) in $store.state.modal.content.links"
+          :key="'modal-link-' + i">
+          <a
+            v-if="link.external"
+            class="link"
+            :href="link.to">
+            {{ link.word }}
+          </a>
+          <router-link
+            v-else
+            class="link"
+            :to="link.to"
+            exact>
+            {{ link.word }}
+          </router-link>
         </div>
       </div>
     </transition>
@@ -32,7 +54,6 @@ export default {
   position: relative;
   font-size: 20rem;
   z-index: 9999999;
-  cursor: pointer;
   overflow: visible;
 
   .background{
@@ -43,6 +64,7 @@ export default {
     bottom: 0;
     // background: rgba(darken(desaturate($primary, 10%), 10%), 0.88);
     background: rgba(desaturate($primary, 25%), 0.3);
+    cursor: pointer;
   }
 
   .content{
@@ -64,21 +86,43 @@ export default {
     overflow-x: hidden;
     overflow-y: scroll;
 
-    line-height: 2;
+    line-height: 2; // TODO: remove this
 
     .title{
       font-size: 1.3em;
+    }
+    .title, .subtitle{
+      span{
+        padding: 0 0.1em;
+      }
     }
     .text{
       padding: 1.3em 0;
       width: 100%;
       background: $shadow;
     }
+
+    .links{
+      .link{
+        padding: 1em 2em;
+        background: $primary;
+        color: $white;
+      }
+    }
   }
 
-  &.md, &.lg, &.xl{
-    width: 96vmin;
-    height: 88vmin;
+  &.md{
+    .content{
+      width: 96vw;
+      height: 92vmin;
+    }
+  }
+  &.lg, &.xl{
+    .content{
+      width: 92vmin;
+      min-width: 800px;
+      height: 84vmin;
+    }
   }
 }
 
@@ -88,7 +132,7 @@ export default {
 }
 .background-enter-active {
   transition:
-    opacity ease-out 1s,
+    opacity ease-out .9s,
     transform $ease-out .8s;
 }
 .background-leave-active{
@@ -102,13 +146,13 @@ export default {
 
 .content-enter-active {
   transition:
-    opacity .8s ease .2s,
-    transform .6s $ease-out .2s;
+    opacity .7s ease .14s,
+    transform .7s $ease-out .14s;
 }
 .content-leave-active {
   transition:
-    opacity ease-out .3s,
-    transform $ease-out .3s;
+    opacity .3s ease-out .06s,
+    transform .3s $ease-out .06s;
 }
 .content-leave-to {
   opacity: 0;
