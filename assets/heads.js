@@ -1,6 +1,7 @@
 const maylily = ' | 有限会社メイリリィ'
 const common = {
   meta: [
+    { name: 'fb:admins', content: 'admin id' },
     { name: 'og:type', content: 'website' },
     { name: 'og:url', content: 'url' },
     { name: 'og:title', content: 'og page title' },
@@ -15,7 +16,6 @@ export default {
     title: 'Home' + maylily,
     meta: [
       { hid: 'description', name: 'description', content: 'カスタマイズしたよ' },
-      { name: 'fb:admins', content: 'admin id' },
       ...common.meta,
     ]
   },
@@ -23,7 +23,6 @@ export default {
     title: 'News' + maylily,
     meta: [
       { hid: 'description', name: 'description', content: 'カスタマイズしたよ' },
-      { name: 'fb:admins', content: 'admin id' },
       ...common.meta,
     ]
   },
@@ -31,7 +30,6 @@ export default {
     title: 'About' + maylily,
     meta: [
       { hid: 'description', name: 'description', content: 'カスタマイズしたよ' },
-      { name: 'fb:admins', content: 'admin id' },
       ...common.meta,
     ]
   },
@@ -39,7 +37,6 @@ export default {
     title: 'Vision' + maylily,
     meta: [
       { hid: 'description', name: 'description', content: 'カスタマイズしたよ' },
-      { name: 'fb:admins', content: 'admin id' },
       ...common.meta,
     ]
   },
@@ -47,7 +44,6 @@ export default {
     title: 'Message' + maylily,
     meta: [
       { hid: 'description', name: 'description', content: 'カスタマイズしたよ' },
-      { name: 'fb:admins', content: 'admin id' },
       ...common.meta,
     ]
   },
@@ -55,7 +51,6 @@ export default {
     title: 'Outline' + maylily,
     meta: [
       { hid: 'description', name: 'description', content: 'カスタマイズしたよ' },
-      { name: 'fb:admins', content: 'admin id' },
       ...common.meta,
     ]
   },
@@ -63,7 +58,6 @@ export default {
     title: 'CSR' + maylily,
     meta: [
       { hid: 'description', name: 'description', content: 'カスタマイズしたよ' },
-      { name: 'fb:admins', content: 'admin id' },
       ...common.meta,
     ]
   },
@@ -71,7 +65,6 @@ export default {
     title: 'Brand' + maylily,
     meta: [
       { hid: 'description', name: 'description', content: 'カスタマイズしたよ' },
-      { name: 'fb:admins', content: 'admin id' },
       ...common.meta,
     ]
   },
@@ -79,7 +72,6 @@ export default {
     title: 'Bulgarian Rose' + maylily,
     meta: [
       { hid: 'description', name: 'description', content: 'カスタマイズしたよ' },
-      { name: 'fb:admins', content: 'admin id' },
       ...common.meta,
     ]
   },
@@ -87,7 +79,6 @@ export default {
     title: 'Fragrance OEM' + maylily,
     meta: [
       { hid: 'description', name: 'description', content: 'カスタマイズしたよ' },
-      { name: 'fb:admins', content: 'admin id' },
       ...common.meta,
     ]
   },
@@ -95,7 +86,6 @@ export default {
     title: 'Terms of use' + maylily,
     meta: [
       { hid: 'description', name: 'description', content: 'カスタマイズしたよ' },
-      { name: 'fb:admins', content: 'admin id' },
       ...common.meta,
     ]
   },
@@ -103,7 +93,6 @@ export default {
     title: 'Privacy policy' + maylily,
     meta: [
       { hid: 'description', name: 'description', content: 'カスタマイズしたよ' },
-      { name: 'fb:admins', content: 'admin id' },
       ...common.meta,
     ]
   },
@@ -111,7 +100,6 @@ export default {
     title: 'Contact' + maylily,
     meta: [
       { hid: 'description', name: 'description', content: 'カスタマイズしたよ' },
-      { name: 'fb:admins', content: 'admin id' },
       ...common.meta,
     ]
   },
