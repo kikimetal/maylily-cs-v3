@@ -85,7 +85,11 @@ export default {
 .container-enter-active {
   transition:
     opacity ease-out .5s,
-    transform $ease-out .6s;
+    transform $ease-out .3s;
+}
+.container-enter{
+  opacity: 0;
+  transform: scale(1.2);
 }
 .container-leave-active {
   transition:
@@ -94,10 +98,7 @@ export default {
 }
 .container-leave-to {
   opacity: 0;
-  transform: scale(1.1);
+  transform: scale(1.06);
   // transform: translateX(5vw);
-}
-.container-enter{
-  opacity: 0;
 }
 </style>
