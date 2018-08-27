@@ -1,9 +1,13 @@
 import Vuex from 'vuex'
 import axios from 'axios'
+import heads from '~/assets/heads.js'
 
 const store = () => new Vuex.Store({
 
   state: {
+
+    heads: heads,
+
     ww: {
       value: 1000,
       sm: true,
