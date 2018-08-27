@@ -107,7 +107,7 @@ export default {
     .main{
       overflow: visible;
       position: absolute;
-      top: 4vh;
+      top: 3vh;
       left: 0;
       right: 0;
       bottom: 0;
