@@ -8,9 +8,31 @@
       subtitle="ニュースリリース"
       />
 
+    <h1>showtop</h1>
+
     <CardContainer>
       <Card
         v-for="(row, i) in newsSheet"
+        v-if="row.showtop"
+        :key="'card-in-news-' + i"
+        :type="row.type"
+        :date="row.date"
+        :title="row.title"
+        :subtitle="row.subtitle"
+        :align="row.align"
+        :imgsrc="row.imgsrc"
+        :modal="row.modal"
+        :exact="true"
+        data-aos="fade-up"
+        :data-aos-delay="i * 100" />
+    </CardContainer>
+
+    <h1>pickup</h1>
+
+    <CardContainer>
+      <Card
+        v-for="(row, i) in newsSheet"
+        v-if="row.pickup"
         :key="'card-in-news-' + i"
         :type="row.type"
         :date="row.date"
@@ -55,6 +77,8 @@ export default {
       const sheetName = 'news'
       const columns = [
         'separator',
+        'showtop',
+        'pickup',
         'date',
         'title',
         'subtitle',
@@ -98,7 +122,10 @@ export default {
           external: urls[i].trim().indexOf('http') === 0
         }))
         // fixed object for type=modal Card.
+        // row の各値は全て String で帰ってくるため、必要に応じて .trim() で空白を削除
         return {
+          showtop: Number(row['showtop'].trim()),
+          pickup: Number(row['pickup'].trim()),
           date: row.date,
           title: row.title.split(separator),
           subtitle: row.subtitle.split(separator),
