@@ -85,6 +85,7 @@ export default {
     box-shadow: $shadow-set;
     overflow-x: hidden;
     overflow-y: scroll;
+    border-radius: 8px;
 
     line-height: 2; // TODO: remove this
 
