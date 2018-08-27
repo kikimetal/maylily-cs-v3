@@ -1,4 +1,5 @@
 import Vuex from 'vuex'
+import axios from 'axios'
 
 const store = () => new Vuex.Store({
 
@@ -12,7 +13,9 @@ const store = () => new Vuex.Store({
       size: 'sm',
       sizes: ['sm'],
     },
+
     isShowNav: false,
+
     modal: {
       isShow: false,
       content: {
@@ -25,7 +28,14 @@ const store = () => new Vuex.Store({
           to : '/',
         }],
       },
-    }
+    },
+
+    sheets: {
+      news: {
+        status: 'pending',
+        data: null,
+      }
+    },
   },
   mutations: {
 
@@ -67,12 +77,94 @@ const store = () => new Vuex.Store({
       if (!exist) return
       state.modal.isShow = true
       state.modal.content = content
-      // console.log('store', content) // TODO: remove
     },
 
     hideModal (state) {
       state.modal.isShow = false
-    }
+    },
+
+    async setNewsSheet (state) {
+
+      const sheetName = 'news'
+
+      console.log('Store sheets: ', state.sheets[sheetName].status) // TODO: remove
+
+      const exist = state.sheets[sheetName].status === 'pending'
+      if (!exist) return
+
+      console.log('Store sheets: ', 'fetching...') // TODO: remove
+
+      const columns = [
+        'separator',
+        'showtop',
+        'pickup',
+        'date',
+        'title',
+        'subtitle',
+        'align',
+        'imgsrc',
+        'type',
+        'link-to',
+        'modal-title',
+        'modal-subtitle',
+        'modal-text',
+        'modal-links-word',
+        'modal-links-url',
+      ]
+      const queryString = `?sheetName=${sheetName}&${columns.join('&')}`
+      const apiUrl = 'https://www.maylily.co.jp/v2/assets/gss-api.php'
+      const fetchUrl = apiUrl + queryString
+
+      let res = await axios.get(fetchUrl).catch(err => {
+        state.sheets[sheetName].status = 'rejected'
+        console.error('fetch sheet API is rejected in Store: ', err)
+      })
+
+      const separator = res.data[0].separator.trim() || '<split>'
+      const fixedData = res.data.map(row => fixRow(row, separator))
+
+      console.log('Store sheets: ', fixedData) // TODO: remove
+
+      state.sheets[sheetName].status = 'fulfilled'
+      state.sheets[sheetName].data = fixedData
+
+      /**
+       * gss-apiから帰ってきた配列の1行分のデータを Card に対応するよう整形
+       * @param  { Object } row       1行分のデータ=1つのカード分の情報
+       * @param  { String } separator 文字列から配列に整形する際の区切る文字列
+       * @return { Object }           Card へ最適化したオブジェクト
+       */
+      function fixRow (row, separator) {
+        // generate links object.
+        const words = row['modal-links-word'].split(separator)
+        const urls = row['modal-links-url'].split(separator)
+        const links = words.map((word, i) => ({
+          word: word,
+          to: urls[i].trim() || '/',
+          external: urls[i].trim().indexOf('http') === 0
+        }))
+        // fixed object for type=modal Card.
+        // row の各値は全て String で帰ってくるため、必要に応じて .trim() で空白を削除
+        return {
+          showtop: Number(row['showtop'].trim()),
+          pickup: Number(row['pickup'].trim()),
+          date: row.date,
+          title: row.title.split(separator),
+          subtitle: row.subtitle.split(separator),
+          align: row.align.trim() || 'left',
+          imgsrc: row.imgsrc.trim(),
+          type: row.type.trim() || 'link',
+          linkto: row['link-to'].trim() || '/',
+          modal: {
+            title: row['modal-title'].split(separator),
+            subtitle: row['modal-subtitle'].split(separator),
+            text: row['modal-text'].split(separator),
+            links: links,
+          },
+        }
+      } // function fix
+
+    },
   }
 })
 
