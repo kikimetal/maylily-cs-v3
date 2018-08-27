@@ -33,7 +33,7 @@ export default {
 
 .Footer{
   position: relative;
-  margin-top: 5vh;
+  margin-top: 10vh;
   padding: 15vh 0;
   height: 100vh;
   background: $grey;
