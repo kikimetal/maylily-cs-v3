@@ -20,6 +20,7 @@ export default {
     Heading,
     Footer,
   },
+  head () { return this.$store.state.heads[this.$route.path] },
 }
 </script>
 

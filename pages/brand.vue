@@ -13,6 +13,8 @@
 </template>
 
 <script>
+import HEADS from '~/assets/heads.js'
+
 import Heading from '~/components/Heading.vue'
 import Footer from '~/components/Footer.vue'
 export default {
@@ -20,6 +22,7 @@ export default {
     Heading,
     Footer,
   },
+  head () { return this.$store.state.heads[this.$route.path] },
 }
 </script>
 

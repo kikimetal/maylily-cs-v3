@@ -24,10 +24,11 @@ export default {
     Footer,
     ContactForm,
   },
+  head () { return this.$store.state.heads[this.$route.path] },
 }
 </script>
 
 <style lang="scss" scoped>
-@import '~/assets/css/myset.scss';
+// @import '~/assets/css/myset.scss';
 
 </style>

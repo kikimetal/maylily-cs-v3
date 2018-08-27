@@ -75,6 +75,7 @@ export default {
       ]
     }
   },
+  head () { return this.$store.state.heads[this.$route.path] },
 }
 </script>
 

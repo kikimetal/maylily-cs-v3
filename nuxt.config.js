@@ -5,14 +5,18 @@ module.exports = {
   ** Headers of the page
   */
   head: {
-    title: 'kikimetal-v2',
+    title: '有限会社メイリリィ',
     meta: [
       { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: 'kikimetal.com ver2 with Nuxt' }
+      { name: 'viewport', content: 'width=device-width, initial-scale=1, viewport-fit=cover' },
+      { hid: 'description', name: 'description', content: 'kikimetal.com ver2 with Nuxt' },
+      { name: 'apple-mobile-web-app-status-bar-style', content: 'black' },
+      { name: 'apple-mobile-web-app-capable', content: 'yes' },
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'icon', href: '/favisons/favicon.ico', type: 'image/vnd.microsoft.icon' },
+      { rel: 'shortcut icon', href: '/favisons/favicon.ico', type: 'image/vnd.microsoft.icon' },
+      { rel: 'apple-touch-icon', sizes: '152x152', href: '/favisons/apple-touch-icon.png' },
     ]
   },
   /*

@@ -50,6 +50,7 @@ export default {
   async fetch ({ store, param }) {
     store.commit('setNewsSheet')
   },
+  head () { return this.$store.state.heads[this.$route.path] },
 }
 </script>
 
