@@ -26,7 +26,7 @@
         :modal="row.modal"
         :exact="true"
         data-aos="fade-up"
-        :data-aos-delay="i * 100" />
+        :data-aos-delay="i * 80" />
     </CardContainer>
 
     <Heading
