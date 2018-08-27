@@ -55,6 +55,7 @@ export default {
         easing: 'ease-out-cubic',
         duration: 600,
         delay: 0,
+        once: true,
       })
     }
   },
