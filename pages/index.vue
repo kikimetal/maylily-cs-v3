@@ -9,16 +9,7 @@
       :title="['News', 'Release']"
       subtitle="最新の情報をお届けします✨" />
 
-    <transition name="page">
-      <div
-        class="FetchinLoader"
-        :style="{textAlign: 'center', fontWeight: 'bold', fontSize: '20px', color: 'grey'}"
-        v-if="$store.state.sheets.news.status === 'pending'"
-        >
-        <h1>LOADING...</h1>
-        <h2>最新の情報を読み込んでいます✨</h2>
-      </div>
-    </transition>
+    <FetchLoader />
 
     <CardContainer>
       <Card
@@ -73,6 +64,7 @@ import Heading from '~/components/Heading.vue'
 import Card from '~/components/Card.vue'
 import CardContainer from '~/components/CardContainer.vue'
 import HeroImage from '~/components/HeroImage.vue'
+import FetchLoader from '~/components/FetchLoader.vue'
 import Footer from '~/components/Footer.vue'
 
 export default {
@@ -81,6 +73,7 @@ export default {
     Card,
     CardContainer,
     HeroImage,
+    FetchLoader,
     Footer,
   },
   async fetch ({ store, param }) {
