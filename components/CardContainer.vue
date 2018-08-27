@@ -18,7 +18,6 @@ export default {
   flex-flow: row wrap;
   justify-content: flex-start;
   align-items: flex-start;
-  // padding: 2em 0;
   overflow: visible;
 
   &.sm{
