@@ -9,20 +9,33 @@
       :title="['News', 'Release']"
       subtitle="最新の情報をお届けします✨" />
 
+    <transition name="page">
+      <div
+        class="FetchinLoader"
+        :style="{textAlign: 'center', fontWeight: 'bold', fontSize: '20px', color: 'grey'}"
+        v-if="$store.state.sheets.news.status === 'pending'"
+        >
+        <h1>LOADING...</h1>
+        <h2>最新の情報を読み込んでいます✨</h2>
+      </div>
+    </transition>
+
     <CardContainer>
       <Card
-      class="link"
-      v-for="(link, i) in linksInNews"
-      :key="'link-in-about-' + i"
-      :date="link.date"
-      :title="link.title"
-      :subtitle="link.subtitle"
-      :to="link.to"
-      :exact="link.exact"
-      :imgsrc="link.imgsrc"
-      data-aos="fade-up"
-      :data-aos-delay="i * 100"
-      />
+        v-for="(row, i) in $store.state.sheets.news.data"
+        v-if="row.showtop"
+        :key="'card-in-news-' + i"
+        :date="row.date"
+        :title="row.title"
+        :subtitle="row.subtitle"
+        :align="row.align"
+        :imgsrc="row.imgsrc"
+        :type="row.type"
+        :to="row.linkto"
+        :modal="row.modal"
+        :exact="true"
+        data-aos="fade-up"
+        :data-aos-delay="i * 100" />
     </CardContainer>
 
     <Heading
@@ -33,17 +46,20 @@
 
     <CardContainer>
       <Card
-      v-for="(link, i) in linksInPickUp"
-      :key="'link-in-about-' + i"
-      type="link"
-      :title="link.title"
-      :subtitle="link.subtitle"
-      :to="link.to"
-      :exact="link.exact"
-      :imgsrc="link.imgsrc"
-      data-aos="fade-up"
-      :data-aos-delay="i * 100"
-      />
+        v-for="(row, i) in $store.state.sheets.news.data"
+        v-if="row.pickup"
+        :key="'card-in-news-' + i"
+        :date="row.date"
+        :title="row.title"
+        :subtitle="row.subtitle"
+        :align="row.align"
+        :imgsrc="row.imgsrc"
+        :type="row.type"
+        :to="row.linkto"
+        :modal="row.modal"
+        :exact="true"
+        data-aos="fade-up"
+        :data-aos-delay="i * 100" />
     </CardContainer>
 
     <Footer />
@@ -51,8 +67,9 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 import Heading from '~/components/Heading.vue'
-import Logotype from '~/components/Logotype.vue'
 import Card from '~/components/Card.vue'
 import CardContainer from '~/components/CardContainer.vue'
 import HeroImage from '~/components/HeroImage.vue'
@@ -61,97 +78,13 @@ import Footer from '~/components/Footer.vue'
 export default {
   components: {
     Heading,
-    Logotype,
     Card,
     CardContainer,
     HeroImage,
     Footer,
   },
-  data () {
-    return {
-      linksInNews: [
-        {
-          date: '2018.08.03',
-          title: ['Webサイトを', 'リニューアル', 'しました'],
-          subtitle: '有限会社メイリリィは、ウェブサイトをリニューアルいたしましたのでお知らせします。',
-          to: '/news',
-          imgsrc: 'rose-aroma.jpg',
-          exact: true,
-        },
-        {
-          date: '2018.08.03',
-          title: ['ベースフレグランス', '"ネイビー"'],
-          subtitle: '香水ブランド「GARMENT」は、新しくベースフレグランス「ネイビー」を発表しました。',
-          to: '/news',
-          imgsrc: 'rose-aroma.jpg',
-          exact: true,
-        },
-        {
-          date: '2018.08.03',
-          title: ['ベースフレグランス', '"ネイビー"'],
-          subtitle: '香水ブランド「GARMENT」は、新しくベースフレグランス「ネイビー」を発表しました。',
-          to: '/news',
-          imgsrc: 'rose-aroma.jpg',
-          exact: true,
-        },
-        {
-          date: '2018.08.03',
-          title: ['ベースフレグランス', '"ネイビー"'],
-          subtitle: '香水ブランド「GARMENT」は、新しくベースフレグランス「ネイビー」を発表しました。',
-          to: '/news',
-          imgsrc: 'rose-aroma.jpg',
-          exact: true,
-        },
-        {
-          date: '2018.08.03',
-          title: ['ベースフレグランス', '"ネイビー"'],
-          subtitle: '香水ブランド「GARMENT」は、新しくベースフレグランス「ネイビー」を発表しました。',
-          to: '/news',
-          imgsrc: 'rose-aroma.jpg',
-          exact: true,
-        },
-        {
-          date: '2018.08.03',
-          title: ['Webサイトを', 'リニューアル', 'しました'],
-          subtitle: '有限会社メイリリィは、ウェブサイトをリニューアルいたしましたのでお知らせします。',
-          to: '/news',
-          imgsrc: 'rose-aroma.jpg',
-          exact: true,
-        },
-        {
-          date: '2018.08.03',
-          title: ['Webサイトを', 'リニューアル', 'しました'],
-          subtitle: '有限会社メイリリィは、ウェブサイトをリニューアルいたしましたのでお知らせします。',
-          to: '/news',
-          imgsrc: 'rose-aroma.jpg',
-          exact: true,
-        },
-        {
-          date: '2018.08.03',
-          title: ['ベースフレグランス', '"ネイビー"'],
-          subtitle: '香水ブランド「GARMENT」は、新しくベースフレグランス「ネイビー」を発表しました。',
-          to: '/news',
-          imgsrc: 'rose-aroma.jpg',
-          exact: true,
-        },
-      ],
-      linksInPickUp: [
-        {
-          title: '新しくしました！',
-          subtitle: 'ホームページをリニューアルしました',
-          to: '/news',
-          imgsrc: 'rose-aroma.jpg',
-          exact: true,
-        },
-        {
-          title: 'ガーメント新作',
-          subtitle: 'ベースフレグランス「ネイビー」を発表',
-          to: '/news',
-          imgsrc: 'rose-aroma.jpg',
-          exact: true,
-        },
-      ],
-    }
+  async fetch ({ store, param }) {
+    store.commit('setNewsSheet')
   },
 }
 </script>

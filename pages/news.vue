@@ -8,31 +8,20 @@
       subtitle="ニュースリリース"
       />
 
-    <h1>showtop</h1>
+    <transition name="page">
+      <div
+        class="FetchinLoader"
+        :style="{textAlign: 'center', fontWeight: 'bold', fontSize: '20px', color: 'grey'}"
+        v-if="$store.state.sheets.news.status === 'pending'"
+        >
+        <h1>LOADING...</h1>
+        <h2>最新の情報を読み込んでいます✨</h2>
+      </div>
+    </transition>
 
     <CardContainer>
       <Card
-        v-for="(row, i) in newsSheet"
-        v-if="row.showtop"
-        :key="'card-in-news-' + i"
-        :type="row.type"
-        :date="row.date"
-        :title="row.title"
-        :subtitle="row.subtitle"
-        :align="row.align"
-        :imgsrc="row.imgsrc"
-        :modal="row.modal"
-        :exact="true"
-        data-aos="fade-up"
-        :data-aos-delay="i * 100" />
-    </CardContainer>
-
-    <h1>pickup</h1>
-
-    <CardContainer>
-      <Card
-        v-for="(row, i) in newsSheet"
-        v-if="row.pickup"
+        v-for="(row, i) in $store.state.sheets.news.data"
         :key="'card-in-news-' + i"
         :type="row.type"
         :date="row.date"
@@ -64,91 +53,8 @@ export default {
     Card,
     CardContainer,
   },
-
-  data () {
-    return {
-      newsSheet: [],
-    }
-  },
-
-  methods: {
-    async fetchSheet () {
-
-      const sheetName = 'news'
-      const columns = [
-        'separator',
-        'showtop',
-        'pickup',
-        'date',
-        'title',
-        'subtitle',
-        'align',
-        'imgsrc',
-        'type',
-        'modal-title',
-        'modal-subtitle',
-        'modal-text',
-        'modal-links-word',
-        'modal-links-url',
-      ]
-      const queryString = `?sheetName=${sheetName}&${columns.join('&')}`
-      const apiUrl = 'https://www.maylily.co.jp/v2/assets/gss-api.php'
-      const fetchUrl = apiUrl + queryString
-
-      let res = await axios.get(fetchUrl)
-
-      if (!res.status === 200) {
-        throw new Error(res.statusText)
-      }
-
-      const separator = res.data[0].separator
-      const fixedData = res.data.map(row => fixRow(row, separator))
-      this.newsSheet = fixedData
-      // console.log('news fixed data: ', fixedData) // TODO: remove
-
-      /**
-       * gss-apiから帰ってきた配列の1行分のデータを Card に対応するよう整形
-       * @param  { Object } row       1行分のデータ=1つのカード分の情報
-       * @param  { String } separator 文字列から配列に整形する際の区切る文字列
-       * @return { Object }           Card へ最適化したオブジェクト
-       */
-      function fixRow (row, separator) {
-        // generate links object.
-        const words = row['modal-links-word'].split(separator)
-        const urls = row['modal-links-url'].split(separator)
-        const links = words.map((word, i) => ({
-          word: word,
-          to: urls[i].trim() || '/',
-          external: urls[i].trim().indexOf('http') === 0
-        }))
-        // fixed object for type=modal Card.
-        // row の各値は全て String で帰ってくるため、必要に応じて .trim() で空白を削除
-        return {
-          showtop: Number(row['showtop'].trim()),
-          pickup: Number(row['pickup'].trim()),
-          date: row.date,
-          title: row.title.split(separator),
-          subtitle: row.subtitle.split(separator),
-          align: row.align.trim() || 'left',
-          imgsrc: row.imgsrc.trim(),
-          // type は今は modal しかないけど、普通のリンクとかに拡張対応するときはここで変更
-          type: row.type.trim() || 'modal',
-          modal: {
-            title: row['modal-title'].split(separator),
-            subtitle: row['modal-subtitle'].split(separator),
-            text: row['modal-text'].split(separator),
-            links: links,
-          },
-        }
-      } // function fix
-
-    },
-  },
-
-  created () {
-    if (process.browser) {
-      this.fetchSheet()
-    }
+  async fetch ({ store, param }) {
+    store.commit('setNewsSheet')
   },
 }
 </script>
