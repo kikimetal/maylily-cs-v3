@@ -27,6 +27,7 @@ export default {
     NavTrigger,
     Modal,
   },
+
   methods: {
     setPropertyScrollY () {
       (document.body || document.documentElement).style.setProperty('--scrollY', `${window.scrollY}px`)
@@ -42,6 +43,7 @@ export default {
       AOS.refresh()
     },
   },
+
   created () {
     if (process.browser) {
       this.setWindowWidthToStore()
@@ -56,12 +58,13 @@ export default {
       })
     }
   },
+
   destroyed () {
     if (process.browser) {
       window.removeEventListener('scroll', this.handleScroll)
       window.removeEventListener('resize', this.handleResize)
     }
-  }
+  },
 }
 </script>
 
@@ -102,5 +105,4 @@ export default {
     padding-right: 10%;
   }
 }
-
 </style>
