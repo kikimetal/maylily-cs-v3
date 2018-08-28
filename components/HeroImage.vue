@@ -8,12 +8,12 @@
 
     <div class="heading">
       <h1 class="main">
-        <span data-aos="fade-up" data-aos-offset="0" data-aos-delay="300" data-aos-duration="500">Enrich</span>
-        <span data-aos="fade-up" data-aos-offset="0" data-aos-delay="400" data-aos-duration="800">your life</span>
-        <span data-aos="fade-up" data-aos-offset="0" data-aos-delay="500" data-aos-duration="1200">from</span>
-        <span data-aos="fade-up" data-aos-offset="0" data-aos-delay="600" data-aos-duration="1600">Fragrance</span>
+        <span data-aos="fade-up" data-aos-offset="0" data-aos-delay="400" data-aos-duration="500">Enrich</span>
+        <span data-aos="fade-up" data-aos-offset="0" data-aos-delay="500" data-aos-duration="800">your life</span>
+        <span data-aos="fade-up" data-aos-offset="0" data-aos-delay="600" data-aos-duration="1100">from</span>
+        <span data-aos="fade-up" data-aos-offset="0" data-aos-delay="700" data-aos-duration="1500">Fragrance</span>
       </h1>
-      <h2 class="sub" data-aos="fade-up" data-aos-offset="0" data-aos-delay="1700" data-aos-duration="700">
+      <h2 class="sub" data-aos="fade-up" data-aos-offset="0" data-aos-delay="1850" data-aos-duration="700">
         <span>私たちはライフスタイルの創造を通じて、</span>
         <span>心豊かな社会の実現に貢献します。</span>
       </h2>
@@ -61,7 +61,7 @@ export default {
     background-position: 10% center;
     background-size: cover;
     // border-radius: $border-radius;
-    box-shadow: 0 20px 70px 0 rgba($pinkgrey, 0.4);
+    box-shadow: 0 20px 70px 0 rgba($pinkgrey, 0.3);
     z-index: 1;
 
     & > span{
