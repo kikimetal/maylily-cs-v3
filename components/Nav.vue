@@ -89,7 +89,7 @@ export default {
 }
 .container-enter{
   opacity: 0;
-  transform: scale(1.2);
+  // transform: scale(1.2);
 }
 .container-leave-active {
   transition:
