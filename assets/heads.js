@@ -10,9 +10,6 @@ const common = {
     // { name: 'og:image', content: 'og image' },
   ],
   link: [
-    // { rel: 'icon', type: 'image/vnd.microsoft.icon', href: '/favisons/favicon.ico' },
-    // { rel: 'shortcut icon', type: 'image/vnd.microsoft.icon', href: '/favisons/favicon.ico' },
-    // { rel: 'apple-touch-icon', sizes: '152x152', href: '/favisons/apple-touch-icon.png' },
   ],
 }
 export default {
@@ -113,6 +110,14 @@ export default {
     link: [...common.link],
   },
   '/contact': {
+    title: 'Contact' + maylily,
+    meta: [
+      { hid: 'description', name: 'description', content: 'カスタマイズしたよ' },
+      ...common.meta,
+    ],
+    link: [...common.link],
+  },
+  '/contact/complete': {
     title: 'Contact' + maylily,
     meta: [
       { hid: 'description', name: 'description', content: 'カスタマイズしたよ' },
