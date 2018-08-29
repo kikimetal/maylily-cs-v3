@@ -7,7 +7,9 @@
 
 :root{
   --scrollY: 0px;
+  background: $white;
 }
+
 /* nuxt page transition */
 .page-enter-active {
   transition:
