@@ -14,9 +14,9 @@ module.exports = {
       { name: 'apple-mobile-web-app-capable', content: 'yes' },
     ],
     link: [
-      { rel: 'icon', type: 'image/vnd.microsoft.icon', href: '/favisons/favicon.ico' },
-      { rel: 'shortcut icon', type: 'image/vnd.microsoft.icon', href: '/favisons/favicon.ico' },
-      { rel: 'apple-touch-icon', sizes: '152x152', href: '/favisons/apple-touch-icon.png' },
+      { rel: 'icon', type: 'image/vnd.microsoft.icon', href: '/favicon.ico' },
+      { rel: 'shortcut icon', type: 'image/vnd.microsoft.icon', href: '/favicon.ico' },
+      { rel: 'apple-touch-icon', sizes: '152x152', href: '/apple-touch-icon.png' },
     ]
   },
   /*
