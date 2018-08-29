@@ -17,7 +17,8 @@
   "dependencies": {
     "aos": "^2.3.3",
     "axios": "^0.18.0",
-    "nuxt": "^1.0.0"
+    "nuxt": "^1.0.0",
+    "vee-validate": "^2.1.0-beta.8"
   },
   "devDependencies": {
     "babel-eslint": "^8.2.1",
