@@ -20,12 +20,10 @@
 <script>
 import Heading from '~/components/Heading.vue'
 import Footer from '~/components/Footer.vue'
-import MailForm from '~/components/MailForm.vue'
 export default {
   components: {
     Heading,
     Footer,
-    MailForm,
   },
   head () { return this.$store.state.heads[this.$route.path] },
 }
