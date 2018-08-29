@@ -55,7 +55,7 @@ export default {
         easing: 'ease-out-cubic',
         duration: 600,
         delay: 0,
-        once: true,
+        // once: true,
       })
     }
   },
@@ -81,29 +81,29 @@ export default {
     min-height: 100vh;
     transform-origin: 50% calc(50vh + var(--scrollY));
   }
-}
 
-// section layout
-.page-container .page section{
-  font-size: 15rem;
-  padding: 2.2em 1.4em;
-  color: $general;
-  & > p{
-    padding: 0.6em 0 0.7em;
-    line-height: 1.7;
-    opacity: 0.8;
-  }
-  & > h3{
-    font-size: 1.1em;
-    padding: 0.7em 0;
-    line-height: 1.5;
-    font-weight: bold;
-  }
-  & > img{
-    margin: 0 auto;
-    max-width: 100%;
-    height: auto;
-    padding-right: 10%;
+  // section layout
+  .page > section{
+    font-size: 15rem;
+    padding: 2.2em 1.4em;
+    color: $general;
+    & > p{
+      padding: 0.6em 0 0.7em;
+      line-height: 1.7;
+      opacity: 0.8;
+    }
+    & > h3{
+      font-size: 1.1em;
+      padding: 0.7em 0;
+      line-height: 1.5;
+      font-weight: bold;
+    }
+    & > img{
+      margin: 0 auto;
+      max-width: 100%;
+      height: auto;
+      padding-right: 10%;
+    }
   }
 }
 </style>
