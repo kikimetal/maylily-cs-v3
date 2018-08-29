@@ -91,7 +91,7 @@ const store = () => new Vuex.Store({
 
       const sheetName = 'news'
 
-      console.log('Store sheets: ', state.sheets[sheetName].status) // TODO: remove
+      console.log('Store sheets status: ', state.sheets[sheetName].status) // TODO: remove
 
       const exist = state.sheets[sheetName].status === 'pending'
       if (!exist) return
@@ -127,10 +127,12 @@ const store = () => new Vuex.Store({
       const separator = res.data[0].separator.trim() || '<split>'
       const fixedData = res.data.map(row => fixRow(row, separator))
 
-      console.log('Store sheets: ', fixedData) // TODO: remove
+      console.log('Store sheets data: ', fixedData) // TODO: remove
 
       state.sheets[sheetName].status = 'fulfilled'
       state.sheets[sheetName].data = fixedData
+
+      console.log('Store sheets status: ', state.sheets[sheetName].status) // TODO: remove
 
       /**
        * gss-apiから帰ってきた配列の1行分のデータを Card に対応するよう整形
