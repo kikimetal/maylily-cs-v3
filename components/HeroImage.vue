@@ -1,7 +1,7 @@
 <template lang="html">
   <div :class="['HeroImage', $store.state.ww.size]">
 
-    <img class="logo" src="~/assets/img/logo.png" alt="メイリリィのロゴ" />
+    <img class="logo" src="~/assets/img/logo.svg" alt="メイリリィのロゴ" />
     <div class="background">
       <span /><span /><span /><span />
     </div>
