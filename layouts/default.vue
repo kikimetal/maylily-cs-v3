@@ -85,18 +85,27 @@ export default {
   // section layout
   .page > section{
     font-size: 15rem;
-    padding: 2.2em 1.4em;
+    padding: 2em 1.4em;
     color: $general;
     & > p{
-      padding: 0.6em 0 0.7em;
+      padding: 1em 0 0.7em;
       line-height: 1.7;
       opacity: 0.8;
     }
-    & > h3{
-      font-size: 1.1em;
-      padding: 0.7em 0;
+    & > h1{
+      font-size: 1.6em;
+      padding: 1em 0 0.3em;
       line-height: 1.5;
       font-weight: bold;
+    }
+    & > h2{
+      font-size: 1.3em;
+      padding: 1em 0 0em;
+      line-height: 1.5;
+      font-weight: bold;
+      // &.center{
+      //   text-align: center;
+      // }
     }
     & > img{
       margin: 0 auto;
@@ -108,19 +117,21 @@ export default {
 
   &.md, &.lg, &.xl{
     .page > section{
-      max-width: 900px;
+      padding: 2.4em 1.4em;
+      font-size: 17rem;
+      max-width: 950px;
       margin: 0 auto;
-    //   padding: 2em 7em;
-    //   display: flex;
-    //   flex-flow: row wrap;
-    //   justify-content: center;
-    //   align-items: center;
-    //
-    //   & > *{
-    //     // flex: 1 1 50%;
-    //     width: 50%;
-    //     padding: 2%;
-    //   }
+      & > h1{
+        padding: 1.7em 0 0;
+      }
+      & > h2{
+        padding: 1em 0 0.6em;
+        // text-align: center;
+      }
+      & > p{
+        line-height: 2;
+        padding: 1em 0 1.3em;
+      }
     }
   }
 }

@@ -1,5 +1,5 @@
 <template lang="html">
-  <div class="LazyLoadImg" :style="imgstyleOverride">
+  <div :class="['LazyLoadImg', $store.state.ww.size]" :style="imgstyleOverride">
     <div class="placeholder" :class="{loaded: isLoaded}">
       <img class="loader-gif" src="~/assets/img/loading.svg" alt="" />
       <span class="loader-text">LOADING</span>
@@ -52,6 +52,10 @@ export default {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+
+  &.md, &.lg, &.xl{
+    padding-top: 400px;
+  }
 
   .placeholder{
     position: absolute;
