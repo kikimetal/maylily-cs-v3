@@ -71,7 +71,7 @@
         :class="{ error: hasError('zipcode') }"
         type="text"
         name="zipcode"
-        placeholder="03-1234-1234"
+        placeholder="123-0001"
         v-model="zipcode"
         v-validate="'required|max:14'">
         <div class="border" />
@@ -88,7 +88,7 @@
         :class="{ error: hasError('address') }"
         type="text"
         name="address"
-        placeholder="03-1234-1234"
+        placeholder="神奈川県横浜市都筑区1-2-3"
         v-model="address"
         v-validate="'required|max:14'">
         <div class="border" />
@@ -98,27 +98,111 @@
       </label>
     </section>
 
-    <section>
-      <h1 class="heading">お問い合わせ内容 (必須)</h1>
-      <div class="checkbox-container">
-        <label>
-          <input type="checkbox" v-model="contactTypeSelect" value="ROSE DARENA"/>
-          <div class="lever"><span class="circle" />"ROSE DARENA"について</div>
-        </label>
-        <label>
-          <input type="checkbox" v-model="contactTypeSelect" value="GARMENT"/>
-          <div class="lever"><span class="circle" />"GARMENT"について</div>
-        </label>
-        <label>
-          <input type="checkbox" v-model="contactTypeSelect" value="ローズ原料事業"/>
-          <div class="lever"><span class="circle" />"ローズ原料事業"について</div>
-        </label>
-        <label>
-          <input type="checkbox" v-model="contactTypeSelect" value="その他"/>
-          <div class="lever"><span class="circle" />その他のお問い合わせ</div>
-        </label>
+    <button class="submit" @click.prevent="formTypeOEM = !formTypeOEM">exchage OEM</button>
+
+    <transition name="oem-exchange" mode="out-in">
+      <div v-if="formTypeOEM" :key="'oemTrue'">
+        <section>
+          <h1 class="heading">OEM製造品目（必須）</h1>
+          <div class="checkbox-container">
+            <label>
+              <input type="checkbox" v-model="oemProductSelect" value="香水"/>
+              <div class="lever"><span class="circle" />香水</div>
+            </label>
+            <label>
+              <input type="checkbox" v-model="oemProductSelect" value="ルームディフューザー／ルームフレグランス"/>
+              <div class="lever"><span class="circle" />ルームディフューザー／ルームフレグランス</div>
+            </label>
+            <label>
+              <input type="checkbox" v-model="oemProductSelect" value="ファブリックミスト／ピローミスト"/>
+              <div class="lever"><span class="circle" />ファブリックミスト／ピローミスト</div>
+            </label>
+            <label>
+              <input type="checkbox" v-model="oemProductSelect" value="スキンケア製品"/>
+              <div class="lever"><span class="circle" />スキンケア製品</div>
+            </label>
+            <label>
+              <input type="checkbox" v-model="oemProductSelect" value="その他"/>
+              <div class="lever"><span class="circle" />その他</div>
+            </label>
+          </div>
+        </section>
+        <section>
+          <h1 class="heading">OEM製造目的（必須）</h1>
+          <div class="checkbox-container">
+            <label>
+              <input type="checkbox" v-model="oemObjectSelect" value="販売"/>
+              <div class="lever"><span class="circle" />販売</div>
+            </label>
+            <label>
+              <input type="checkbox" v-model="oemObjectSelect" value="記念品・ノベルティ"/>
+              <div class="lever"><span class="circle" />記念品・ノベルティ</div>
+            </label>
+            <label>
+              <input type="checkbox" v-model="oemObjectSelect" value="その他"/>
+              <div class="lever"><span class="circle" />その他</div>
+            </label>
+          </div>
+        </section>
+        <section class="flex">
+          <h1 class="heading">OEMご希望数量（必須）</h1>
+          <label>
+            <input
+            :class="{ error: hasError('oemNum') }"
+            type="text"
+            name="oemNum"
+            placeholder="1000"
+            v-model="oemNum"
+            v-validate="'required|numeric'">
+            <div class="border" />
+            <transition name="page">
+              <div class="error-message" v-show="hasError('oemNum')">入力が正しくありません！</div>
+            </transition>
+          </label>
+        </section>
+        <section class="flex">
+          <h1 class="heading">OEM後希望納期（必須）</h1>
+          <label>
+            <input
+            :class="{ error: hasError('oemDate') }"
+            type="text"
+            name="oemDate"
+            placeholder="1000"
+            v-model="oemDate"
+            v-validate="'required|numeric'">
+            <div class="border" />
+            <transition name="page">
+              <div class="error-message" v-show="hasError('oemDate')">入力が正しくありません！</div>
+            </transition>
+          </label>
+        </section>
+      </div><!-- formTypeOEM -->
+
+      <div v-else :key="'oemFalse'">
+        <section>
+          <h1 class="heading">お問い合わせ内容 (必須)</h1>
+          <div class="checkbox-container">
+            <label>
+              <input type="checkbox" v-model="contentSelect" value="ROSE DARENA"/>
+              <div class="lever"><span class="circle" />"ROSE DARENA"について</div>
+            </label>
+            <label>
+              <input type="checkbox" v-model="contentSelect" value="GARMENT"/>
+              <div class="lever"><span class="circle" />"GARMENT"について</div>
+            </label>
+            <label>
+              <input type="checkbox" v-model="contentSelect" value="ローズ原料事業"/>
+              <div class="lever"><span class="circle" />"ローズ原料事業"について</div>
+            </label>
+            <label>
+              <input type="checkbox" v-model="contentSelect" value="その他"/>
+              <div class="lever"><span class="circle" />その他のお問い合わせ</div>
+            </label>
+          </div>
+        </section>
       </div>
-    </section>
+
+    </transition><!-- formTypeOEM transition -->
 
     <section>
       <h1 class="heading">メッセージ本文 (必須)</h1>
@@ -152,8 +236,13 @@ export default {
       zipcode: '',
       email: '',
       address: '',
-      contactTypeSelect: [],
+      contentSelect: [],
       message: "",
+      formTypeOEM: false, // OEM 分岐
+      oemProductSelect: [],
+      oemObjectSelect: [],
+      oemNum: 0,
+      oemDate: null,
       checked: false, // エラーチェックが一度でも走ったかどうか
     }
   },
@@ -168,7 +257,7 @@ export default {
         title: this.title,
         name: this.name,
         email: this.email,
-        contactTypeSelect: this.contactTypeSelect,
+        contentSelect: this.contentSelect,
         message: this.message,
       }
       // なにこの曲者...
@@ -190,6 +279,8 @@ export default {
       const found = target.find(value => value === '' || value === null)
       const isInputAll = found === undefined
       const isValidAll = !this.errors.items.length
+
+      console.log(this)
 
       if (isInputAll && isValidAll) return true
       else return false
@@ -391,6 +482,34 @@ export default {
         padding-left: 0.9em;
       }
     }
+  }
+
+  .oem-exchange{
+    position: relative;
+    & > div{
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+    }
+  }
+  .oem-exchange-enter-active {
+    transition:
+      opacity ease .4s,
+      transform $ease-out .4s;
+  }
+  .oem-exchange-leave-active {
+    transition:
+      opacity ease .4s,
+      transform $ease-out .4s;
+  }
+  .oem-exchange-leave-to {
+    opacity: 0;
+    transform: translateX(24px);
+  }
+  .oem-exchange-enter{
+    opacity: 0;
+    transform: translateX(-24px);
   }
 }
 </style>
