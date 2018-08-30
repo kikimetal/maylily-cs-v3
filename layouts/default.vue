@@ -4,7 +4,7 @@
     <Nav />
     <NavTrigger />
 
-    <div :class="['page-container', {blur: $store.state.isShowNav}]">
+    <div :class="['page-container', $store.state.ww.size]">
       <nuxt/>
     </div>
 
@@ -103,6 +103,24 @@ export default {
       max-width: 100%;
       height: auto;
       padding-right: 10%;
+    }
+  }
+
+  &.md, &.lg, &.xl{
+    .page > section{
+      max-width: 900px;
+      margin: 0 auto;
+    //   padding: 2em 7em;
+    //   display: flex;
+    //   flex-flow: row wrap;
+    //   justify-content: center;
+    //   align-items: center;
+    //
+    //   & > *{
+    //     // flex: 1 1 50%;
+    //     width: 50%;
+    //     padding: 2%;
+    //   }
     }
   }
 }

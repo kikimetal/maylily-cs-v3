@@ -134,7 +134,7 @@ export default {
       margin: 0 auto;
       padding: 1em 2em;
       // width: max-content;
-      width: 80vw;
+      width: 80%;
       background: $white;
       box-shadow: $shadow-set;
       overflow: visible;
