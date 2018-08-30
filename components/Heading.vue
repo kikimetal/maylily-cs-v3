@@ -87,6 +87,7 @@ export default {
     span{
       display: inline-block;
       padding-right: 0.2em;
+      padding-bottom: 0.2em;
       &:last-child{
         padding-right: 0;
       }
