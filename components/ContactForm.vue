@@ -1,5 +1,6 @@
 <template>
-  <form ref="form" :class="['MailForm', $store.state.ww.size]">
+<div :class="['MailForm', $store.state.ww.size]">
+  <form>
 
     <section class="flex">
       <h1 class="heading">会社名 (任意)</h1>
@@ -98,10 +99,15 @@
       </label>
     </section>
 
-    <button class="submit" @click.prevent="formTypeOEM = !formTypeOEM">exchage OEM</button>
+    <div data-aos="zoom-out" data-aos-duration="1000" data-aos-offset="0" data-aos-once="false">
+      <transition name="oem-exchange" mode="out-in">
+        <button v-if="contactTypeOEM" key="oemTrue" class="submit" @click.prevent="contactTypeOEM = !contactTypeOEM">通常のお問い合わせはこちら</button>
+        <button v-else key="oemFalse" class="submit" @click.prevent="contactTypeOEM = !contactTypeOEM">"OEM"のお問い合わせはこちら</button>
+      </transition>
+    </div>
 
     <transition name="oem-exchange" mode="out-in">
-      <div v-if="formTypeOEM" :key="'oemTrue'">
+      <div v-if="contactTypeOEM" key="oemTrue">
         <section>
           <h1 class="heading">OEM製造品目（必須）</h1>
           <div class="checkbox-container">
@@ -167,7 +173,7 @@
             :class="{ error: hasError('oemDate') }"
             type="text"
             name="oemDate"
-            placeholder="1000"
+            placeholder="2019年3月"
             v-model="oemDate"
             v-validate="'required|numeric'">
             <div class="border" />
@@ -176,33 +182,33 @@
             </transition>
           </label>
         </section>
-      </div><!-- formTypeOEM -->
+      </div><!-- contactTypeOEM -->
 
-      <div v-else :key="'oemFalse'">
+      <div v-else key="oemFalse">
         <section>
           <h1 class="heading">お問い合わせ内容 (必須)</h1>
           <div class="checkbox-container">
             <label>
-              <input type="checkbox" v-model="contentSelect" value="ROSE DARENA"/>
+              <input type="checkbox" v-model="contactContentSelect" value="ROSE DARENA"/>
               <div class="lever"><span class="circle" />"ROSE DARENA"について</div>
             </label>
             <label>
-              <input type="checkbox" v-model="contentSelect" value="GARMENT"/>
+              <input type="checkbox" v-model="contactContentSelect" value="GARMENT"/>
               <div class="lever"><span class="circle" />"GARMENT"について</div>
             </label>
             <label>
-              <input type="checkbox" v-model="contentSelect" value="ローズ原料事業"/>
+              <input type="checkbox" v-model="contactContentSelect" value="ローズ原料事業"/>
               <div class="lever"><span class="circle" />"ローズ原料事業"について</div>
             </label>
             <label>
-              <input type="checkbox" v-model="contentSelect" value="その他"/>
+              <input type="checkbox" v-model="contactContentSelect" value="その他"/>
               <div class="lever"><span class="circle" />その他のお問い合わせ</div>
             </label>
           </div>
         </section>
       </div>
 
-    </transition><!-- formTypeOEM transition -->
+    </transition><!-- contactTypeOEM transition -->
 
     <section>
       <h1 class="heading">メッセージ本文 (必須)</h1>
@@ -214,10 +220,13 @@
     </section>
 
     <br>
-    <button class="submit" @click.prevent="handleCheckAll">CHECK</button>
-    <button class="submit" @click.prevent="submit">SEND</button>
+    <button class="submit" @click.prevent="handleCheckAll">CheckAll(開発用)</button>
+    <button class="submit" @click.prevent="submit">送信する</button>
 
   </form>
+
+  <p class="attention">個人情報の取り扱いについては「<router-link to="/privacy-policy">プライバシーポリシー</router-link>」をご覧ください。</p>
+</div>
 </template>
 
 <script>
@@ -229,20 +238,20 @@ Vue.use(VeeValidate)
 export default {
   data () {
     return {
-      title: 'コンタクトフォームからのお問い合わせです。',
-      company: '',
+      // errors: [], // <- vee-validate injected
+      company: null,
       name: '',
+      email: '',
       phone: '',
       zipcode: '',
-      email: '',
       address: '',
-      contentSelect: [],
-      message: "",
-      formTypeOEM: false, // OEM 分岐
+      contactTypeOEM: false, // OEM 分岐
+      contactContentSelect: [],
       oemProductSelect: [],
       oemObjectSelect: [],
-      oemNum: 0,
+      oemNum: null,
       oemDate: null,
+      message: '',
       checked: false, // エラーチェックが一度でも走ったかどうか
     }
   },
@@ -253,42 +262,91 @@ export default {
         return alert('情報の入力が不足しています！')
       }
       const apiUrl = 'https://www.maylily.co.jp/api/sendMail.php'
-      const formData = {
-        title: this.title,
-        name: this.name,
-        email: this.email,
-        contentSelect: this.contentSelect,
-        message: this.message,
-      }
+      const formData = this.getTarget(Object, false)
       // なにこの曲者...
+      console.log('req data', formData) // TODO:remove
       let params = new URLSearchParams(formData)
       const res = await axios.post(apiUrl, params)
-      console.log(res)
-      this.$router.push({path: '/contact/complete'})
-      // return alert('OK, SEND')
+      if (res.data === true) {
+        console.log('res success') // TODO:remove
+        return alert('RES: OK!')
+      } else {
+        console.warn('res error: ', res.data) // TODO:remove
+        return alert('RES: ERROR!')
+      }
+      // this.$router.push({path: '/contact/complete'})
     },
 
     handleCheckAll () {
       this.checked = true
 
-      const target = [
-        this.title,
-        this.name,
-        this.email,
-      ]
-      const found = target.find(value => value === '' || value === null)
+      const target = this.getTarget(Array, true)
+      const found = target.find(value => value === '' || value === null || value === [])
       const isInputAll = found === undefined
       const isValidAll = !this.errors.items.length
 
-      console.log(this)
+      console.log(this.errors)
 
-      if (isInputAll && isValidAll) return true
-      else return false
+      const exist = isInputAll && isValidAll
+      console.log('checkAll Result: ', exist)
+      return exist
     },
 
     hasError (name) {
       return this.errors.has(name) || this.checked && !this[name]
-    }
+    },
+
+    /**
+     * contactTypeOEM の真偽値で分岐し、checkする適切なターゲットを返す
+     * @param  {Object | Array} type :Object || Array で指定できる
+     * @param  {Boolean} required    :true で必須項目のみ取得 false で全部
+     * @return {Object | Array}      :指定した形でターゲットを返す
+     */
+    getTarget (type, required = false) {
+      let target = [
+        'name',
+        'email',
+        'phone',
+        'zipcode',
+        'address',
+        'message',
+        'contactTypeOEM',
+      ]
+      if (!required) {
+        // 入力必須ではない項目を追加
+        target = [
+          ...target,
+          'company'
+        ]
+      }
+      if (this.contactTypeOEM) {
+        target = [
+          ...target,
+          'oemProductSelect',
+          'oemObjectSelect',
+          'oemNum',
+          'oemDate',
+        ]
+      } else {
+        target = [
+          ...target,
+          'contactContentSelect'
+        ]
+      }
+
+      if (type === Object) {
+        const obj = {}
+        target.map(t => Object.assign(obj, {[t]: this[t]}))
+        return obj
+      }
+
+      if (type === Array) {
+        const arr = target.map(t => this[t])
+        return arr
+      }
+
+      throw new Error('Object か Array を引数に指定してください')
+    },
   },
 }
 </script>
@@ -299,9 +357,12 @@ export default {
 .MailForm{
   font-size: 17rem;
   margin: auto;
-  padding: 2em;
+  padding: 1em;
   width: 100%;
-  overflow: visible;
+
+  div, form, section{
+    overflow: visible;
+  }
 
   input, textarea, button{
     appearance: none;
@@ -313,7 +374,6 @@ export default {
     position: relative;
     display: block;
     padding: 2.1em 0 2em;
-    overflow: visible;
 
     .heading{
       font-size: 1.1em;
@@ -395,8 +455,11 @@ export default {
     }
   }
 
-  .submit{
+  button.submit{
+    display: block;
+    margin: 4em auto 1em;
     padding: 1em 3em;
+    width: 96%;
     border: none;
     border-radius: 3em;
     background: $primary;
@@ -404,6 +467,7 @@ export default {
     font-weight: bold;
     box-shadow: $shadow-set;
     cursor: pointer;
+    transition-duration: 0.7s; // transition .oem-exchange を上書き
   }
 
   .checkbox-container{
@@ -417,7 +481,9 @@ export default {
       align-items: center;
       width: 100%;
       margin: 0.5em auto;
-      padding: 0.9em 1.3em;
+      padding: 0.9em 0;
+      padding-left: 1.2em;
+      padding-right: 1em;
       font-weight: bold;
       color: $grey;
       border: 1px solid rgba($grey, 0.4);
@@ -427,10 +493,11 @@ export default {
 
       .circle{
         display: inline-block;
+        flex: 0 0 auto;
         width: 0.8em;
         height: 0.8em;
         margin-bottom: 0.05em;
-        margin-right: 0.75em;
+        margin-right: 0.7em;
         border-radius: 50%;
         box-shadow: 0 0 0 1px $grey;
         transition: all 0.3s ease;
@@ -495,13 +562,13 @@ export default {
   }
   .oem-exchange-enter-active {
     transition:
-      opacity ease .4s,
-      transform $ease-out .4s;
+      opacity .4s ease,
+      transform .4s $ease-out;
   }
   .oem-exchange-leave-active {
     transition:
-      opacity ease .4s,
-      transform $ease-out .4s;
+      opacity .4s ease,
+      transform .4s $ease-out;
   }
   .oem-exchange-leave-to {
     opacity: 0;
@@ -510,6 +577,21 @@ export default {
   .oem-exchange-enter{
     opacity: 0;
     transform: translateX(-24px);
+  }
+
+  .attention{
+    padding-top: 5em;
+    color: $grey;
+    text-align: center;
+    a{
+      color: $primary;
+      text-decoration: underline;
+    }
+  }
+  &.sm{
+    .attention{
+      text-align: left;
+    }
   }
 }
 </style>
