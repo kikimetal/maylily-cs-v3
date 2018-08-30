@@ -8,7 +8,7 @@
       subtitle="お問い合わせ"
       />
 
-    <MailForm />
+    <ContactForm />
 
     <Footer />
   </div>
@@ -17,12 +17,12 @@
 <script>
 import Heading from '~/components/Heading.vue'
 import Footer from '~/components/Footer.vue'
-import MailForm from '~/components/MailForm.vue'
+import ContactForm from '~/components/ContactForm.vue'
 export default {
   components: {
     Heading,
     Footer,
-    MailForm,
+    ContactForm,
   },
   head () { return this.$store.state.heads[this.$route.path] },
 }
