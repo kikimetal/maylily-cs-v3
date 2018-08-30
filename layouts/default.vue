@@ -103,9 +103,6 @@ export default {
       padding: 1em 0 0em;
       line-height: 1.5;
       font-weight: bold;
-      // &.center{
-      //   text-align: center;
-      // }
     }
     & > img{
       margin: 0 auto;
@@ -126,7 +123,6 @@ export default {
       }
       & > h2{
         padding: 1em 0 0.6em;
-        // text-align: center;
       }
       & > p{
         line-height: 2;
