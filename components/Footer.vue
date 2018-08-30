@@ -8,6 +8,7 @@
     data-aos="fade-up"
     data-aos-offset="-100"
     data-aos-delay="0"
+    data-aos-once="true"
     :data-aos-duration="500 + 50 * index"
     :to="route.path"
     :exact="route.exact">
