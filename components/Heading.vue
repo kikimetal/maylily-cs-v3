@@ -44,6 +44,10 @@
 <script>
 import LazyLoadImg from '~/components/LazyLoadImg.vue'
 
+// const imgOverrideStyleWhenMdOverSize = {
+//   paddingTop: '400px',
+// }
+
 export default {
   components: {
     LazyLoadImg,
@@ -55,19 +59,18 @@ export default {
     subtitle: { type: [String, Number, Array], default: 'sub heading...' },
     imgsrc: { type: String, default: 'kikigirl.jpg' },
     alt: { type: String, default: '画像です' },
-    imgstyle: { type: Object, default: null },
+    imgstyle: { type: Object, default: () => {} },
   },
   data () {
     return {
       titleArray: typeof this.title === 'object' ? this.title : new Array(this.title),
       subtitleArray: typeof this.subtitle === 'object' ? this.subtitle : new Array(this.subtitle),
+      // imgstyleFixedMdOver: this.$store.state.ww.size === 'sm' ? this.imgstyle : {
+      //   ...this.imgstyle,
+      //   ...imgOverrideStyleWhenMdOverSize,
+      // },
     }
   },
-  created () {
-    // if (process.browser) {
-    //   console.log(typeof this.imgsrc)
-    // }
-  }
 }
 </script>
 
