@@ -90,7 +90,12 @@ export default {
     & > p{
       padding: 1em 0 0.7em;
       line-height: 1.7;
-      opacity: 0.8;
+      color: rgba($general, 0.7);
+      a{
+        text-decoration: underline;
+        color: $secondary;
+        cursor: pointer;
+      }
     }
     & > h1{
       font-size: 1.6em;
@@ -103,12 +108,50 @@ export default {
       padding: 1em 0 0em;
       line-height: 1.5;
       font-weight: bold;
+      color: rgba($general, 0.9);
     }
     & > img{
       margin: 0 auto;
       max-width: 100%;
       height: auto;
       padding-right: 10%;
+    }
+
+    & > .grid{
+      display: flex;
+      flex-flow: column;
+      line-height: 1.4;
+      color: rgba($general, 0.6);
+      & > *{
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+        align-items: flex-start;
+        background: rgba($grey, 0.12);
+        border: 1px solid $white;
+        padding: 0.8em 1em 0.6em;
+        font-weight: bold;
+        &:nth-child(even){
+          background: rgba($pinkgrey, 0.14);
+          font-weight: normal;
+          // font-size: 0.9em;
+          color: rgba($general, 0.9);
+        }
+      }
+    }
+
+    & > .half{
+      & > div > h2{
+        line-height: 1;
+        font-size: 1.3em;
+        padding-bottom: 1em;
+        font-weight: bold;
+      }
+      & > div > p{
+        line-height: 1.6;
+        color: rgba($general, 0.7);
+        padding-bottom: 3em;
+      }
     }
   }
 
@@ -126,7 +169,35 @@ export default {
       }
       & > p{
         line-height: 2;
-        padding: 1em 0 1.3em;
+        padding: 1.1em 0 1.3em;
+      }
+
+      & > .grid{
+        display: flex;
+        flex-flow: row wrap;
+        line-height: 1.6;
+        & > *{
+          width: 20%;
+          &:nth-child(even){
+            width: 80%;
+          }
+        }
+      }
+
+      & > .half{
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+        align-items: flex-start;
+        & > div{
+          padding: 1em;
+        }
+        & > *{
+          width: 49.8%;
+          &:nth-child(even) *{
+            transition-delay: 0.2s;
+          }
+        }
       }
     }
   }
