@@ -10,12 +10,12 @@
 
     <section>
       <Heading
-        type="photogenic"
-        :title="['Our', 'Vision']"
-        subtitle="私たちが目指すもの"
-        imgsrc="OurVision.jpg"
-        alt="企業理念のイメージ画像"
-        />
+      type="photogenic"
+      :title="['Our', 'Vision']"
+      subtitle="私たちが目指すもの"
+      imgsrc="OurVision.jpg"
+      alt="企業理念のイメージ画像"
+      />
       <h1>既存の枠にとらわれない、新しい生活文化を提案します。</h1>
       <p>
         香りのプロフェッショナルという強みを活かしながら、自由な発想と独自の技術で常識を打破し、感動ある商品を生み出すことで、既存の枠にとらわれない新しい生活文化を提案し、新たなマーケットを開拓し続けるオンリーワン企業をめざします。
@@ -24,12 +24,12 @@
 
     <section>
       <Heading
-        type="photogenic"
-        :title="['Our', 'Mission']"
-        subtitle="今、私たちの臨むもの"
-        imgsrc="OurMission.jpg"
-        alt="企業理念のイメージ画像"
-        />
+      type="photogenic"
+      :title="['Our', 'Mission']"
+      subtitle="今、私たちの臨むもの"
+      imgsrc="OurMission.jpg"
+      alt="企業理念のイメージ画像"
+      />
       <h1>今までにない新しい価値やライフスタイルの創造を。</h1>
       <p>
         「衣・食・住・健・美」の生活文化を事業領域に定め、今までにない新しい価値やライフスタイルの創造を通じて、世界中のあらゆる人々の生活に幸せと彩りを届け、心豊かな社会の実現に貢献します。
@@ -38,12 +38,12 @@
 
     <section>
       <Heading
-        type="photogenic"
-        :title="['Our', 'Value']"
-        subtitle="私たちの価値観"
-        imgsrc="OurValue.jpg"
-        alt="企業理念のイメージ画像"
-        />
+      type="photogenic"
+      :title="['Our', 'Value']"
+      subtitle="私たちの価値観"
+      imgsrc="OurValue.jpg"
+      alt="企業理念のイメージ画像"
+      />
       <h2 class="center">Integrity / 誠実な行動</h2>
       <p>
         私たちは法令・社会規範を遵守し、あらゆる場面で、あらゆる人々に対して、誠実、親切、公正に接する。
@@ -68,12 +68,12 @@
 
     <section>
       <Heading
-        type="photogenic"
-        :title="'&quot;Maylily&quot;'"
-        subtitle="社名の由来"
-        imgsrc="naming.jpg"
-        alt="企業理念のイメージ画像"
-        />
+      type="photogenic"
+      :title="'&quot;Maylily&quot;'"
+      subtitle="社名の由来"
+      imgsrc="naming.jpg"
+      alt="企業理念のイメージ画像"
+      />
 
       <p>社名の「May lily」は、英語でスズランを意味する言葉です。</p>
       <p>
