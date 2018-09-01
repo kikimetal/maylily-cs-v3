@@ -29,7 +29,7 @@
     </div>
 
     <!-- type basic -->
-    <div v-else :class="['Heading', 'basic', { pagetop: pagetop }]">
+    <div v-else :class="['Heading', 'basic', { pagetop: pagetop }, $store.state.ww.size]">
       <h1 class="title">
         <span v-for="(word, i) in titleArray" :key="'title-word-' + i">{{ word }}</span>
       </h1>
@@ -152,8 +152,19 @@ export default {
     }
   }
 
-  &.pagetop{
-    padding: 7em 0 4em;
+  &.basic.pagetop{
+    padding: 4em 0 2em;
+    font-size: 30rem;
+    text-transform: uppercase;
+    &.md{
+      font-size: 34rem;
+    }
+    &.lg{
+      font-size: 38rem;
+    }
+    &.xl{
+      font-size: 42rem;
+    }
   }
 }
 
