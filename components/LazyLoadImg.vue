@@ -4,15 +4,16 @@
       <img class="loader-gif" src="~/assets/img/loading.svg" alt="" />
       <span class="loader-text">LOADING</span>
     </div>
-    <img class="fake" :src="fixedImgsrc" @load="loaded"/>
+    <img class="fake" :src="fixedImgsrc" :alt="alt" @load="loaded"/>
   </div>
 </template>
 
 <script>
 export default {
   props: {
-    imgsrc: { type: String, default: 'kikigirl.jpg' },
+    imgsrc: { type: String, default: 'rose-aroma.jpg' },
     imgstyle: { type: Object, default: null },
+    alt: { type: String, default: '' },
   },
   data () {
 
