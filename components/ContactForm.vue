@@ -101,8 +101,8 @@
 
     <div data-aos="zoom-out" data-aos-duration="1000" data-aos-offset="0" data-aos-once="false">
       <transition name="oem-exchange" mode="out-in">
-        <button v-if="contactTypeOEM" key="oemTrue" class="submit" @click.prevent="contactTypeOEM = !contactTypeOEM">通常のお問い合わせはこちら</button>
-        <button v-else key="oemFalse" class="submit" @click.prevent="contactTypeOEM = !contactTypeOEM">"OEM"のお問い合わせはこちら</button>
+        <button class="oem-exchange-btn oemTrue" v-if="contactTypeOEM" key="oemTrue" @click.prevent="contactTypeOEM = !contactTypeOEM">通常のお問い合わせはこちら</button>
+        <button class="oem-exchange-btn oemFalse" v-else key="oemFalse" @click.prevent="contactTypeOEM = !contactTypeOEM">"OEM"のお問い合わせはこちら</button>
       </transition>
     </div>
 
@@ -455,19 +455,17 @@ export default {
     }
   }
 
-  button.submit{
-    display: block;
-    margin: 4em auto 1em;
-    padding: 1em 3em;
-    width: 96%;
-    border: none;
-    border-radius: 3em;
-    background: $primary;
-    color: white;
-    font-weight: bold;
-    box-shadow: $shadow-set;
-    cursor: pointer;
-    transition-duration: 0.7s; // transition .oem-exchange を上書き
+  button{
+    @include btn;
+    &.oem-exchange-btn{
+      transition-duration: 0.7s; // transition .oem-exchange を上書き
+      &.oemTrue{
+        @include btn($primary, $white);
+      }
+    }
+    &:not(.oem-exchange-btn){
+      @include hover-touchme;
+    }
   }
 
   .checkbox-container{

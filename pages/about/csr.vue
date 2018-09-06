@@ -47,13 +47,12 @@
       <p>
         これから社会人となる子どもたちは、食のプロである有名シェフの指導を通じて、プロフェッショナルとしての心構えや創意工夫の大切さを学びます。
       </p>
-      <Btn
-      text="一般社団法人ブルガリアンローズ文化協会 公式サイト"
-      to="http://www.bulgarian-rose.or.jp/"
-      type="external"
+      <a
+      class="btn"
+      href="http://www.bulgarian-rose.or.jp/"
       data-aos="zoom-out"
-      data-aos-once="true"
-      />
+      data-aos-once="true">
+      一般社団法人ブルガリアンローズ文化協会 公式サイト</a>
     </section>
 
     <section>
@@ -96,13 +95,11 @@
 <script>
 import Heading from '~/components/Heading.vue'
 import Footer from '~/components/Footer.vue'
-import Btn from '~/components/Btn.vue'
 import LazyLoadImg from '~/components/LazyLoadImg.vue'
 export default {
   components: {
     Heading,
     Footer,
-    Btn,
     LazyLoadImg,
   },
   head () { return this.$store.state.heads[this.$route.path] },
@@ -111,5 +108,8 @@ export default {
 
 <style lang="scss" scoped>
 @import '~/assets/css/myset.scss';
-
+.btn{
+  @include btn;
+  @include hover-touchme;
+}
 </style>
