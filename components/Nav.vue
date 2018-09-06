@@ -47,7 +47,7 @@ export default {
   width: 100%;
 
   display: flex;
-  flex-flow: column wrap;
+  flex-flow: column;
   justify-content: center;
   align-items: flex-start;
 
@@ -80,15 +80,20 @@ export default {
   }
 
   &.md, &.lg, &.xl{
-    font-size: 46rem;
+    font-size: 42rem;
     padding: 0;
-    width: 12em;
-    padding-left: 3vw;
+    // width: 12em;
+    width: 16em;
+    // padding-left: 3vw;
+    padding-left: 7vw;
     border-left: 0.36em solid rgba($primary, 0.8);
     box-shadow: $shadow-set;
     .link{
       width: 9em;
     }
+  }
+  &.md{
+    font-size: 38rem;
   }
 }
 
@@ -122,8 +127,8 @@ export default {
 }
 .container-md-leave-active {
   transition:
-    opacity 0.7s $ease-out,
-    transform 0.7s $ease-out;
+    opacity 0.7s $ease-out 0.1s,
+    transform 0.7s $ease-out 0.1s;
 }
 .container-md-leave-to {
   opacity: 0;

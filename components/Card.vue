@@ -67,6 +67,7 @@ export default {
 @import '~/assets/css/myset.scss';
 
 .Card{
+  $card-border-radius: $border-radius;
   font-size: 28rem;
   position: relative;
   text-align: center;
@@ -74,7 +75,6 @@ export default {
   overflow: visible;
   cursor: pointer;
   transform-origin: center;
-  transition: all 0.3s $ease-out;
 
   &:hover{
     animation: touchme 0.9s $ease-out;
@@ -93,7 +93,7 @@ export default {
     bottom: 0;
 
     background: $white;
-    border-radius: $border-radius;
+    border-radius: $card-border-radius;
     box-shadow: $shadow-set;
     z-index: -1;
   }
@@ -142,8 +142,8 @@ export default {
   }
 
   .card-img{
-    border-top-left-radius: $border-radius;
-    border-top-right-radius: $border-radius;
+    border-top-left-radius: $card-border-radius;
+    border-top-right-radius: $card-border-radius;
     z-index: 2;
   }
 
