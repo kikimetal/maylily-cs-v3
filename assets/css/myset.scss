@@ -26,3 +26,36 @@ $border-radius: 32px;
 // easing
 $ease-out: cubic-bezier(0.165, 0.84, 0.44, 1);
 $ease-out-back: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+// mixin
+@mixin hover-touchme($scale: 0.98){
+  &:hover{
+    animation: touchme 0.9s $ease-out;
+    @keyframes touchme{
+      0%{ transform: scale(1); }
+      18%{ transform: scale($scale); }
+      100%{ transform: scale(1); }
+    }
+  }
+}
+@mixin btn($color: $white, $background: $primary){
+  font-size: inherit;
+  appearance: none;
+  display: block;
+  margin: 4em auto 1em;
+  padding: 1em 3em;
+  width: 96%;
+  border: none;
+  border-radius: 3em;
+  color: $color;
+  background: $background;
+  font-weight: bold;
+  text-align: center;
+  box-shadow: $shadow-set;
+  cursor: pointer;
+  user-select: none;
+  &.nuxt-link-exact-active{
+    opacity: 0.7;
+    pointer-events: none;
+  }
+}
