@@ -76,14 +76,7 @@ export default {
   cursor: pointer;
   transform-origin: center;
 
-  &:hover{
-    animation: touchme 0.9s $ease-out;
-    @keyframes touchme{
-      0%{ transform: scale(1); }
-      18%{ transform: scale(0.98); }
-      100%{ transform: scale(1); }
-    }
-  }
+  @include hover-touchme;
 
   .shadow{
     position: absolute;
