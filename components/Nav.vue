@@ -71,6 +71,7 @@ export default {
       display: block;
       font-size: 0.36em;
       transition: all 0.3s ease 0s;
+      opacity: 0.8;
     }
     .title{
       display: block;
@@ -82,14 +83,13 @@ export default {
   &.md, &.lg, &.xl{
     font-size: 42rem;
     padding: 0;
-    // width: 12em;
     width: 16em;
-    // padding-left: 3vw;
     padding-left: 7vw;
     border-left: 0.36em solid rgba($primary, 0.8);
     box-shadow: $shadow-set;
     .link{
       width: 9em;
+      margin-bottom: calc(0.5em + 1vh);
     }
   }
   &.md{
