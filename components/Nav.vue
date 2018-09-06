@@ -76,6 +76,8 @@ export default {
     .title{
       display: block;
       font-weight: bold;
+      @include hover-touchme(0.96);
+      width: max-content;
       transition: color 0.6s ease 0s;
     }
   }
