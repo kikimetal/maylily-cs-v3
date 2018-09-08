@@ -26,7 +26,7 @@
 
     <nav class="footer" role="navigation"
     data-aos="fade-up"
-    data-aos-offset="-200"
+    data-aos-offset="-100"
     >
       <router-link
       class="link"
@@ -66,7 +66,7 @@ export default {
   font-size: 20rem;
   position: relative;
   margin-top: 10vh;
-  padding: 1.1em;
+  padding: 1.5em 1.3em;
   padding-bottom: 2.8em;
   height: 100vh;
   display: flex;
@@ -85,13 +85,13 @@ export default {
     $slide: 0.25em;
     position: relative;
     left: $slide;
-    margin-bottom: 1em;
+    margin-bottom: 0.4em;
     width: 80%;
     width: max-content;
     color: $white;
     font-size: 1.3em;
-    letter-spacing: 0.13em;
-    line-height: 1.4;
+    letter-spacing: 0.1em;
+    line-height: 1.3;
     font-weight: bold;
     font-family: FuturaBold;
     overflow: visible;
