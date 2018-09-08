@@ -4,7 +4,7 @@
     <Nav />
     <NavTrigger />
 
-    <div :class="['page-container', $store.state.ww.size]">
+    <div :class="['page-container', $store.state.ww.size]" role="main">
       <nuxt/>
     </div>
 
