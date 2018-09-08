@@ -3,11 +3,14 @@
 
     <Nav />
     <NavTrigger />
+    <transition name="page">
+      <div
+      class="Nav-background"
+      v-if="$store.state.isShowNav"
+      @click="$store.commit('toggleNav', false)"/>
+    </transition>
 
-    <div
-    :class="['page-container', $store.state.ww.size]" role="main"
-    @click="$store.commit('toggleNav', false)"
-    >
+    <div :class="['page-container', $store.state.ww.size]" role="main">
       <nuxt/>
     </div>
 
@@ -204,5 +207,16 @@ export default {
       }
     }
   }
+}
+
+.Nav-background{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: block;
+  background: rgba($grey, 0.6);
+  z-index: 99;
 }
 </style>
