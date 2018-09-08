@@ -1,8 +1,9 @@
 <template lang="html">
   <div
     :class="['NavTrigger', $store.state.ww.size]"
-    @mouseover="$store.commit('toggleNav', true)"
-    >
+    @click="$store.commit('toggleNav', true)">
+    <!-- @mouseover="$store.commit('toggleNav', true)" -->
+
     <transition name="trigger">
       <svg v-show="!$store.state.isShowNav" class="bars" viewBox="0 0 53.529 51.852">
         <defs>
@@ -44,7 +45,7 @@ export default {
   right: 4vw;
   width: 1em;
   height: 1em;
-  z-index: 9999;
+  z-index: 999999;
   overflow: visible;
   cursor: pointer;
   user-select: none;
@@ -113,21 +114,20 @@ export default {
   }
 }
 // transition setting
+@keyframes trigger-fade{
+  from{
+    opacity: 0;
+    transform: scale(1.6);
+  }
+  to{
+    opacity: 1;
+    // transform: scale(1);
+  }
+}
 .trigger-enter-active {
-  transition:
-    opacity ease-out .5s,
-    transform $ease-out .6s;
+  animation: trigger-fade 1.5s ease;
 }
 .trigger-leave-active {
-  transition:
-    opacity ease-out .3s,
-    transform $ease-out .3s;
-}
-.trigger-leave-to {
-  opacity: 0;
-  transform: scale(1.3);
-}
-.trigger-enter{
-  opacity: 0;
+  animation: trigger-fade 0.4s ease reverse;
 }
 </style>

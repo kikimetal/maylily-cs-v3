@@ -3,9 +3,9 @@
     <nav
     :class="['Nav', $store.state.ww.size]" role="navigation"
     v-if="$store.state.isShowNav"
-    @click="$store.commit('toggleNav', false)"
-    @mouseleave="$store.commit('toggleNav', false)"
-    >
+    @click="$store.commit('toggleNav', false)">
+    <!-- @mouseleave="$store.commit('toggleNav', false)" -->
+    
       <router-link
         class="link"
         v-for="(route, index) in routes" :key="'route-' + index"
