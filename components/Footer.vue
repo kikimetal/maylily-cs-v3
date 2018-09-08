@@ -67,7 +67,7 @@ export default {
   position: relative;
   margin-top: 10vh;
   padding: 1.1em;
-  padding-bottom: 3.7em;
+  padding-bottom: 2.8em;
   height: 100vh;
   display: flex;
   flex-flow: column;
@@ -77,10 +77,15 @@ export default {
   color: $white;
   box-shadow: 0 0 70px rgba($primary, 0.4) inset;
 
+  @media screen and (max-width: 350px){
+    font-size: 17rem;
+  }
+
   .heading{
     $slide: 0.25em;
     position: relative;
     left: $slide;
+    margin-bottom: 1em;
     width: 80%;
     width: max-content;
     color: $white;
@@ -172,8 +177,9 @@ export default {
     padding: 3.6em;
   }
   &.lg, &.xl{
-    font-size: 22rem;
     height: calc(700px + 6em);
+    // height: calc(50vw + 6em);
+    max-height: 100vh;
     display: block;
     $padding: 11vw;
     .heading{
@@ -190,7 +196,8 @@ export default {
     }
     nav{
       position: absolute;
-      bottom: calc(7vh + 3em);
+      // bottom: calc(7vh + 3em);
+      bottom: calc(5vw + 1em);
       .link{
         padding: 1.1em 0.2em 0.2em 0.15em;
       }
@@ -208,7 +215,7 @@ export default {
     }
   }
   &.lg{
-    font-size: 26rem;
+    font-size: 24rem;
   }
   &.xl{
     font-size: 30rem;
