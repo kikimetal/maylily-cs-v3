@@ -1,7 +1,7 @@
 <template lang="html">
   <transition :name="$store.state.ww.size === 'sm' ? 'container-sm' : 'container-md'">
     <nav
-    :class="['Nav', $store.state.ww.size]"
+    :class="['Nav', $store.state.ww.size]" role="navigation"
     v-if="$store.state.isShowNav"
     @click="$store.commit('toggleNav', false)"
     @mouseleave="$store.commit('toggleNav', false)"
@@ -24,12 +24,12 @@
 </template>
 
 <script>
-import ROUTES from '~/assets/routes.js'
+import GlobalRoutes from '~/assets/routes/global.js'
 export default {
   components: {
   },
   props: {
-    routes: { default: () => ROUTES }
+    routes: { default: () => GlobalRoutes }
   }
 }
 </script>
