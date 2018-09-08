@@ -4,7 +4,10 @@
     <Nav />
     <NavTrigger />
 
-    <div :class="['page-container', $store.state.ww.size]" role="main">
+    <div
+    :class="['page-container', $store.state.ww.size]" role="main"
+    @click="$store.commit('toggleNav', false)"
+    >
       <nuxt/>
     </div>
 
