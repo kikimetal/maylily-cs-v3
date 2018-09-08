@@ -23,7 +23,6 @@
         :to="row.linkto"
         :modal="row.modal"
         :exact="true"
-        data-aos="zoom-in-up"
         :data-aos-delay="i * 100" />
     </CardContainer>
 

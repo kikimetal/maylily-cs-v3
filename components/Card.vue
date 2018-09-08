@@ -1,7 +1,10 @@
 <template lang="html">
   <div
   :class="['Card', $store.state.ww.size]"
-  @click="handleClick">
+  @click="handleClick"
+  data-aos="fade-up"
+  >
+  <!-- :data-aos="$store.state.ww.size === 'sm' ? 'fade-up' : 'zoom-in-up'" -->
 
     <router-link :to="this.type === 'modal' ? '' : to">
 
