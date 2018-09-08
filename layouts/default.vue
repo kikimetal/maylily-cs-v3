@@ -3,9 +3,9 @@
 
     <Nav />
     <NavTrigger />
-    <transition name="page">
+    <transition name="nav-background">
       <div
-      class="Nav-background"
+      class="nav-background"
       v-if="$store.state.isShowNav"
       @click="$store.commit('toggleNav', false)"/>
     </transition>
@@ -209,14 +209,32 @@ export default {
   }
 }
 
-.Nav-background{
+.nav-background{
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
   display: block;
-  background: rgba($grey, 0.6);
+  background: rgba($grey, 0.5);
   z-index: 99;
+}
+.nav-background-enter-active {
+  transition:
+    opacity 0.8s ease 0.1s,
+    transform 0.8s $ease-out 0.1s;
+}
+.nav-background-leave-active {
+  transition:
+    opacity 0.9s ease-out 0.2s,
+    transform 0.9s $ease-out 0.2s;
+}
+.nav-background-leave-to {
+  opacity: 0;
+  transform: translateY(-60vh);
+}
+.nav-background-enter{
+  opacity: 0;
+  transform: translateY(-60vh);
 }
 </style>
