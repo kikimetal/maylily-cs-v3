@@ -5,7 +5,7 @@
     v-if="$store.state.isShowNav"
     @click="$store.commit('toggleNav', false)">
     <!-- @mouseleave="$store.commit('toggleNav', false)" -->
-    
+
       <router-link
         class="link"
         v-for="(route, index) in routes" :key="'route-' + index"
@@ -62,6 +62,9 @@ export default {
     text-transform: uppercase;
     border-bottom: 1px solid rgba($primary, 0.2);
     line-height: 1.1;
+    user-select: none;
+    cursor: pointer;
+    pointer-events: auto;
 
     &:hover{
       color: $general;

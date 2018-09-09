@@ -101,6 +101,7 @@ export default {
         text-decoration: underline;
         color: $secondary;
         cursor: pointer;
+        pointer-events: auto;
       }
     }
     & > h1{
@@ -218,6 +219,9 @@ export default {
   display: block;
   background: rgba($grey, 0.5);
   z-index: 99;
+  user-select: none;
+  pointer-events: auto;
+  cursor: e-resize;
 }
 .nav-background-enter-active {
   transition:

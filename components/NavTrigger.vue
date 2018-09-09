@@ -49,6 +49,7 @@ export default {
   overflow: visible;
   cursor: pointer;
   user-select: none;
+  pointer-events: auto;
 
   &.md, &.lg, &.xl{
     top: 2.2vw;
