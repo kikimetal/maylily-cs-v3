@@ -61,6 +61,7 @@ export default {
     background-position: 10% center;
     background-size: cover;
     // border-radius: $border-radius;
+    // border-radius: 0 50% 50% 0;
     box-shadow: 0 20px 70px 0 rgba($pinkgrey, 0.3);
     z-index: 1;
 
@@ -70,6 +71,7 @@ export default {
       border-radius: 4px;
       background: $lightgrey;
       box-shadow: 0 20px 70px 0 rgba($pinkgrey, 0.8);
+      opacity: 0.5;
 
       $weight: 3px;
       $length: 62px;
