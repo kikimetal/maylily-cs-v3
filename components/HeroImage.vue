@@ -66,12 +66,13 @@ export default {
     bottom: 0;
     // margin: auto;
     width: 100vw;
-    // height: 130vw;
-    height: 46%;
-    // height: 78vw;
-    background: url('~/assets/img/rose-aroma.jpg');
+    // height: 46%;
+    height: 53%;
+    // background: url('~/assets/img/rose-aroma.jpg');
+    background: url('~/assets/img/rose_vector.svg');
     background-repeat: no-repeat;
-    background-position: 10% center;
+    // background-position: 10% center;
+    background-position: center;
     background-size: cover;
     // border-radius: $border-radius;
     // border-radius: 0 0 $border-radius $border-radius;
@@ -118,7 +119,8 @@ export default {
       font-size: 1.3em;
       font-weight: bold;
       font-family: FuturaBold;
-      text-shadow: 0 3px 9px $shadow;
+      // text-shadow: 0 3px 9px $shadow;
+      text-shadow: 0 4px 12px rgba($shadow, 0.3);
       line-height: 1.04;
       z-index: 3;
       span{
@@ -138,9 +140,7 @@ export default {
       color: darken($primary, 12%);
       text-align: center;
       font-size: 24rem;
-      // font-weight: bold;
-      font-weight: 900;
-      font-family: 'ヒラギノ角ゴ Std W8';
+      font-weight: bold;
     }
     .sub{
       position: absolute;
