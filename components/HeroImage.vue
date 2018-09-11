@@ -18,7 +18,7 @@
         <span data-aos="fade-up" data-aos-offset="0" data-aos-delay="700" data-aos-duration="1500">Fragrance</span> -->
         <span data-aos="fade-up" data-aos-offset="0" data-aos-delay="500" data-aos-duration="800">Life</span>
         <span data-aos="fade-up" data-aos-offset="0" data-aos-delay="600" data-aos-duration="1100">with</span>
-        <span data-aos="fade-up" data-aos-offset="0" data-aos-delay="700" data-aos-duration="1500">Fragrance.</span>
+        <span data-aos="fade-up" data-aos-offset="0" data-aos-delay="700" data-aos-duration="1500">Fragrance</span>
       </h1>
       <h2 class="main">香りと共に生きるあなたへ</h2>
       <h2 class="sub" data-aos="fade-up" data-aos-offset="0" data-aos-delay="1850" data-aos-duration="700">
