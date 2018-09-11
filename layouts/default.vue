@@ -6,7 +6,7 @@
     <transition name="nav-background">
       <div
       class="nav-background"
-      v-if="$store.state.isShowNav"
+      v-if="$store.state.isShowNav && $store.state.ww.size !== 'sm'"
       @click="$store.commit('toggleNav', false)"/>
     </transition>
 
