@@ -38,21 +38,22 @@ export default {
     setPropertyScrollY () {
       (document.body || document.documentElement).style.setProperty('--scrollY', `${window.scrollY}px`)
     },
-    setWindowWidthToStore () {
+    setWindowSize () {
       this.$store.commit('setWindowWidth')
+      this.$store.commit('setWindowHeight')
     },
     handleScroll () {
       this.setPropertyScrollY()
     },
     handleResize () {
-      this.setWindowWidthToStore()
+      this.setWindowSize()
       AOS.refresh()
     },
   },
 
   created () {
     if (process.browser) {
-      this.setWindowWidthToStore()
+      this.setWindowSize()
       this.setPropertyScrollY()
       window.addEventListener('scroll', this.handleScroll)
       window.addEventListener('resize', this.handleResize)

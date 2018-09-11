@@ -17,6 +17,9 @@ const store = () => new Vuex.Store({
       size: 'sm',
       sizes: ['sm'],
     },
+    wh: {
+      value: 0,
+    },
 
     isShowNav: false,
 
@@ -66,6 +69,9 @@ const store = () => new Vuex.Store({
       }
       state.ww.size = size
       state.ww.sizes = sizes
+    },
+    setWindowHeight (state) {
+      state.wh.value = window.innerHeight
     },
 
     toggleNav (state, isShow) {
