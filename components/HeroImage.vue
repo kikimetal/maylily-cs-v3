@@ -135,7 +135,7 @@ export default {
       left: 0;
       right: 0;
       // color: $general;
-      color: $primary;
+      color: darken($primary, 12%);
       text-align: center;
       font-size: 24rem;
       // font-weight: bold;
@@ -156,7 +156,7 @@ export default {
       font-size: 14rem;
       line-height: 2;
       // color: rgba($grey, 0.8);
-      color: rgba($primary, 0.6);
+      color: rgba(darken($primary, 21%), 0.6);
       z-index: 4;
       border-radius: $border-radius;
       font-weight: bold;
