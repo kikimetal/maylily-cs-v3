@@ -86,6 +86,12 @@ export default {
   color: $general;
   text-align: left;
 
+  .title{
+    font-family: FuturaBold;
+  }
+  .subtitle{
+    opacity: 0.7;
+  }
   .title, .subtitle{
     span{
       display: inline-block;
@@ -109,7 +115,8 @@ export default {
     .subtitle{
       font-size: 0.7em;
       padding: 0;
-      font-weight: normal;
+      // font-weight: normal;
+      font-weight: bold;
     }
     .title, .subtitle{
       span{
