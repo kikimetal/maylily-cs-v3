@@ -14,7 +14,9 @@
       <nuxt/>
     </div>
 
-    <img src="~/assets/img/rose-aroma.jpg" :style="{display: 'none'}" alt="">
+    <!-- 読み込んでおきたい画像 -->
+    <!-- TODO: 非同期読み込みで画像のURLにアクセスするだけみたいな処理へ -->
+    <img src="~/assets/img/rose01.jpg" :style="{display: 'none'}" alt="">
 
     <Modal />
 
@@ -222,7 +224,7 @@ export default {
   z-index: 99;
   user-select: none;
   pointer-events: auto;
-  cursor: e-resize;
+  cursor: pointer;
 }
 .nav-background-enter-active {
   transition:
