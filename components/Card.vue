@@ -70,7 +70,8 @@ export default {
 @import '~/assets/css/myset.scss';
 
 .Card{
-  $card-border-radius: $border-radius;
+  // $card-border-radius: $border-radius;
+  $card-border-radius: 6px;
   font-size: 28rem;
   position: relative;
   text-align: center;
