@@ -8,7 +8,7 @@
         <input
         type="text"
         name="company"
-        placeholder="名前を入力してください"
+        placeholder="有限会社メイリリィ"
         v-model="company" />
         <div class="border" />
       </label>
@@ -21,7 +21,7 @@
         :class="{ error: hasError('name') }"
         type="text"
         name="name"
-        placeholder="名前を入力してください"
+        placeholder="香咲 リリ子"
         v-model="name"
         v-validate="'required'" />
         <div class="border" />
@@ -38,7 +38,7 @@
         :class="{ error: hasError('email') }"
         type="text"
         name="email"
-        placeholder="example@maylily.com"
+        placeholder="example@maylily.co.jp"
         v-model="email"
         v-validate="'required|email'">
         <div class="border" />
@@ -101,8 +101,8 @@
 
     <div data-aos="zoom-out" data-aos-duration="1000" data-aos-offset="0" data-aos-once="false">
       <transition name="oem-exchange" mode="out-in">
-        <button class="oem-exchange-btn oemTrue" v-if="contactTypeOEM" key="oemTrue" @click.prevent="contactTypeOEM = !contactTypeOEM">通常のお問い合わせはこちら</button>
-        <button class="oem-exchange-btn oemFalse" v-else key="oemFalse" @click.prevent="contactTypeOEM = !contactTypeOEM">"OEM"のお問い合わせはこちら</button>
+        <div class="btn oem-exchange-btn oemTrue" v-if="contactTypeOEM" key="oemTrue" @click.prevent="contactTypeOEM = !contactTypeOEM">通常のお問い合わせはこちら</div>
+        <div class="btn oem-exchange-btn oemFalse" v-else key="oemFalse" @click.prevent="contactTypeOEM = !contactTypeOEM">"OEM"のお問い合わせはこちら</div>
       </transition>
     </div>
 
@@ -214,14 +214,14 @@
       <h1 class="heading">メッセージ本文 (必須)</h1>
       <label>
         <textarea
-        placeholder="お問い合わせ内容を入力してください"
+        placeholder="お問い合わせ内容を入力してください。"
         v-model="message" />
       </label>
     </section>
 
     <br>
-    <button class="submit" @click.prevent="handleCheckAll">CheckAll(開発用)</button>
-    <button class="submit" @click.prevent="submit">送信する</button>
+    <div class="btn submit" @click.prevent="handleCheckAll">CheckAll(開発用)</div>
+    <div class="btn submit" @click.prevent="submit">送信する</div>
 
   </form>
 
@@ -455,7 +455,7 @@ export default {
     }
   }
 
-  button{
+  .btn{
     @include btn;
     &.oem-exchange-btn{
       transition-duration: 0.7s; // transition .oem-exchange を上書き
