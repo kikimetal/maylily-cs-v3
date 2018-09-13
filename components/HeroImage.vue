@@ -3,27 +3,20 @@
   <div :class="['HeroImage', $store.state.ww.size]">
 
     <img class="logo" src="~/assets/img/logo.svg" alt="メイリリィのロゴ" />
-    <div class="background">
-      <!-- <svg viewBox="0 0 2231.619 339.122" id="wave">
-        <path id="パス_36" data-name="パス 36" class="cls-1" d="M17018,8195.115s167.035-61.788,369.479-56.327,314.064,63.206,488.52,84.558,315.367-6.6,464.1-64.317,262.531-109.673,526.631-75.162,283.1-70.783,382.887-180.97v339.122H17018Z" transform="translate(-17018 -7902.896)"/>
-      </svg> -->
-    </div>
-
+    <div class="background" />
+    <!-- <LazyLoadImg class="bg" imgsrc="rose01.jpg" :imgstyle="$store.state.wwsize === 'sm' ? {paddingTop: '92%'} : {paddingTop: '36%', transform: 'scale(1.4)'}" /> -->
 
     <div class="heading">
       <h1 class="big">
-        <!-- <span data-aos="fade-up" data-aos-offset="0" data-aos-delay="400" data-aos-duration="500">Enrich</span>
-        <span data-aos="fade-up" data-aos-offset="0" data-aos-delay="500" data-aos-duration="800">your life</span>
-        <span data-aos="fade-up" data-aos-offset="0" data-aos-delay="600" data-aos-duration="1100">from</span>
-        <span data-aos="fade-up" data-aos-offset="0" data-aos-delay="700" data-aos-duration="1500">Fragrance</span> -->
-        <span data-aos="fade-up" data-aos-offset="0" data-aos-delay="500" data-aos-duration="800">Life</span>
-        <span data-aos="fade-up" data-aos-offset="0" data-aos-delay="600" data-aos-duration="1100">with</span>
-        <span data-aos="fade-up" data-aos-offset="0" data-aos-delay="700" data-aos-duration="1500">Fragrance</span>
+        <span data-aos="fade-up" data-aos-offset="0" data-aos-delay="300" data-aos-duration="800">Life</span>
+        <span data-aos="fade-up" data-aos-offset="0" data-aos-delay="400" data-aos-duration="1100">with</span>
+        <span data-aos="fade-up" data-aos-offset="0" data-aos-delay="500" data-aos-duration="1500">Fragrance</span>
       </h1>
-      <h2 class="main">香りと共に生きるあなたへ</h2>
-      <h2 class="sub" data-aos="fade-up" data-aos-offset="0" data-aos-delay="1850" data-aos-duration="700">
-        <span>私たちはライフスタイルの創造を通じて、</span>
-        <span>心豊かな社会の実現に貢献します。</span>
+      <h2 class="main" data-aos="fade-up" data-aos-offset="0" data-aos-delay="1350" data-aos-duration="900">
+        香りと共に生きるあなたへ</h2>
+      <h2 class="sub" data-aos="fade-up" data-aos-offset="0" data-aos-delay="1550" data-aos-duration="1200">
+        <span>私たちはライフスタイルの創造を通じて</span><span v-if="$store.state.wwsize !== 'sm'">、</span>
+        <span>心豊かな社会の実現に貢献します</span><span v-if="$store.state.wwsize !== 'sm'">。</span>
       </h2>
     </div>
 
@@ -31,7 +24,11 @@
 </template>
 
 <script>
+import LazyLoadImg from '~/components/LazyLoadImg.vue'
 export default {
+  components: {
+    LazyLoadImg,
+  }
 }
 </script>
 
@@ -44,9 +41,7 @@ export default {
   font-size: 40rem;
   width: 100%;
   height: 100vh;
-  // margin-bottom: -6rem;
-  margin-bottom: -20rem;
-  // height: [JS] window.innerHeight
+  margin-bottom: -5rem;
 
   .logo{
     position: absolute;
@@ -64,33 +59,19 @@ export default {
     left: 0;
     right: 0;
     bottom: 0;
-    // margin: auto;
     width: 100vw;
-    // height: 46%;
     height: 53%;
-    // background: url('~/assets/img/rose-aroma.jpg');
-    background: url('~/assets/img/rose_vector.svg');
+    background: url('~/assets/img/rose01.jpg');
     background-repeat: no-repeat;
-    // background-position: 10% center;
     background-position: center;
     background-size: cover;
-    // border-radius: $border-radius;
-    // border-radius: 0 0 $border-radius $border-radius;
-    // box-shadow: 0 20px 70px 0 rgba($pinkgrey, 0.3);
     z-index: 1;
+  }
 
-    #wave{
-      // fill: pink;
-      fill: $white;
-      position: absolute;
-      top: auto;
-      left: 0;
-      right: 0;
-      bottom: -1px;
-      width: 100%;
-      transform-origin: 80% 100%;
-      transform: scale(1.4, 0.8);
-    }
+  .bg{
+    position: relative;
+    top: 2%;
+    box-shadow: 0 0 30px 0 $white inset;
   }
 
   .heading{
@@ -98,10 +79,7 @@ export default {
     .big{
       overflow: visible;
       position: absolute;
-      // top: 86vw;
-      // top: 54%;
-      // top: 20%;
-      top: 24%;
+      top: 25%;
       left: 0;
       right: 0;
       bottom: 0;
@@ -109,19 +87,16 @@ export default {
       width: max-content;
       height: max-content;
       max-width: 86%;
-      // text-align: left;
       text-align: center;
       color: $lightgrey;
-      // color: $primary;
-      // color: rgba($general, 0.9);
-      // color: $general;
       word-wrap: break-word;
       font-size: 1.3em;
       font-weight: bold;
       font-family: FuturaBold;
       // text-shadow: 0 3px 9px $shadow;
-      text-shadow: 0 4px 12px rgba($shadow, 0.3);
-      line-height: 1.04;
+      // text-shadow: 0 4px 12px rgba($shadow, 0.2);
+      text-shadow: 0 4px 12px rgba($shadow, 0.2);
+      line-height: 0.9;
       z-index: 3;
       span{
         overflow: visible;
@@ -130,36 +105,37 @@ export default {
         padding-bottom: 0.2em;
       }
     }
+    $main-pos: 68%;
     .main{
       position: absolute;
-      // top: 56%;
-      top: 52%;
+      // top: 52%;
+      top: $main-pos;
       left: 0;
       right: 0;
-      // color: $general;
-      color: darken($primary, 12%);
+      // background: pink;
+      color: darken($primary, 14%);
       text-align: center;
       font-size: 24rem;
       font-weight: bold;
+      -webkit-text-stroke: 0.6px;
+      z-index: 4;
     }
     .sub{
       position: absolute;
-      // top: 75vh;
-      // top: 83vh;
-      // top: 64%;
-      top: 59%;
+      // top: 59%;
+      top: $main-pos + 7%;
       left: 0;
       right: 0;
       bottom: auto;
       padding: 0 2em;
       text-align: center;
       font-size: 14rem;
-      line-height: 2;
-      // color: rgba($grey, 0.8);
-      color: rgba(darken($primary, 21%), 0.6);
-      z-index: 4;
-      border-radius: $border-radius;
+      line-height: 1.8;
       font-weight: bold;
+      // color: rgba($grey, 0.8);
+      color: rgba(darken($primary, 24%), 0.5);
+      border-radius: $border-radius;
+      z-index: 4;
 
       span{
         overflow: visible;
@@ -173,11 +149,11 @@ export default {
   &.sm{
     // margin-bottom: 10vw;
 
-    .background{
-      #wave{
-        transform: scale(1.8);
-      }
-    }
+    // .background{
+    //   #wave{
+    //     transform: scale(1.8);
+    //   }
+    // }
 
     // .heading{
     //   .sub{
@@ -210,6 +186,9 @@ export default {
         // top: auto;
         // bottom: calc(15vh + 0.7em);
         // text-align: right;
+        font-size: 1.2em;
+        line-height: 0.9;
+        width: min-content;
       }
       .sub{
         // top: auto;
