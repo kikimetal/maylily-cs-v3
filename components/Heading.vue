@@ -95,8 +95,9 @@ export default {
   .title, .subtitle{
     span{
       display: inline-block;
-      padding-right: 0.2em;
-      padding-bottom: 0.2em;
+      // padding-right: 0.2em;
+      // padding-bottom: 0.2em;
+      padding: 0.1em 0.15em;
       &:last-child{
         padding-right: 0;
       }
@@ -142,9 +143,10 @@ export default {
       position: relative;
       top: -1em;
       margin: 0 auto;
-      padding: 1em 2em;
+      // padding: 1em 2em;
+      padding: 1em 0.6em 0.8em;
       // width: max-content;
-      width: 80%;
+      width: 86%;
       background: $white;
       box-shadow: $shadow-set;
       overflow: visible;
