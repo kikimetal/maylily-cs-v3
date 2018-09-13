@@ -24,20 +24,15 @@ function response_json($obj) {
 function sendEmail ($data) {
 
   $to = "takahashi@maylily.co.jp";
-  $fromName = "メイリリィサイト コンタクトフォームより";
-  $fromAddress = "corporate-site-contact-form@maylily.co.jp";
+  $fromName = "メイリリィ WEBコンタクトフォーム";
+  $fromAddress = "info@maylily.co.jp";
 
   // 全ての値をエスケープ
-  foreach ($data as $v) {
-    // $v = json_decode($v);
-    // if (gettype($v) === "boolean") {
-    //   continue;
-    // }
-    $v = htmlspecialchars($v);
+  foreach ($data as $value) {
+    $value = htmlspecialchars($value);
   }
 
   $inputAllOK = true;
-
   foreach ($data as $key => $value) {
     if(!$value){
       $inputAllOK = false;
@@ -46,48 +41,55 @@ function sendEmail ($data) {
 
   if ($inputAllOK) {
 
-    $subject = "コンタクトフォームからのお問い合わせです。";
+    $subject = "[メイリリィ] お問い合わせを受け付けました。";
     $header = "From: " . mb_encode_mimeheader($fromName) . "<" . $fromAddress . ">";
 
-    // HTML メールはなんか<html></html>のなかで変数展開がうまく行かない謎すぎ
+    // HTML メールはなんか<html></html>のなかで変数展開がうまく行かない
     // $header .= "\r\n";
     // $header .= "Content-type: text/html; charset=UTF-8";
 
     $body_common =
-      "<company>"."\n".
+      "このたびは当社ウェブサイトをご利用いただきまして、誠にありがとうございます。\n\n".
+      "▼下記のお問い合わせ内容を受付いたしました。\n".
+      "確認次第ご連絡いたしますので、少々お待ちください。\n".
+      "_______________________________\n\n";
+    $body_common .=
+      "■会社名"."\n".
       $data["company"]."\n\n".
-      "<name>"."\n".
+      "■お名前"."\n".
       $data["name"]."\n\n".
-      "<phone>"."\n".
+      "■メールアドレス"."\n".
+      $data["email"]."\n\n".
+      "■電話番号"."\n".
       $data["phone"]."\n\n".
-      "<zipcode>"."\n".
+      "■郵便番号"."\n".
       $data["zipcode"]."\n\n".
-      "<address>"."\n".
+      "■住所"."\n".
       $data["address"]."\n\n".
-      "<email>"."\n".
-      $data["email"]."\n\n";
+      "";
 
     $body_branch = "";
     if ($data["contactTypeOEM"] === "true") {
       $body_branch .=
-        "<oemProductSelect>"."\n".
+        "■OEM製造品目"."\n".
         str_replace(",", "\n", $data["oemProductSelect"])."\n\n".
-        "<oemObjectSelect>"."\n".
+        "■OEM製造目的"."\n".
         str_replace(",", "\n", $data["oemObjectSelect"])."\n\n".
-        "<oemNum>"."\n".
+        "■OEMご希望数量"."\n".
         $data["oemNum"]."\n\n".
-        "<oemDate>"."\n".
+        "■OEMご希望納期"."\n".
         $data["oemDate"]."\n\n";
     } else {
       $body_branch .=
-        "<contactContentSelect>"."\n".
+        "■お問い合わせ項目"."\n".
         str_replace(",", "\n", $data["contactContentSelect"])."\n\n";
     }
 
-    $body_message = "<message>"."\n".$data["message"]."\n";
+    $body_message = "■メッセージ本文"."\n".$data["message"]."\n";
 
     $body = $body_common . $body_branch . $body_message;
 
+    mb_send_mail($data["email"], $subject, $body, $header);
     $sendEmailResult = mb_send_mail($to, $subject, $body, $header);
   }
   return $sendEmailResult || false; // true | false
