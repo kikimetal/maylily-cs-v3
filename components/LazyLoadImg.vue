@@ -46,7 +46,7 @@ export default {
 
   position: relative;
   width: 100%;
-  padding-top: 90%;
+  padding-top: 80%;
   height: 0;
   overflow: hidden;
 
