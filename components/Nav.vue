@@ -37,7 +37,7 @@ export default {
 <style lang="scss" scoped>
 @import '~/assets/css/myset.scss';
 .Nav{
-  font-size: 9.2vw;
+  font-size: 8.8vw;
   position: fixed;
   top: 0;
   // left: 0;
@@ -81,6 +81,9 @@ export default {
       font-weight: bold;
       @include hover-touchme(0.96);
       width: max-content;
+      word-wrap: break-word;
+      font-family: FuturaBold;
+      letter-spacing: -1px;
       transition: color 0.6s ease 0s;
     }
   }
@@ -93,7 +96,7 @@ export default {
     border-left: 0.36em solid rgba($primary, 0.8);
     box-shadow: $shadow-set;
     .link{
-      width: 9em;
+      width: 10em;
       margin-bottom: calc(0.5em + 1vh);
     }
   }
