@@ -30,11 +30,14 @@
 }
 body{
   font-size: 16rem;
-}
-body * {
-  overflow: hidden;
-  font-size: inherit;
-  font-weight: inherit;
+  * {
+    overflow: hidden;
+    font-size: inherit;
+    font-weight: inherit;
+  }
+  div, span, p, a, h1, h2, h3, h4, h5, h6{
+    overflow: visible;
+  }
 }
 
 a{
