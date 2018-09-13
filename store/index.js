@@ -8,6 +8,7 @@ const store = () => new Vuex.Store({
 
     heads: heads,
 
+    wwsize: 'sm',
     ww: {
       value: 1000,
       sm: true,
@@ -67,6 +68,7 @@ const store = () => new Vuex.Store({
         size = 'xl'
         sizes.push('xl')
       }
+      state.wwsize = size
       state.ww.size = size
       state.ww.sizes = sizes
     },
