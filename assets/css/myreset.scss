@@ -21,6 +21,7 @@
   line-height: 1;
   vertical-align: baseline;
   font-family:
+    'Noto Sans JP'
     'Helvetica Neue', /* Macの欧文 (OS X 10.10以前) */
     'Segoe UI',       /* Windowsの欧文 */
     YuGothicM,        /* Windows8.1以上は游ゴシック */
@@ -35,7 +36,7 @@ body{
     font-size: inherit;
     font-weight: inherit;
   }
-  div, span, p, a, h1, h2, h3, h4, h5, h6{
+  span, p, a, h1, h2, h3, h4, h5, h6{
     overflow: visible;
   }
 }
