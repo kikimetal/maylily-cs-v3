@@ -1,6 +1,10 @@
 <template lang="html">
   <div id="layout-default" @touchstart="()=>{}">
 
+    <!-- <img :class="['logo', {hide: !isScrollTop}]" src="~/assets/img/logotype.svg" alt="メイリリィのロゴ" /> -->
+    <!-- <img :class="['logo', {hide: !$store.state.isScrollTop}]" src="~/assets/img/logotype.svg" alt="メイリリィのロゴ" /> -->
+    <Logotype :class="['logo', {hide: !$store.state.isScrollTop}]" />
+
     <Nav />
     <NavTrigger />
     <transition name="nav-background">
@@ -28,17 +32,27 @@ import AOS from 'aos'
 import Nav from '~/components/Nav.vue'
 import NavTrigger from '~/components/NavTrigger.vue'
 import Modal from '~/components/Modal.vue'
+import Logotype from '~/components/Logotype.vue'
 
 export default {
   components: {
     Nav,
     NavTrigger,
     Modal,
+    Logotype,
   },
-
+  data () {
+    return{
+      // isScrollTop: false,
+    }
+  },
   methods: {
     setPropertyScrollY () {
       (document.body || document.documentElement).style.setProperty('--scrollY', `${window.scrollY}px`)
+      this.$store.commit('setIsScrollTop')
+      // const exist = window.scrollY < 100
+      // if (this.isScrollTop === exist) return
+      // this.isScrollTop = exist
     },
     setWindowSize () {
       this.$store.commit('setWindowWidth')
@@ -64,7 +78,7 @@ export default {
         easing: 'ease-out-cubic',
         duration: 600,
         delay: 0,
-        once: true,
+        // once: true,
       })
     }
   },
@@ -82,6 +96,20 @@ export default {
 @import '~/assets/css/myset.scss';
 // AOS のスタイルをインポート
 @import '~/node_modules/aos/dist/aos.css';
+
+.logo{
+  position: fixed;
+  top: 5.7vw;
+  left: 5.7vw;
+  width: calc(104px + 1vw);
+  height: auto;
+  fill: $grey;
+  z-index: 2;
+  transition: all 1.2s $ease-out;
+  &.hide{
+    opacity: 0;
+  }
+}
 
 .page-container{
   /* page transition のための設定 */
@@ -150,7 +178,7 @@ export default {
       }
     }
 
-    & > .half{
+    & > .flex3{
       & > div > h2{
         line-height: 1;
         font-size: 1.3em;
@@ -167,18 +195,23 @@ export default {
 
   &.md, &.lg, &.xl{
     .page > section{
-      padding: 2.4em 1.4em;
+      padding: 2.4em 3.4em;
       font-size: 17rem;
-      max-width: 950px;
+      max-width: 1400px;
       margin: 0 auto;
       & > h1{
+        // width: 40%;
         padding: 1.7em 0 0;
+        text-align: center;
+        border-bottom: 2px solid rgba($pinkgrey, 0.3);
       }
       & > h2{
+        width: 40%;
         padding: 1em 0 0.6em;
       }
       & > p{
-        line-height: 2;
+        width: 40%;
+        line-height: 1.8;
         padding: 1.1em 0 1.3em;
       }
 
@@ -194,10 +227,10 @@ export default {
         }
       }
 
-      & > .half{
+      & > .flex3{
         display: flex;
         flex-flow: row wrap;
-        justify-content: space-between;
+        // justify-content: space-between;
         align-items: flex-start;
         & > div{
           padding: 1em;
@@ -206,6 +239,30 @@ export default {
           width: 49.8%;
           &:nth-child(even) *{
             transition-delay: 0.2s;
+          }
+        }
+      }
+    }
+  }
+
+  &.lg, &.xl{
+    .page > section{
+      & > .flex3{
+        display: flex;
+        flex-flow: row wrap;
+        // justify-content: space-between;
+        align-items: flex-start;
+        & > div{
+          padding: 1em;
+        }
+        & > *{
+          // width: 32.8%;
+          width: 33.3%;
+          &:nth-child(3n + 2) *{
+            transition-delay: 0.2s;
+          }
+          &:nth-child(3n + 3) *{
+            transition-delay: 0.4s;
           }
         }
       }

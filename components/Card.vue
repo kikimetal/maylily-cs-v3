@@ -1,22 +1,18 @@
 <template lang="html">
   <div
   :class="['Card', $store.state.ww.size]"
-  @click="handleClick"
-  data-aos="fade-up"
-  >
-  <!-- :data-aos="$store.state.ww.size === 'sm' ? 'fade-up' : 'zoom-in-up'" -->
-
+  @click="handleClick">
     <router-link :to="this.type === 'modal' ? '' : to">
 
-      <div class="shadow" />
-
       <LazyLoadImg
-        class="card-img"
-        :imgsrc="imgsrc"
-        :imgstyle="imgstyle"
-        :alt="alt" />
+      :class="['card-img', {transparent: imgTransparent}]"
+      :imgsrc="imgsrc"
+      :imgstyle="imgstyle"
+      :alt="alt" />
 
-      <div class="title-container" :style="{ textAlign: align }">
+      <div
+      class="title-container"
+      :style="{ textAlign: align }">
         <span class="date" v-if="date">{{ date }}</span>
         <h1 class="title">
           <span v-for="(word, i) in titleArray" :key="'title-word-' + i">{{ word }}</span>
@@ -27,7 +23,6 @@
       </div>
 
     </router-link>
-
   </div>
 </template>
 
@@ -48,6 +43,7 @@ export default {
     alt: { type: String, default: '画像です' },
     align: { type: String, default: 'left' },
     modal: { type: Object, default: null },
+    imgTransparent: { type: Boolean, default: false },
   },
   data () {
     return {
@@ -70,8 +66,7 @@ export default {
 @import '~/assets/css/myset.scss';
 
 .Card{
-  // $card-border-radius: $border-radius;
-  $card-border-radius: 6px;
+  $card-border-radius: 9px;
   font-size: 28rem;
   position: relative;
   text-align: center;
@@ -80,68 +75,59 @@ export default {
   cursor: pointer;
   transform-origin: center;
 
-  @include hover-touchme;
-
-  .shadow{
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-
-    background: $white;
+  .card-img{
     border-radius: $card-border-radius;
     box-shadow: $shadow-set;
-    z-index: -1;
+    z-index: 2;
+    @include hover-touchme;
+
+    &.transparent{
+      border-radius: 0 !important;
+      box-shadow: none !important;
+    }
   }
 
   .title-container{
     position: relative;
-    padding: 0.8em 0.6em 0.9em;
+    padding: 0.8em 0.6em 1.9em;
     z-index: 3;
     text-align: left;
     line-height: 1;
+    // @include hover-touchme;
+    color: $general;
+    transition: all 0.6s $ease-out;
+    &:hover{
+      color: $primary;
+    }
 
     .date{
-      padding-bottom: 1.1em;
       display: block;
       font-size: 14rem;
       font-weight: bold;
-      color: rgba($general, 0.4);
+      opacity: 0.4;
     }
     .title, .subtitle{
       span{
         display: inline-block;
-        padding: 0 0.05em;
-        &:last-child{
-          padding-right: 0;
-        }
+        padding: 0 0.06em;
       }
     }
     .title{
-      font-weight: bold;
+      font-weight: 800;
       text-transform: uppercase;
-      line-height: 1.1;
+      line-height: 1.3;
+      padding: 0.4em 0 0.45em;
     }
     .subtitle{
-      padding: 0.4em 0 0;
-      line-height: 1.3;
-      font-size: 15rem;
-      font-weight: bold;
-      color: rgba($general, 0.6);
+      line-height: 1.5;
+      // font-size: 15rem;
+      font-size: 0.55em;
+      font-weight: 400;
+      opacity: 0.5;
     }
     .date, .subtitle{
       padding-left: 0.1em;
     }
-    .date + .title{
-      padding-bottom: 0.1em;
-    }
-  }
-
-  .card-img{
-    border-top-left-radius: $card-border-radius;
-    border-top-right-radius: $card-border-radius;
-    z-index: 2;
   }
 
   &.md{

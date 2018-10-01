@@ -5,7 +5,7 @@
       type="basic"
       pagetop
       :title="['News', 'Release']"
-      subtitle="ニュースリリース"
+      :subtitle="['メイリリィの', '最新の情報を', 'お届けします']"
       />
 
     <FetchLoader />

@@ -1,9 +1,9 @@
 <template lang="html">
   <transition name="page">
-    <CardContainer v-if="$store.state.sheets.news.status === 'pending'">
+    <CardContainer v-if="$store.state.sheets.news.status !== 'fulfilled'">
       <Card
         class="FetchLoader"
-        v-for="(row, i) in dummy"
+        v-for="(row, i) in dummy[$store.state.sheets.news.status]"
         :key="'card-in-news-' + i"
         :date="row.date"
         :title="row.title"
@@ -29,31 +29,27 @@ export default {
   },
   data () {
     return {
-      dummy: Array(3).fill({
-        type: 'link',
-        linkto: '',
-        imgsrc: 'dummy.svg',
-        title: 'Now loading',
-        subtitle: '最新の情報を読み込んでいます✨',
-      }),
+      dummy: {
+        pending: Array(3).fill({
+          type: 'link',
+          linkto: '',
+          imgsrc: 'dummy.svg',
+          title: 'Now loading',
+          subtitle: '最新の情報を読み込んでいます✨',
+        }),
+        rejected: Array(3).fill({
+          type: 'link',
+          linkto: '',
+          imgsrc: 'dummy.svg',
+          title: 'Error',
+          subtitle: '情報の読み込みに失敗しました。',
+        }),
+      }
     }
   }
 }
 </script>
 
 <style lang="scss" scoped>
-@import '~/assets/css/myset.scss';
-.FetchLoader{
-  // font-size: 22rem;
-  // text-align: center;
-  // font-weight: bold;
-  // background: $primary;
-  // color: $white;
-  //
-  // display: flex;
-  // flex-flow: column;
-  // justify-content: center;
-  // align-items: center;
-  // height: 100vh;
-}
+// @import '~/assets/css/myset.scss';
 </style>

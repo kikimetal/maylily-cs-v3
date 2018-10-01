@@ -1,5 +1,6 @@
 <template>
 <div :class="['MailForm', $store.state.ww.size]">
+  
   <form>
 
     <section class="flex">
@@ -226,6 +227,9 @@
   </form>
 
   <p class="attention">個人情報の取り扱いについては「<router-link to="/privacy-policy">プライバシーポリシー</router-link>」をご覧ください。</p>
+
+  <!-- 住所自動補完 -->
+  <script src="https://yubinbango.github.io/yubinbango-core/yubinbango-core.js" charset="UTF-8"></script>
 </div>
 </template>
 
@@ -239,6 +243,8 @@ export default {
   data () {
     return {
       // errors: [], // <- vee-validate injected
+      checked: false, // エラーチェックが一度でも走ったかどうか
+
       company: null,
       name: '',
       email: '',
@@ -252,7 +258,26 @@ export default {
       oemNum: null,
       oemDate: null,
       message: '',
-      checked: false, // エラーチェックが一度でも走ったかどうか
+    }
+  },
+  watch: {
+    zipcode: function(zipcode) {
+      if (!zipcode || zipcode.length < 6) {
+        return
+      }
+      let _this = this
+      try{
+        new YubinBango.Core(zipcode, function(addr) {
+          // _this.pref_id  = addr.region_id // 都道府県ID
+          // _this.locality = addr.locality  // 市区町村
+          // _this.street   = addr.street    // 町域
+          _this.address = addr.locality + addr.street  // 市区町村
+          console.log(addr)
+        })
+      }
+      catch (err) {
+        console.log('郵便番号の入力不正...')
+      }
     }
   },
   methods: {

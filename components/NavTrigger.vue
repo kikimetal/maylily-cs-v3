@@ -1,14 +1,11 @@
 <template lang="html">
   <div
-    :class="['NavTrigger', $store.state.ww.size]"
-    @click="$store.commit('toggleNav', true)">
-    <!-- @mouseover="$store.commit('toggleNav', true)" -->
-
+  :class="['NavTrigger', $store.state.ww.size]"
+  @click="$store.commit('toggleNav', true)">
     <transition name="trigger">
       <svg v-show="!$store.state.isShowNav" class="bars" viewBox="0 0 53.529 51.852">
         <defs>
           <style>
-            /* .cls-1, .cls-2 { fill: #bbcecd; } */
             .cls-2 {
               font-size: 17px;
               font-weight: 500;
@@ -26,7 +23,7 @@
       </svg>
     </transition>
     <transition name="trigger">
-      <div v-show="!$store.state.isShowNav" class="circle" />
+      <div v-show="!$store.state.isShowNav" :class="['circle', {sizeup: !$store.state.isScrollTop}]" />
     </transition>
   </div>
 </template>
@@ -39,24 +36,20 @@ export default {
 <style lang="scss" scoped>
 @import '~/assets/css/myset.scss';
 .NavTrigger{
-  font-size: 100rem;
+  font-size: 40rem;
   position: fixed;
-  top: 4vw;
-  right: 4vw;
+  top: 5.6vw;
+  right: 5.8vw;
   width: 1em;
   height: 1em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   z-index: 999999;
   overflow: visible;
   cursor: pointer;
   user-select: none;
   pointer-events: auto;
-
-  &.md, &.lg, &.xl{
-    top: 2.2vw;
-    right: 2.4vw;
-    width: 1.3em;
-    height: 1.3em;
-  }
 
   .bars{
     display: block;
@@ -66,40 +59,41 @@ export default {
     right: 0;
     bottom: 0;
     margin: auto;
-    padding-bottom: 0.07em;
-    width: 0.4em;
-    height: 0.4em;
+    padding-bottom: 0.1em;
+    width: 0.96em;
+    height: 0.96em;
     z-index: 2;
-    fill: $primary;
+    fill: $lightgrey;
     transition: all 0.3s $ease-out;
   }
   .cls-1, .cls-2 { fill: inherit; }
 
   .circle{
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: auto;
+    flex: 0 0 auto;
     background: $white;
-    width: 1em;
-    height: 1em;
+    width: 2.2em;
+    height: 2.2em;
     border-radius: 50%;
     box-shadow: $shadow-set;
     z-index: 1;
     border: 0px solid $primary;
-    transition: all 0.3s $ease-out;
+    transition: all 0.4s $ease-out;
+    &.sizeup{
+      width: 3em;
+      height: 3em;
+    }
   }
   &:hover{
     .bars{
       fill: $white;
+      transform: scale(1.1);
     }
     .circle{
-      border-width: 0.5em;
-      // box-shadow: 0 2px 8px 0 rgba($shadow, 0.07);
+      border-width: 1.1em;
       transform: scale(1.2);
+      &.sizeup{
+        border-width: 1.5em;
+      }
     }
   }
 

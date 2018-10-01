@@ -91,8 +91,12 @@ export default {
   &.md, &.lg, &.xl{
     font-size: 42rem;
     padding: 0;
-    width: 16em;
     padding-left: 7vw;
+    padding-top: calc(0.6em + 1vh);
+    width: 16em;
+    justify-content: flex-start;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
     border-left: 0.36em solid rgba($primary, 0.8);
     box-shadow: $shadow-set;
     .link{

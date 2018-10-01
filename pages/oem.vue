@@ -1,18 +1,26 @@
 <template>
    <div :class="['page', $store.state.ww.size]">
 
-    <Heading
+    <!-- <Heading
     type="basic"
     pagetop
     :title="['Fragrance', 'OEM']"
     :subtitle="['フレグランス', 'OEM事業']"
-    />
+    /> -->
 
     <section>
-      <Heading
+      <!-- <Heading
       type="photogenic"
       :title="['Fragrance', 'OEM']"
       :subtitle="['フレグランス', 'OEM事業']"
+      imgsrc="Delicious.jpg"
+      alt="ダブル蒸留法"
+      /> -->
+      <Heading
+      type="three-way"
+      :title="['Fragrance', 'OEM']"
+      :subtitle="['フレグランス', 'OEM事業']"
+      :message="['フレグランス', 'OEM事業']"
       imgsrc="Delicious.jpg"
       alt="ダブル蒸留法"
       />
@@ -61,7 +69,7 @@
       <p>
         香水、ボディミスト、ハンドクリームなどの化粧品から、リードディフューザー、ファブリックミストなどの雑貨品まで幅広く承っております。また、化粧品、トイレタリーなどに用いられる調合香料（香粧品香料）も提供しております。その他、ローションやジェルなどのスキンケア・ボディケア用品の製造も可能です。
       </p>
-      <div class="half">
+      <div class="flex3">
         <Heading
         type="photogenic"
         :title="['Fragrance']"
@@ -141,7 +149,7 @@
         製造の流れ
       </h1>
 
-      <div class="half">
+      <div class="flex3">
         <div>
           <Heading
           type="photogenic"
@@ -209,7 +217,7 @@
           <h2>STEP６　検査・出荷</h2>
           <p>検品後、完成した製品を国内ご指定先までお届けいたします。</p>
         </div>
-      </div><!-- .half -->
+      </div><!-- .flex3 -->
 
     </section>
 

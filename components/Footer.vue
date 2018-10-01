@@ -2,17 +2,21 @@
   <footer :class="['Footer', $store.state.ww.size]" role="footer">
     <h1 class="heading"
     data-aos="fade-up"
-    data-aos-duration="1000">
-    Upgrade<br v-if="$store.state.ww.size === 'sm'" /> your lifestyle<br v-if="$store.state.ww.size === 'sm'" /> now.</h1>
+    data-aos-duration="1600"
+    data-aos-once="true">
+      Upgrade<br v-if="$store.state.ww.size === 'sm'" /> your lifestyle<br v-if="$store.state.ww.size === 'sm'" /> now.
+    </h1>
 
     <nav class="global" role="navigation"
     data-aos="fade-up"
+    data-aos-offset="100"
+    data-aos-once="true"
     >
       <router-link
       class="link"
       v-for="(route, index) in globalNavs" :key="'g-route-' + index"
       data-aos="fade-left"
-      data-aos-offset="-100"
+      data-aos-offset="100"
       data-aos-delay="0"
       data-aos-once="true"
       :data-aos-duration="500 + 100 * index"
@@ -27,6 +31,7 @@
     <nav class="footer" role="navigation"
     data-aos="fade-up"
     data-aos-offset="-100"
+    data-aos-once="true"
     >
       <router-link
       class="link"
@@ -68,7 +73,8 @@ export default {
   margin-top: 10vh;
   padding: 1.5em 1.3em;
   padding-bottom: 2.8em;
-  height: 100vh;
+  // height: 100vh;
+  min-height: 800px;
   display: flex;
   flex-flow: column;
   justify-content: space-around;
@@ -92,7 +98,6 @@ export default {
     font-size: 1.3em;
     letter-spacing: 0.1em;
     line-height: 1.3;
-    font-weight: bold;
     font-family: FuturaBold;
     overflow: visible;
     text-shadow: 0 3px 9px $shadow;
@@ -106,7 +111,7 @@ export default {
       right: 0.8em + $slide;
       bottom: -0.6em;
       display: block;
-      background: rgba($white, 0.2);
+      background: rgba($white, 0.1);
       box-shadow: $shadow-set;
       z-index: -1;
     }
@@ -125,32 +130,30 @@ export default {
       justify-content: center;
       align-items: flex-end;
       line-height: 1;
-      border-bottom: 4px solid rgba($white, 0.2);
+      font-weight: 700;
+      border-bottom: 1px solid rgba($white, 0.2);
       opacity: 0.8;
       pointer-events: auto;
       cursor: pointer;
-      @include hover-touchme;
       &:hover{
         transition: all 0.3s ease;
         opacity: 1;
-      }
-      .title{
-        font-weight: bold;
       }
       .slash{
         display: inline-block;
         margin-left: 0.7em;
         margin-right: 0.5em;
-        width: 2px;
+        // width: 2px;
+        width: 1px;
         height: 1em;
         border-radius: 2px;
         transform: rotate(40deg) translateY(0.1em);
         background: $white;
-        opacity: 0.5;
+        opacity: 0.3;
       }
       .subtitle{
         font-size: 0.8em;
-        opacity: 0.7;
+        opacity: 0.4;
       }
     }
   }
@@ -168,7 +171,8 @@ export default {
     bottom: 0;
     line-height: 4;
     font-size: 12rem;
-    color: rgba($white, 0.6);
+    color: $white;
+    opacity: 0.3;
     text-align: center;
   }
 

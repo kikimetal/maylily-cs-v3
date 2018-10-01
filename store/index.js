@@ -22,6 +22,7 @@ const store = () => new Vuex.Store({
       value: 0,
     },
 
+    isScrollTop: true,
     isShowNav: false,
 
     modal: {
@@ -50,7 +51,7 @@ const store = () => new Vuex.Store({
     setWindowWidth (state) {
       const ww = window.innerWidth
       state.ww.value = ww
-      state.ww.md = ww > 600
+      state.ww.md = ww > 660
       state.ww.lg = ww > 960
       state.ww.xl = ww > 1600
 
@@ -74,6 +75,12 @@ const store = () => new Vuex.Store({
     },
     setWindowHeight (state) {
       state.wh.value = window.innerHeight
+    },
+
+    setIsScrollTop (state) {
+      const isScrollTop = window.scrollY < 100
+      if (state.isScrollTop === isScrollTop) return
+      state.isScrollTop = isScrollTop
     },
 
     toggleNav (state, isShow) {
@@ -108,7 +115,7 @@ const store = () => new Vuex.Store({
 
       const columns = [
         'separator',
-        'showtop',
+        'topnews',
         'pickup',
         'date',
         'title',
@@ -160,7 +167,7 @@ const store = () => new Vuex.Store({
         // fixed object for type=modal Card.
         // row の各値は全て String で帰ってくるため、必要に応じて .trim() で空白を削除
         return {
-          showtop: Number(row['showtop'].trim()),
+          topnews: Number(row['topnews'].trim()),
           pickup: Number(row['pickup'].trim()),
           date: row.date,
           title: row.title.split(separator),

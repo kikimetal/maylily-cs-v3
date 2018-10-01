@@ -4,51 +4,58 @@
     <HeroImage />
 
     <Heading
-      type="basic"
-      data-aos="fade-up"
-      :title="['News', 'Release']"
-      subtitle="最新の情報をお届けします✨" />
+    type="three-way"
+    align="left"
+    :title="['Made', 'with', 'Fun']"
+    :subtitle="['私たちもお客様も', '楽しい! 面白い! と感じるものを']"
+    :message="['香りのプロフェッショナルという強みを活かし、既存の枠にとらわれない新しいライフスタイルやプロダクトを提案いたします。']"
+    />
 
     <FetchLoader />
 
     <CardContainer>
       <Card
-        v-for="(row, i) in $store.state.sheets.news.data"
-        v-if="row.showtop"
-        :key="'card-in-news-' + i"
-        :date="row.date"
-        :title="row.title"
-        :subtitle="row.subtitle"
-        :align="row.align"
-        :imgsrc="row.imgsrc"
-        :type="row.type"
-        :to="row.linkto"
-        :modal="row.modal"
-        :exact="true"
-        :data-aos-delay="i * 100" />
+      v-for="(row, i) in $store.state.sheets.news.data"
+      v-if="row.pickup"
+      :key="'card-in-news-' + i"
+      :title="row.title"
+      :subtitle="row.subtitle"
+      :align="row.align"
+      :imgsrc="row.imgsrc"
+      :type="row.type"
+      :to="row.linkto"
+      :modal="row.modal"
+      :exact="true"
+      :imgTransparent="true"
+      :imgstyle="{backgroundSize: 'contain'}"
+      />
     </CardContainer>
 
     <Heading
-      type="basic"
-      data-aos="fade-up"
-      :title="['Pick', 'Up']"
-      subtitle="注目の情報です✨" />
+    type="three-way"
+    align="center"
+    :title="['News', 'Release']"
+    :subtitle="['最新情報']"
+    :message="['メイリリィの最新の情報をお届けします✨']"
+    />
+
+    <FetchLoader />
 
     <CardContainer>
       <Card
-        v-for="(row, i) in $store.state.sheets.news.data"
-        v-if="row.pickup"
-        :key="'card-in-news-' + i"
-        :date="row.date"
-        :title="row.title"
-        :subtitle="row.subtitle"
-        :align="row.align"
-        :imgsrc="row.imgsrc"
-        :type="row.type"
-        :to="row.linkto"
-        :modal="row.modal"
-        :exact="true"
-        :data-aos-delay="i * 100" />
+      v-for="(row, i) in $store.state.sheets.news.data"
+      v-if="row.topnews"
+      :key="'card-in-news-' + i"
+      :date="row.date"
+      :title="row.title"
+      :subtitle="row.subtitle"
+      :align="row.align"
+      :imgsrc="row.imgsrc"
+      :type="row.type"
+      :to="row.linkto"
+      :modal="row.modal"
+      :exact="true"
+      />
     </CardContainer>
 
     <Footer />

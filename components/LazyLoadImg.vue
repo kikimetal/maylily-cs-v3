@@ -46,17 +46,13 @@ export default {
 
   position: relative;
   width: 100%;
-  padding-top: 80%;
+  padding-top: 100%;
   height: 0;
   overflow: hidden;
 
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-
-  &.md, &.lg, &.xl{
-    padding-top: 400px;
-  }
 
   .placeholder{
     position: absolute;
