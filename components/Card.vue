@@ -77,7 +77,7 @@ export default {
   font-size: 28rem;
   position: relative;
   text-align: center;
-  color: $general;
+  color: $grey-9;
   overflow: visible;
   cursor: pointer;
   transform-origin: center;
@@ -85,10 +85,8 @@ export default {
   .card-img{
     padding-top: 98%;
     border-radius: $card-border-radius;
-    box-shadow: $shadow-set-pale;
     z-index: 2;
     @include hover-touchme;
-
     &.transparent{
       border-radius: 0 !important;
       box-shadow: none !important;
@@ -97,11 +95,12 @@ export default {
 
   .title-container{
     position: relative;
-    padding: 0.8em 0.6em 0.7em;
+    // padding: 0.8em 0.6em 0.7em;
+    padding: 0.2em 0.6em 0.7em;
     z-index: 3;
     text-align: left;
     line-height: 1;
-    color: $general;
+    color: $grey-9;
     transition: all 0.6s $ease-out;
 
     .date{
@@ -147,13 +146,13 @@ export default {
     border-radius: 3em;
     background: $white;
     // box-shadow: $shadow-set;
-    border: 2px solid rgba($lightgrey, 0.2);
+    border: 2px solid rgba($grey-3, 0.2);
     transition: all 0.5s $ease-out;
     .arrow{
-      fill: $lightgrey;
+      fill: $grey-3;
     }
     &:hover{
-      background: $lightgrey;
+      background: $grey-3;
       transform: scale(1.2);
       .arrow{
         fill: $white;

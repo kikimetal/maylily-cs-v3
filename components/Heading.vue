@@ -5,9 +5,12 @@
     <div v-if="type === 'photogenic'" :class="['Heading', 'photogenic', align, $store.state.wwsize]">
       <LazyLoadImg
         :imgsrc="imgsrc"
-        :imgstyle="imgstyle"
-        :alt="alt" />
-      <div class="title-container" data-aos="fade-up" data-aos-offset="0">
+        :imgstyle="{paddingTop: '88%'}"
+        :alt="alt"
+        data-aos="zoom-out"
+        data-aos-duration="1000"
+        />
+      <div class="title-container">
         <h1 class="title">
           <span v-for="(word, i) in titleArray" :key="'title-word-' + i">{{ word }}</span>
         </h1>
@@ -77,7 +80,7 @@ export default {
   props: {
     type: { type: String, default: 'basic' },
     pagetop: { type: Boolean, default: false },
-    imgsrc: { type: String, default: 'kikigirl.jpg' },
+    imgsrc: { type: String, default: 'rose-aroma.jpg' },
     imgstyle: { type: Object, default: () => {} },
     alt: { type: String, default: '画像です' },
     title: { type: [String, Number, Array], default: 'insert title...' },
@@ -90,7 +93,6 @@ export default {
       titleArray: typeof this.title === 'object' ? this.title : new Array(this.title),
       subtitleArray: typeof this.subtitle === 'object' ? this.subtitle : new Array(this.subtitle),
       messageArray: typeof this.message === 'object' ? this.message : new Array(this.message),
-      roseColor: {},
     }
   },
 }
@@ -122,31 +124,33 @@ export default {
   font-size: 24rem;
   width: 100%;
   overflow: visible;
-  padding-bottom: 1em;
   .title-container{
     position: relative;
-    top: -1em;
+    // top: -1em;
     margin: 0 auto;
-    padding: 1em 0.6em 0.8em;
+    padding: 0.65em 0.6em 2em;
     width: 86%;
-    background: $white;
-    box-shadow: $shadow-set;
+    // background: $white;
+    // box-shadow: $shadow-set;
     overflow: visible;
   }
   .title{
     font-size: 30rem;
     font-weight: bold;
+    color: $grey-9;
   }
   .subtitle{
     font-size: 15rem;
     padding-top: 0.5em;
+    color: $grey-9;
+    opacity: 0.4;
   }
 }
 
 .Heading.three-way{
   font-size: 20rem;
   padding: 2.8em 1em 3.3em;
-  color: $general;
+  color: $grey-9;
   .title{
     font-size: 1em;
     // color: $primary;
@@ -177,11 +181,9 @@ export default {
 
 .Heading.pale{
   position: relative;
-  font-size: 21px;
-  // padding: 2em 1.2em 2em;
-  padding: 3em 1.2em 3.2em;
-  // color: $lightgrey;
-  color: $grey;
+  font-size: 22px;
+  padding: 3.3em 1.2em 3.1em;
+  color: $grey-5;
   .rose{
     width: 3.4em;
     padding-bottom: 0.2em;
@@ -190,11 +192,10 @@ export default {
     line-height: 1.8;
   }
   .subtitle{
-    font-size: 0.8em;
-    font-weight: 600;
+    font-size: 0.82em;
+    font-weight: 500;
     line-height: 1.32;
-    color: $lightgrey;
-    // opacity: 0.5;
+    opacity: 0.6;
   }
 
   &.md, &.lg, &.xl{
@@ -206,7 +207,7 @@ export default {
 .Heading.basic{
   font-size: 24rem;
   padding: 3.7em 0.6em 2.1em;
-  color: $general;
+  color: $grey-9;
   .title{
     position: relative;
     font-size: 1.6em;

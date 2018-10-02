@@ -69,7 +69,7 @@ export default {
       position: absolute;
       display: block;
       border-radius: 4px;
-      background: $lightgrey;
+      background: $grey-3;
       box-shadow: 0 20px 70px 0 rgba($pinkgrey, 0.8);
       opacity: 0.5;
 
@@ -118,7 +118,7 @@ export default {
       height: max-content;
       max-width: 86%;
       text-align: left;
-      color: $lightgrey;
+      color: $grey-3;
       word-wrap: break-word;
       font-size: 1em;
       font-weight: bold;
@@ -141,7 +141,7 @@ export default {
       text-align: center;
       font-size: 14rem;
       line-height: 2;
-      color: $grey;
+      color: $grey-5;
       z-index: 4;
       // border-radius: $border-radius;
 

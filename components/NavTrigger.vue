@@ -63,25 +63,22 @@ export default {
     width: 0.96em;
     height: 0.96em;
     z-index: 2;
-    fill: $lightgrey;
+    fill: $grey-5;
     transition: all 0.3s $ease-out;
   }
   .cls-1, .cls-2 { fill: inherit; }
 
+  $circle-size: 2.4em;
   .circle{
     flex: 0 0 auto;
     background: $white;
-    width: 2.2em;
-    height: 2.2em;
+    width: $circle-size;
+    height: $circle-size;
     border-radius: 50%;
     box-shadow: $shadow-set;
     z-index: 1;
     border: 0px solid $primary;
     transition: all 0.6s $ease-out;
-    &.sizeup{
-      width: 2.5em;
-      height: 2.5em;
-    }
   }
   &:hover{
     .bars{
@@ -89,11 +86,8 @@ export default {
       transform: scale(1.1);
     }
     .circle{
-      border-width: 1.1em;
+      border-width: $circle-size / 2;
       transform: scale(1.2);
-      &.sizeup{
-        border-width: 1.5em;
-      }
     }
   }
 

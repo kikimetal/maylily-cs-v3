@@ -80,7 +80,7 @@ export default {
     margin: auto;
 
     background: $white;
-    color: $general;
+    color: $grey-9;
     font-weight: bold;
     box-shadow: $shadow-set;
     overflow-x: hidden;

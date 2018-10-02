@@ -97,7 +97,7 @@ export default {
 <style lang="scss" scoped>
 @import '~/assets/css/myset.scss';
 .c01{
-  fill: $lightgrey;
+  fill: $grey-3;
   opacity: 0.5;
 }
 .c02{

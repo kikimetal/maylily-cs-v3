@@ -1,6 +1,6 @@
 <template>
 <div :class="['MailForm', $store.state.ww.size]">
-  
+
   <form>
 
     <section class="flex">
@@ -412,14 +412,14 @@ export default {
       display: block;
       width: 100%;
       padding: 0.85em 1.1em 0.8em;
-      color: $general;
+      color: $grey-9;
       background: $white;
       border: none;
-      border-bottom: 1px solid rgba($grey, 0.8);
+      border-bottom: 1px solid rgba($grey-5, 0.8);
       transition: all 0.5s ease;
 
       &::placeholder{
-        color: rgba($grey, 0.5);
+        color: rgba($grey-5, 0.5);
       }
 
       &:-webkit-autofill{
@@ -427,7 +427,7 @@ export default {
       }
 
       &:hover{
-        border-color: $general;
+        border-color: $grey-9;
       }
 
       &:focus{
@@ -457,7 +457,7 @@ export default {
 
     textarea{
       box-shadow: none;
-      border: 1px solid rgba($grey, 0.8);
+      border: 1px solid rgba($grey-5, 0.8);
       overflow-y: scroll;
       line-height: 1.3;
       height: 400px;
@@ -508,8 +508,8 @@ export default {
       padding-left: 1.2em;
       padding-right: 1em;
       font-weight: bold;
-      color: $grey;
-      border: 1px solid rgba($grey, 0.4);
+      color: $grey-5;
+      border: 1px solid rgba($grey-5, 0.4);
       border-radius: 5em;
       cursor: pointer;
       transition: all 0.3s ease;
@@ -522,7 +522,7 @@ export default {
         margin-bottom: 0.05em;
         margin-right: 0.7em;
         border-radius: 50%;
-        box-shadow: 0 0 0 1px $grey;
+        box-shadow: 0 0 0 1px $grey-5;
         transition: all 0.3s ease;
       }
 
@@ -604,7 +604,7 @@ export default {
 
   .attention{
     padding-top: 5em;
-    color: $grey;
+    color: $grey-5;
     text-align: center;
     a{
       color: $primary;

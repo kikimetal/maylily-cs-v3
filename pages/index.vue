@@ -3,13 +3,6 @@
 
     <HeroImage />
 
-    <!-- <Heading
-    type="three-way"
-    align="left"
-    :title="['Made', 'with', 'Fun']"
-    :subtitle="['私たちもお客様も', '楽しい! 面白い! と感じるものを']"
-    :message="['香りのプロフェッショナルという強みを活かし、既存の枠にとらわれない新しいライフスタイルやプロダクトを提案いたします。']"
-    /> -->
     <Heading
     type="pale"
     :title="['Our', 'Brands']"
@@ -112,19 +105,9 @@ export default {
     FetchLoader,
     Footer,
   },
-//   data () {
-//     return {
-// $store.state.sheets.news.data.filter(row => row.news)
-//     }
-//   },
   async fetch ({ store, param }) {
     store.commit('setNewsSheet')
   },
-  // created(){
-  //   if(process.browser){
-  //     console.log('created', this.$store.state.sheets.news.data)
-  //   }
-  // },
   head () { return this.$store.state.heads[this.$route.path] },
 }
 </script>

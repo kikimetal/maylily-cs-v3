@@ -2,7 +2,7 @@
   <div :class="['page', $store.state.ww.size]">
 
     <Heading
-      type="basic"
+      type="pale"
       pagetop
       :title="['News', 'Release']"
       :subtitle="['メイリリィの', '最新の情報を', 'お届けします']"

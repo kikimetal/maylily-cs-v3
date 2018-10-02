@@ -103,7 +103,7 @@ export default {
   left: 5.7vw;
   width: calc(104px + 1vw);
   height: auto;
-  fill: $grey;
+  fill: $grey-7;
   z-index: 2;
   transition: all 1.2s $ease-out;
   &.hide{
@@ -121,13 +121,14 @@ export default {
 
   // section layout
   .page > section{
+    overflow: visible;
     font-size: 15rem;
-    padding: 2em 1.4em;
-    color: $general;
+    padding: 0 1.4em;
+    color: $grey-9;
     & > p{
       padding: 1em 0 0.7em;
       line-height: 1.7;
-      color: rgba($general, 0.7);
+      color: rgba($grey-9, 0.7);
       a{
         text-decoration: underline;
         color: $secondary;
@@ -146,7 +147,7 @@ export default {
       padding: 1em 0 0em;
       line-height: 1.5;
       font-weight: bold;
-      color: rgba($general, 0.9);
+      color: rgba($grey-9, 0.9);
     }
     & > img{
       margin: 0 auto;
@@ -159,13 +160,13 @@ export default {
       display: flex;
       flex-flow: column;
       line-height: 1.4;
-      color: rgba($general, 0.6);
+      color: rgba($grey-9, 0.6);
       & > *{
         display: flex;
         flex-flow: column;
         justify-content: center;
         align-items: flex-start;
-        background: rgba($grey, 0.12);
+        background: rgba($grey-5, 0.12);
         border: 1px solid $white;
         padding: 0.8em 1em 0.6em;
         font-weight: bold;
@@ -173,7 +174,7 @@ export default {
           background: rgba($pinkgrey, 0.14);
           font-weight: normal;
           // font-size: 0.9em;
-          color: rgba($general, 0.9);
+          color: rgba($grey-9, 0.9);
         }
       }
     }
@@ -187,7 +188,7 @@ export default {
       }
       & > div > p{
         line-height: 1.6;
-        color: rgba($general, 0.7);
+        color: rgba($grey-9, 0.7);
         padding-bottom: 3em;
       }
     }
@@ -277,7 +278,7 @@ export default {
   right: 0;
   bottom: 0;
   display: block;
-  background: rgba($grey, 0.5);
+  background: rgba($grey-5, 0.5);
   z-index: 99;
   user-select: none;
   pointer-events: auto;

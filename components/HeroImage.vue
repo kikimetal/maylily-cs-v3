@@ -103,7 +103,7 @@ export default {
     height: max-content;
     max-width: 86%;
     text-align: center;
-    color: $whitegrey;
+    color: $grey-1;
     opacity: 0.7;
     word-wrap: break-word;
     font-size: 12vw;
@@ -125,21 +125,19 @@ export default {
   .heading{
     overflow: visible;
     position: relative;
-    // padding: 0.5em 0;
     z-index: 4;
-    $heading-color: $general;
-    // $heading-color: $grey;
+    $heading-color: $grey-9;
     .main{
       color: $heading-color;
       text-align: center;
       font-size: 24rem;
       font-weight: bold;
       font-weight: 900;
-      padding: 2.5em 0 0.7em;
+      padding: 2.7em 0 0.7em;
       z-index: 4;
     }
     .sub{
-      padding: 0 2em 2em;
+      padding: 0 2em 0.5em;
       text-align: center;
       font-size: 14rem;
       line-height: 1.8;
@@ -164,7 +162,7 @@ export default {
       width: calc(86px + 3vw);
     }
     .background{
-      margin-top: -4vw;
+      // margin-top: -4vw;
       height: 44vw;
     }
     .power-word{
@@ -174,7 +172,7 @@ export default {
       width: min-content;
     }
     .heading{
-      padding: 2em 0;
+      padding: 1.2em 0 1em;
       .main{
         font-size: 4vw;
         padding: 1.8em 0 0.6em;

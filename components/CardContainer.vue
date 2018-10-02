@@ -22,8 +22,9 @@ export default {
 
   &.sm{
     & > *{
-      margin: 5%;
-      width: 90%;
+      $width: 88%;
+      width: $width;
+      margin: (100% - $width) / 2;
     }
   }
   &.md{

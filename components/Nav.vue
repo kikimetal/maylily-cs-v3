@@ -67,7 +67,7 @@ export default {
     pointer-events: auto;
 
     &:hover{
-      color: $general;
+      color: $grey-9;
     }
 
     .subtitle{

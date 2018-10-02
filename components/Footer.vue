@@ -79,7 +79,7 @@ export default {
   flex-flow: column;
   justify-content: space-around;
   align-items: center;
-  background: $grey;
+  background: $grey-5;
   color: $white;
   box-shadow: 0 0 70px rgba($primary, 0.4) inset;
 
