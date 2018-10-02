@@ -22,15 +22,22 @@
         </h2>
       </div>
 
+      <div :class="['btn', {left: align === 'left'}]">
+        <ArrowRight class="arrow"/>
+      </div>
+
     </router-link>
   </div>
 </template>
 
 <script>
 import LazyLoadImg from '~/components/LazyLoadImg.vue'
+import ArrowRight from '~/components/svg/ArrowRight.vue'
+
 export default {
   components: {
     LazyLoadImg,
+    ArrowRight,
   },
   props: {
     type: { type: String, default: 'link' },
@@ -66,7 +73,7 @@ export default {
 @import '~/assets/css/myset.scss';
 
 .Card{
-  $card-border-radius: 9px;
+  $card-border-radius: 24px;
   font-size: 28rem;
   position: relative;
   text-align: center;
@@ -76,8 +83,9 @@ export default {
   transform-origin: center;
 
   .card-img{
+    padding-top: 98%;
     border-radius: $card-border-radius;
-    box-shadow: $shadow-set;
+    box-shadow: $shadow-set-pale;
     z-index: 2;
     @include hover-touchme;
 
@@ -89,16 +97,12 @@ export default {
 
   .title-container{
     position: relative;
-    padding: 0.8em 0.6em 1.9em;
+    padding: 0.8em 0.6em 0.7em;
     z-index: 3;
     text-align: left;
     line-height: 1;
-    // @include hover-touchme;
     color: $general;
     transition: all 0.6s $ease-out;
-    &:hover{
-      color: $primary;
-    }
 
     .date{
       display: block;
@@ -120,13 +124,40 @@ export default {
     }
     .subtitle{
       line-height: 1.5;
-      // font-size: 15rem;
       font-size: 0.55em;
       font-weight: 400;
-      opacity: 0.5;
+      opacity: 0.4;
     }
     .date, .subtitle{
       padding-left: 0.1em;
+    }
+  }
+
+  .btn{
+    margin: 0 auto;
+    margin-bottom: 1.3em;
+    &.left{
+      margin-left: 0.5em;
+    }
+    width: 3.5em;
+    height: 2.2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3em;
+    background: $white;
+    // box-shadow: $shadow-set;
+    border: 2px solid rgba($lightgrey, 0.2);
+    transition: all 0.5s $ease-out;
+    .arrow{
+      fill: $lightgrey;
+    }
+    &:hover{
+      background: $lightgrey;
+      transform: scale(1.2);
+      .arrow{
+        fill: $white;
+      }
     }
   }
 

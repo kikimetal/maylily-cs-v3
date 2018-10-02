@@ -41,6 +41,17 @@
       </h3>
     </div>
 
+    <!-- type pale -->
+    <div v-else-if="type === 'pale'" :class="['Heading', 'pale', align, { pagetop: pagetop }, $store.state.wwsize]">
+      <Rose class="rose"/>
+      <h1 class="title">
+        <span v-for="(word, i) in titleArray" :key="'title-word-' + i">{{ word }}</span>
+      </h1>
+      <h2 class="subtitle">
+        <span v-for="(word, i) in subtitleArray" :key="'subtitle-word-' + i">{{ word }}</span>
+      </h2>
+    </div>
+
     <!-- type basic -->
     <div v-else :class="['Heading', 'basic', align, { pagetop: pagetop }, $store.state.wwsize]">
       <h1 class="title">
@@ -56,10 +67,12 @@
 
 <script>
 import LazyLoadImg from '~/components/LazyLoadImg.vue'
+import Rose from '~/components/svg/Rose.vue'
 
 export default {
   components: {
     LazyLoadImg,
+    Rose,
   },
   props: {
     type: { type: String, default: 'basic' },
@@ -77,6 +90,7 @@ export default {
       titleArray: typeof this.title === 'object' ? this.title : new Array(this.title),
       subtitleArray: typeof this.subtitle === 'object' ? this.subtitle : new Array(this.subtitle),
       messageArray: typeof this.message === 'object' ? this.message : new Array(this.message),
+      roseColor: {},
     }
   },
 }
@@ -131,7 +145,7 @@ export default {
 
 .Heading.three-way{
   font-size: 20rem;
-  padding: 3.7em 1em 2.1em;
+  padding: 2.8em 1em 3.3em;
   color: $general;
   .title{
     font-size: 1em;
@@ -139,7 +153,8 @@ export default {
     color: $secondary;
   }
   .subtitle{
-    padding: 0.6em 0 0.5em;
+    // padding: 0.6em 0 0.5em;
+    padding: 0.42em 0 0.37em;
     font-size: 1.5em;
     font-weight: bold;
     font-weight: 800;
@@ -151,12 +166,40 @@ export default {
     opacity: 0.5;
   }
   &.md, &.lg, &.xl{
-    padding: 2.7em 5vw 2em;
+    padding: 4.4em 10vw 5em;
     font-size: 2.3vw;
   }
   &.xl{
-    padding: 2.7em 6vw 2em;
+    // padding: 2.7em 6vw 2em;
     font-size: 31rem;
+  }
+}
+
+.Heading.pale{
+  position: relative;
+  font-size: 21px;
+  // padding: 2em 1.2em 2em;
+  padding: 3em 1.2em 3.2em;
+  // color: $lightgrey;
+  color: $grey;
+  .rose{
+    width: 3.4em;
+    padding-bottom: 0.2em;
+  }
+  .title{
+    line-height: 1.8;
+  }
+  .subtitle{
+    font-size: 0.8em;
+    font-weight: 600;
+    line-height: 1.32;
+    color: $lightgrey;
+    // opacity: 0.5;
+  }
+
+  &.md, &.lg, &.xl{
+    padding-bottom: 3em;
+    font-size: 2.4vw;
   }
 }
 
@@ -192,13 +235,6 @@ export default {
     padding: 0;
     padding-top: 0.1em;
     font-weight: 400;
-    // opacity: 0.6;
-    // span{
-    //   background: $general;
-    //   background-clip: text;
-    //   -webkit-background-clip: text;
-    //   -webkit-text-fill-color: transparent;
-    // }
   }
 
   &.md, &.lg, &.xl{

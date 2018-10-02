@@ -5,9 +5,10 @@
     <!-- <transition> -->
     <div :class="['background', {show: isBgLoaded}]">
       <h1 class="power-word" v-if="isBgLoaded">
-        <span data-aos="fade-up" data-aos-offset="0" data-aos-delay="1100" data-aos-duration="900">Life</span>
-        <span data-aos="fade-up" data-aos-offset="0" data-aos-delay="1200" data-aos-duration="1300">with</span>
-        <span data-aos="fade-up" data-aos-offset="0" data-aos-delay="1300" data-aos-duration="1800">Fragrance</span>
+        <!-- <span data-aos="fade-up" data-aos-offset="0" data-aos-delay="1100" data-aos-duration="900">Life</span>
+        <span data-aos="fade-up" data-aos-offset="0" data-aos-delay="1200" data-aos-duration="1300">with</span> -->
+        <span data-aos="fade-down" data-aos-offset="0" data-aos-delay="800" data-aos-duration="1300">Life with</span>
+        <span data-aos="fade-up" data-aos-offset="0" data-aos-delay="1100" data-aos-duration="2100">Fragrance</span>
       </h1>
     </div>
     <!-- </transition> -->
@@ -56,7 +57,7 @@ export default {
   // overflow: visible;
   position: relative;
   font-size: 40rem;
-  padding-bottom: 10vw;
+  // padding-bottom: 10vw;
   width: 100%;
 
   .background{
@@ -124,6 +125,7 @@ export default {
   .heading{
     overflow: visible;
     position: relative;
+    // padding: 0.5em 0;
     z-index: 4;
     $heading-color: $general;
     // $heading-color: $grey;
@@ -133,8 +135,7 @@ export default {
       font-size: 24rem;
       font-weight: bold;
       font-weight: 900;
-      // padding: 1.8em 0 0.8em;
-      padding: 2.2em 0 0.7em;
+      padding: 2.5em 0 0.7em;
       z-index: 4;
     }
     .sub{
@@ -147,11 +148,11 @@ export default {
       border-radius: $border-radius;
       opacity: 0.4;
       z-index: 4;
+      line-height: 1.5;
       & > span{
         overflow: visible;
         display: inline-block;
         padding-bottom: 0.2em;
-        line-height: 1;
       }
     }
   }
@@ -163,7 +164,7 @@ export default {
       width: calc(86px + 3vw);
     }
     .background{
-      // margin-top: 4.1vw;
+      margin-top: -4vw;
       height: 44vw;
     }
     .power-word{
@@ -173,6 +174,7 @@ export default {
       width: min-content;
     }
     .heading{
+      padding: 2em 0;
       .main{
         font-size: 4vw;
         padding: 1.8em 0 0.6em;

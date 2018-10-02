@@ -92,16 +92,19 @@ export default {
     font-size: 42rem;
     padding: 0;
     padding-left: 7vw;
-    padding-top: calc(0.6em + 1vh);
-    width: 16em;
+    padding-top: calc(0.6em + 3vh);
+    // width: 16em;
+    width: 68%;
     justify-content: flex-start;
     overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
-    border-left: 0.36em solid rgba($primary, 0.8);
+    // border-left: 0.36em solid rgba($primary, 0.8);
+    // border-left: 10% solid rgba($primary, 0.8);
     box-shadow: $shadow-set;
     .link{
-      width: 10em;
-      margin-bottom: calc(0.5em + 1vh);
+      // width: 10em;
+      width: 88%;
+      margin-bottom: calc(0.5em + 1.6vh);
     }
   }
   &.md{

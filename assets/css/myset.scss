@@ -1,10 +1,12 @@
 // color
 $white: #fefcff;
 $whitegrey: #F6F6F6;
-$grey: #90A8AC;
-$lightgrey: #BBCECD;
-// $pink: rgb(236, 111, 175);
+// $grey: #90A8AC;
+$grey: #a7b8bb;
+// $lightgrey: #adc6c4;
+$lightgrey: #c8d5d7;
 $pink: rgb(233, 160, 197);
+$pink-pale: rgb(246, 229, 238);
 $lavender: rgb(139, 131, 218);
 $pinkgrey: #CE9F94;
 
@@ -20,7 +22,7 @@ $heading: #354844;
 $background: #F6F6F6;
 $shadow: rgba(35, 70, 66, 0.14);
 $shadow-set: 0 6px 36px 0 $shadow;
-$shadow-set-pale: 0 6px 36px 0 rgba($shadow, 0.08);
+$shadow-set-pale: 0 1px 18px 0 rgba($shadow, 0.09);
 
 $primary-gradient: linear-gradient(90deg, $primary 0%, $secondary 100%);
 // $primary-gradient: linear-gradient(180deg, $primary 0%, $secondary 100%);

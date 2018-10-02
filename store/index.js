@@ -42,7 +42,7 @@ const store = () => new Vuex.Store({
     sheets: {
       news: {
         status: 'pending',
-        data: null,
+        data: [],
       }
     },
   },
@@ -115,8 +115,9 @@ const store = () => new Vuex.Store({
 
       const columns = [
         'separator',
-        'topnews',
+        'brand',
         'pickup',
+        'news',
         'date',
         'title',
         'subtitle',
@@ -167,8 +168,9 @@ const store = () => new Vuex.Store({
         // fixed object for type=modal Card.
         // row の各値は全て String で帰ってくるため、必要に応じて .trim() で空白を削除
         return {
-          topnews: Number(row['topnews'].trim()),
+          brand: Number(row['brand'].trim()),
           pickup: Number(row['pickup'].trim()),
+          news: Number(row['news'].trim()),
           date: row.date,
           title: row.title.split(separator),
           subtitle: row.subtitle.split(separator),

@@ -77,10 +77,10 @@ export default {
     box-shadow: $shadow-set;
     z-index: 1;
     border: 0px solid $primary;
-    transition: all 0.4s $ease-out;
+    transition: all 0.6s $ease-out;
     &.sizeup{
-      width: 3em;
-      height: 3em;
+      width: 2.5em;
+      height: 2.5em;
     }
   }
   &:hover{

@@ -3,6 +3,39 @@
 
     <HeroImage />
 
+    <!-- <Heading
+    type="three-way"
+    align="left"
+    :title="['Made', 'with', 'Fun']"
+    :subtitle="['私たちもお客様も', '楽しい! 面白い! と感じるものを']"
+    :message="['香りのプロフェッショナルという強みを活かし、既存の枠にとらわれない新しいライフスタイルやプロダクトを提案いたします。']"
+    /> -->
+    <Heading
+    type="pale"
+    :title="['Our', 'Brands']"
+    :subtitle="['あなたの個性を際立たせる', '私たちからの贈りもの']"
+    :message="['香りのプロフェッショナルという強みを活かし、既存の枠にとらわれない新しいライフスタイルやプロダクトを提案いたします。']"
+    />
+
+    <FetchLoader />
+
+    <CardContainer>
+      <Card
+      v-for="(row, i) in $store.state.sheets.news.data.filter(row => row.brand)"
+      :key="'card-in-news-' + i"
+      :title="row.title"
+      :subtitle="row.subtitle"
+      :align="row.align"
+      :imgsrc="row.imgsrc"
+      :type="row.type"
+      :to="row.linkto"
+      :modal="row.modal"
+      :exact="true"
+      />
+      <!-- :imgTransparent="true" -->
+      <!-- :imgstyle="{backgroundSize: 'contain'}" -->
+    </CardContainer>
+
     <Heading
     type="three-way"
     align="left"
@@ -15,9 +48,9 @@
 
     <CardContainer>
       <Card
-      v-for="(row, i) in $store.state.sheets.news.data"
-      v-if="row.pickup"
+      v-for="(row, i) in $store.state.sheets.news.data.filter(row => row.pickup)"
       :key="'card-in-news-' + i"
+      :date="row.date"
       :title="row.title"
       :subtitle="row.subtitle"
       :align="row.align"
@@ -26,8 +59,6 @@
       :to="row.linkto"
       :modal="row.modal"
       :exact="true"
-      :imgTransparent="true"
-      :imgstyle="{backgroundSize: 'contain'}"
       />
     </CardContainer>
 
@@ -43,8 +74,8 @@
 
     <CardContainer>
       <Card
-      v-for="(row, i) in $store.state.sheets.news.data"
-      v-if="row.topnews"
+      v-for="(row, i) in $store.state.sheets.news.data.filter(row => row.news)"
+      v-if="i < 2"
       :key="'card-in-news-' + i"
       :date="row.date"
       :title="row.title"
@@ -81,9 +112,19 @@ export default {
     FetchLoader,
     Footer,
   },
+//   data () {
+//     return {
+// $store.state.sheets.news.data.filter(row => row.news)
+//     }
+//   },
   async fetch ({ store, param }) {
     store.commit('setNewsSheet')
   },
+  // created(){
+  //   if(process.browser){
+  //     console.log('created', this.$store.state.sheets.news.data)
+  //   }
+  // },
   head () { return this.$store.state.heads[this.$route.path] },
 }
 </script>

@@ -30,9 +30,10 @@ export default {
     width: 86%;
     & > *{
       // 横に2個
-      margin: 1%;
+      $width: 45%;
+      width: $width;
+      margin: (100% - $width * 2) / 4;
       margin-bottom: 4%;
-      width: 48%;
     }
   }
   &.lg, &.xl{
@@ -40,9 +41,10 @@ export default {
     max-width: 1200px;
     & > *{
       // 横に3個
-      margin: calc(7 / 6 * 1%);
+      $width: 30%;
+      width: $width;
+      margin: (100% - $width * 3) / 6;
       margin-bottom: 3%;
-      width: 31%;
     }
   }
 
