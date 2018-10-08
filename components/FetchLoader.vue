@@ -1,5 +1,5 @@
 <template lang="html">
-  <transition name="page">
+  <!-- <transition name="page"> -->
     <CardContainer v-if="$store.state.sheets.news.status !== 'fulfilled'">
       <Card
         class="FetchLoader"
@@ -14,9 +14,10 @@
         :to="row.linkto"
         :modal="row.modal"
         :exact="true"
-        :data-aos-delay="i * 100" />
+        data-aos="fade-up"
+        :data-aos-delay="i * 150" />
     </CardContainer>
-  </transition>
+  <!-- </transition> -->
 </template>
 
 <script>
@@ -30,14 +31,14 @@ export default {
   data () {
     return {
       dummy: {
-        pending: Array(3).fill({
+        pending: Array(2).fill({
           type: 'link',
           linkto: '',
           imgsrc: 'dummy.svg',
           title: 'Now loading',
           subtitle: '最新の情報を読み込んでいます✨',
         }),
-        rejected: Array(3).fill({
+        rejected: Array(1).fill({
           type: 'link',
           linkto: '',
           imgsrc: 'dummy.svg',

@@ -19,7 +19,6 @@ module.exports = {
       { rel: 'apple-touch-icon', sizes: '152x152', href: '/apple-touch-icon.png' },
       { rel: 'apple-touch-startup-image', href: '/apple-touch-icon.png' },
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/earlyaccess/notosansjapanese.css' },
-      // { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Noto+Serif+JP' },
     ]
   },
   /*
@@ -27,7 +26,7 @@ module.exports = {
   */
   loading: {
     color: 'rgba(109, 198, 209, 0.7)',
-    height: '8px',
+    height: '6px',
   },
   /*
   ** Build configuration
@@ -78,5 +77,4 @@ module.exports = {
   router: {
     base: '/'
   },
-
 }

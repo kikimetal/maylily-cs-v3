@@ -10,19 +10,20 @@
       :imgstyle="imgstyle"
       :alt="alt" />
 
-      <div
-      class="title-container"
-      :style="{ textAlign: align }">
+      <!-- <div class="title-container" :style="{ textAlign: align }"> -->
+      <div class="title-container">
         <span class="date" v-if="date">{{ date }}</span>
         <h1 class="title">
           <span v-for="(word, i) in titleArray" :key="'title-word-' + i">{{ word }}</span>
         </h1>
+        <!-- <h2 class="subtitle" :style="{ textAlign: align }"> -->
         <h2 class="subtitle">
           <span v-for="(word, i) in subtitleArray" :key="'subtitle-word-' + i">{{ word }}</span>
         </h2>
       </div>
 
-      <div :class="['btn', {left: align === 'left'}]">
+      <!-- <div :class="['btn', {left: align === 'left'}]"> -->
+      <div class="btn">
         <ArrowRight class="arrow"/>
       </div>
 
@@ -73,7 +74,8 @@ export default {
 @import '~/assets/css/myset.scss';
 
 .Card{
-  $card-border-radius: 24px;
+  $radius-min: 32%;
+  $radius-max: 46%;
   font-size: 28rem;
   position: relative;
   text-align: center;
@@ -83,43 +85,62 @@ export default {
   transform-origin: center;
 
   .card-img{
-    padding-top: 98%;
-    border-radius: $card-border-radius;
+    margin: 0 auto;
+    width: 100%;
+    padding-top: 96%;
+    border-radius: $radius-max;
     z-index: 2;
-    @include hover-touchme;
+    transition: all 1.2s ease;
     &.transparent{
       border-radius: 0 !important;
       box-shadow: none !important;
     }
   }
+  &:hover{
+    .card-img{
+      @include touchme(0.94);
+      transition: all 0.4s $ease-out 0.05s;
+      border-radius: $radius-min;
+    }
+  }
+  &.md, &.lg, &.xl{
+    .card-img{
+      width: 78%;
+      padding-top: 76%;
+    }
+  }
 
   .title-container{
     position: relative;
-    // padding: 0.8em 0.6em 0.7em;
-    padding: 0.2em 0.6em 0.7em;
+    padding: 0.2em 0.6em 1em;
     z-index: 3;
-    text-align: left;
+    text-align: center;
     line-height: 1;
     color: $grey-9;
     transition: all 0.6s $ease-out;
 
     .date{
+      font-size: 0.55em;
+      padding-top: 0.7em;
+      margin-bottom: -0.5em;
       display: block;
-      font-size: 14rem;
-      font-weight: bold;
-      opacity: 0.4;
+      font-weight: 300;
+      line-height: 1;
+      opacity: 0.3;
     }
+
     .title, .subtitle{
       span{
         display: inline-block;
         padding: 0 0.06em;
+        text-decoration: inherit;
       }
     }
     .title{
       font-weight: 800;
       text-transform: uppercase;
-      line-height: 1.3;
-      padding: 0.4em 0 0.45em;
+      line-height: 1.5;
+      padding: 0.8em 0 0.6em;
     }
     .subtitle{
       line-height: 1.5;
@@ -127,35 +148,42 @@ export default {
       font-weight: 400;
       opacity: 0.4;
     }
-    .date, .subtitle{
+    .subtitle{
       padding-left: 0.1em;
+      transition: all 0.6s $ease-out;
+    }
+  }
+  &:hover{
+    .title-container{
+      .subtitle{
+        opacity: 0.5;
+        text-decoration: underline;
+      }
     }
   }
 
   .btn{
     margin: 0 auto;
-    margin-bottom: 1.3em;
     &.left{
       margin-left: 0.5em;
     }
     width: 3.5em;
-    height: 2.2em;
+    height: 1.9em;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 3em;
     background: $white;
-    // box-shadow: $shadow-set;
-    border: 2px solid rgba($grey-3, 0.2);
-    transition: all 0.5s $ease-out;
+    border: 2px solid rgba($grey-3, 0.3);
+    transition: all 0.6s ease 0.1s;
     .arrow{
       fill: $grey-3;
+      transition: all 0.3s ease;
     }
     &:hover{
-      background: $grey-3;
-      transform: scale(1.2);
+      border-color: rgba($grey-3, 0.6);
       .arrow{
-        fill: $white;
+        fill: $grey-5;
       }
     }
   }

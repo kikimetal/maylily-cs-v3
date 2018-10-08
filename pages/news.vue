@@ -2,11 +2,13 @@
   <div :class="['page', $store.state.ww.size]">
 
     <Heading
-      type="pale"
-      pagetop
-      :title="['News', 'Release']"
-      :subtitle="['メイリリィの', '最新の情報を', 'お届けします']"
-      />
+    type="three-way"
+    pagetop
+    align="center"
+    :title="['News', 'Release']"
+    :subtitle="['最新情報']"
+    :message="['メイリリィの最新の情報をお届けします。']"
+    />
 
     <FetchLoader />
 
@@ -23,7 +25,10 @@
         :to="row.linkto"
         :modal="row.modal"
         :exact="true"
-        :data-aos-delay="i * 100" />
+        data-aos="fade-up"
+        :data-aos-offset="0"
+        :data-aos-delay="getCardAosDelay(i, $store.state.ww.size)"
+        />
     </CardContainer>
 
     <Footer />
@@ -32,6 +37,7 @@
 
 <script>
 import axios from 'axios'
+import getCardAosDelay from '~/assets/getCardAosDelay.js'
 
 import Heading from '~/components/Heading.vue'
 import Footer from '~/components/Footer.vue'
@@ -45,6 +51,9 @@ export default {
     Card,
     CardContainer,
     FetchLoader,
+  },
+  methods: {
+    getCardAosDelay,
   },
   async fetch ({ store, param }) {
     store.commit('setNewsSheet')

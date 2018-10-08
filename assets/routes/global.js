@@ -1,7 +1,7 @@
 export default [
   {
     title: 'Home',
-    subtitle: 'トップ',
+    subtitle: 'メイリリィ',
     path: '/',
     exact: true,
   },

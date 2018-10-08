@@ -527,11 +527,11 @@ export default {
       }
 
       &:hover{
-        background: rgba($secondary, 0.1);
-        border-color: $secondary;
-        color: $secondary;
+        background: rgba($grey-green, 0.1);
+        border-color: $grey-green;
+        color: $grey-green;
         .circle{
-          box-shadow: 0 0 0 1px $secondary;
+          box-shadow: 0 0 0 1px $grey-green;
         }
       }
     }

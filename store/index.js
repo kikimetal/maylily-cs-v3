@@ -157,7 +157,7 @@ const store = () => new Vuex.Store({
        * @return { Object }           Card へ最適化したオブジェクト
        */
       function fixRow (row, separator) {
-        // generate links object.
+        // generate object 'links'
         const words = row['modal-links-word'].split(separator)
         const urls = row['modal-links-url'].split(separator)
         const links = words.map((word, i) => ({
@@ -165,7 +165,6 @@ const store = () => new Vuex.Store({
           to: urls[i].trim() || '/',
           external: urls[i].trim().indexOf('http') === 0
         }))
-        // fixed object for type=modal Card.
         // row の各値は全て String で帰ってくるため、必要に応じて .trim() で空白を削除
         return {
           brand: Number(row['brand'].trim()),
@@ -178,7 +177,7 @@ const store = () => new Vuex.Store({
           imgsrc: row.imgsrc.trim(),
           type: row.type.trim() || 'link',
           linkto: row['link-to'].trim() || '/',
-          modal: {
+          modal: row.type.trim() !== 'modal' ? null : {
             title: row['modal-title'].split(separator),
             subtitle: row['modal-subtitle'].split(separator),
             text: row['modal-text'].split(separator),

@@ -1,9 +1,9 @@
 <template lang="html">
   <div id="layout-default" @touchstart="()=>{}">
 
-    <!-- <img :class="['logo', {hide: !isScrollTop}]" src="~/assets/img/logotype.svg" alt="メイリリィのロゴ" /> -->
-    <!-- <img :class="['logo', {hide: !$store.state.isScrollTop}]" src="~/assets/img/logotype.svg" alt="メイリリィのロゴ" /> -->
-    <Logotype :class="['logo', {hide: !$store.state.isScrollTop}]" />
+    <router-link to="/">
+      <Logotype :class="['logo', {hide: !$store.state.isScrollTop}]" />
+    </router-link>
 
     <Nav />
     <NavTrigger />
@@ -40,11 +40,6 @@ export default {
     NavTrigger,
     Modal,
     Logotype,
-  },
-  data () {
-    return{
-      // isScrollTop: false,
-    }
   },
   methods: {
     setPropertyScrollY () {
@@ -105,9 +100,12 @@ export default {
   height: auto;
   fill: $grey-7;
   z-index: 2;
+  cursor: pointer;
   transition: all 1.2s $ease-out;
   &.hide{
     opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
   }
 }
 
@@ -120,103 +118,80 @@ export default {
   }
 
   // section layout
-  .page > section{
+  section{
     overflow: visible;
     font-size: 15rem;
     padding: 0 1.4em;
     color: $grey-9;
-    & > p{
-      padding: 1em 0 0.7em;
-      line-height: 1.7;
-      color: rgba($grey-9, 0.7);
+    p{
+      padding: 0.7em 0;
+      line-height: 1.8;
+      color: $grey-6;
       a{
         text-decoration: underline;
-        color: $secondary;
+        color: $grey-green;
         cursor: pointer;
         pointer-events: auto;
       }
     }
-    & > h1{
-      font-size: 1.6em;
-      padding: 1em 0 0.3em;
-      line-height: 1.5;
-      font-weight: bold;
+    .section-heading{
+      font-size: 1.2em;
+      line-height: 1.7;
+      font-weight: 600;
     }
-    & > h2{
-      font-size: 1.3em;
-      padding: 1em 0 0em;
-      line-height: 1.5;
-      font-weight: bold;
-      color: rgba($grey-9, 0.9);
+    p + .section-heading{
+      padding-top: 2em;
     }
-    & > img{
-      margin: 0 auto;
-      max-width: 100%;
-      height: auto;
-      padding-right: 10%;
+    .section-sub-heading{
+      font-size: 1.1em;
+      line-height: 1.6;
+      font-weight: 600;
     }
 
-    & > .grid{
+    .section-grid{
       display: flex;
       flex-flow: column;
       line-height: 1.4;
-      color: rgba($grey-9, 0.6);
+      color: $grey-6 !important;
       & > *{
+        font-size: 1em;
+        width: 100%;
         display: flex;
         flex-flow: column;
         justify-content: center;
-        align-items: flex-start;
-        background: rgba($grey-5, 0.12);
+        align-items: stretch;
+        background: rgba($grey-5, 0.1);
         border: 1px solid $white;
-        padding: 0.8em 1em 0.6em;
-        font-weight: bold;
+        padding: 18px;
+        font-weight: 600;
         &:nth-child(even){
-          background: rgba($pinkgrey, 0.14);
-          font-weight: normal;
-          // font-size: 0.9em;
-          color: rgba($grey-9, 0.9);
+          font-size: 0.9em;
+          background: rgba($pinkgrey, 0.1);
+          color: $grey-7;
+          font-weight: 300;
         }
+      }
+      &.inner{
+        padding: 0;
+        border: 0;
+        background: none;
       }
     }
 
-    & > .flex3{
-      & > div > h2{
-        line-height: 1;
-        font-size: 1.3em;
-        padding-bottom: 1em;
-        font-weight: bold;
-      }
-      & > div > p{
-        line-height: 1.6;
-        color: rgba($grey-9, 0.7);
-        padding-bottom: 3em;
-      }
+    .flex3 > *{
+      padding-bottom: 4em;
     }
   }
 
   &.md, &.lg, &.xl{
-    .page > section{
-      padding: 2.4em 3.4em;
+    section{
+      padding: 0.5em 8vw;
       font-size: 17rem;
-      max-width: 1400px;
+      box-sizing: content-box;
+      max-width: 1000px;
       margin: 0 auto;
-      & > h1{
-        // width: 40%;
-        padding: 1.7em 0 0;
-        text-align: center;
-        border-bottom: 2px solid rgba($pinkgrey, 0.3);
-      }
-      & > h2{
-        width: 40%;
-        padding: 1em 0 0.6em;
-      }
-      & > p{
-        width: 40%;
-        line-height: 1.8;
-        padding: 1.1em 0 1.3em;
-      }
 
-      & > .grid{
+      .section-grid{
         display: flex;
         flex-flow: row wrap;
         line-height: 1.6;
@@ -226,12 +201,19 @@ export default {
             width: 80%;
           }
         }
+        &.inner{
+          & > *{
+            width: 26%;
+            &:nth-child(even){
+              width: 74%;
+            }
+          }
+        }
       }
 
-      & > .flex3{
+      .flex3{
         display: flex;
         flex-flow: row wrap;
-        // justify-content: space-between;
         align-items: flex-start;
         & > div{
           padding: 1em;
@@ -247,8 +229,8 @@ export default {
   }
 
   &.lg, &.xl{
-    .page > section{
-      & > .flex3{
+    section{
+      .flex3{
         display: flex;
         flex-flow: row wrap;
         // justify-content: space-between;
@@ -257,7 +239,7 @@ export default {
           padding: 1em;
         }
         & > *{
-          // width: 32.8%;
+          padding: 1em;
           width: 33.3%;
           &:nth-child(3n + 2) *{
             transition-delay: 0.2s;

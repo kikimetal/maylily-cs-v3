@@ -25,36 +25,49 @@ export default {
       $width: 88%;
       width: $width;
       margin: (100% - $width) / 2;
-    }
-  }
-  &.md{
-    width: 86%;
-    & > *{
-      // 横に2個
-      $width: 45%;
-      width: $width;
-      margin: (100% - $width * 2) / 4;
-      margin-bottom: 4%;
-    }
-  }
-  &.lg, &.xl{
-    width: 96%;
-    max-width: 1200px;
-    & > *{
-      // 横に3個
-      $width: 30%;
-      width: $width;
-      margin: (100% - $width * 3) / 6;
-      margin-bottom: 3%;
+      margin-bottom: 70px;
+      &:last-child{
+        margin-bottom: 60px;
+      }
     }
   }
 
-  // センター寄せしつつ最後のカードは左寄せの場合
+  // &.md{
   &.md, &.lg, &.xl{
-  justify-content: center;
+    width: 78%;
+    justify-content: center;
+    & > *{
+      // 横に2個
+      $width: 48%;
+      width: $width;
+      margin: 0 (100% - $width * 2) / 4;
+      margin-bottom: 12%;
+      &:nth-last-child(1),
+      &:nth-last-child(2):nth-child(odd){
+        margin-bottom: 0;
+      }
+    }
+    // センター寄せしつつ最後のカードは左寄せ
     & > *:last-child:nth-child(n+3){
       margin-right: auto;
     }
   }
+  &.lg{
+    width: 70%;
+  }
+  &.xl{
+    width: 60%;
+  }
+  // &.lg, &.xl{
+  //   width: 96%;
+  //   max-width: 1200px;
+  //   & > *{
+  //     // 横に3個
+  //     $width: 30%;
+  //     width: $width;
+  //     margin: (100% - $width * 3) / 6;
+  //     margin-bottom: 3%;
+  //   }
+  // }
 }
 </style>

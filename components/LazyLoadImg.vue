@@ -16,7 +16,6 @@ export default {
     alt: { type: String, default: '' },
   },
   data () {
-
     const isExternal = this.imgsrc.indexOf('http') === 0
     const fixedImgsrc = isExternal ? this.imgsrc : require('~/assets/img/' + this.imgsrc)
 
@@ -42,11 +41,12 @@ export default {
 
 .LazyLoadImg{
   // 読み込み後の待機時間
-  $delay: 0.4s;
+  // $delay: 0.9s;
+  $delay: 0s;
 
   position: relative;
   width: 100%;
-  padding-top: 100%;
+  padding-top: 96%;
   height: 0;
   overflow: hidden;
 
@@ -65,14 +65,10 @@ export default {
     flex-flow: column;
     justify-content: center;
     align-items: center;
-    // $color01: rgb(255, 240, 245);
-    $color02: rgb(202, 238, 242);
-    // $stripe-size: 30px;
-    // background: repeating-linear-gradient(90deg, $color01, $color01 $stripe-size, $color02 $stripe-size, $color02 $stripe-size*2);
-    background: $color02;
-
+    background: $grey-1;
     user-select: none;
     pointer-events: none;
+    box-shadow: 0 0 50px 0 rgba($grey-2, 0.1) inset;
     transition: opacity 0.5s ease-out $delay;
 
     &.loaded{
@@ -86,10 +82,9 @@ export default {
     }
     .loader-text{
       font-size: 24rem;
-      // font-weight: lighter;
       margin-top: -0.5em;
-      color: $white;
-      text-shadow: 0 2px 10px rgba(119, 92, 114, 0.45);
+      color: $grey-3;
+      font-weight: 200;
       transition: transform 0.5s ease-out 0.9s;
     }
     &.loaded{

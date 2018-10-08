@@ -1,14 +1,13 @@
 <template lang="html">
-  <div class="Heading-container">
+  <div :class="['Heading-container', {paddingCutTop}, {paddingCutBottom}]">
 
     <!-- type photogenic -->
-    <div v-if="type === 'photogenic'" :class="['Heading', 'photogenic', align, $store.state.wwsize]">
+    <div v-if="type === 'photogenic'" :class="['Heading', 'photogenic', align, $store.state.wwsize]" :style="styleOverride">
       <LazyLoadImg
+        class="img"
         :imgsrc="imgsrc"
-        :imgstyle="{paddingTop: '88%'}"
+        :imgstyle="{paddingTop: $store.state.ww.size === 'sm' ? '80%' : '36%'}"
         :alt="alt"
-        data-aos="zoom-out"
-        data-aos-duration="1000"
         />
       <div class="title-container">
         <h1 class="title">
@@ -20,19 +19,21 @@
       </div>
     </div>
 
-    <!-- type graffical -->
-    <div v-else-if="type === 'graffical'" :class="['Heading', 'graffical', align, $store.state.wwsize]">
-      <h1>graffical</h1>
-      <h1 class="title">
-        <span v-for="(word, i) in titleArray" :key="'title-word-' + i">{{ word }}</span>
-      </h1>
-      <h2 class="subtitle">
-        <span v-for="(word, i) in subtitleArray" :key="'subtitle-word-' + i">{{ word }}</span>
-      </h2>
+    <!-- type image-only -->
+    <div v-else-if="type === 'image-only'" :class="['Heading', 'image-only', align, $store.state.wwsize]" :style="styleOverride">
+      <LazyLoadImg
+      :imgsrc="imgsrc"
+      :imgstyle="{paddingTop: $store.state.ww.size === 'sm' ? '90%' : '30%'}"
+      :alt="alt"
+      data-aos="zoom-out"
+      data-aos-easing="ease-out-quart"
+      data-aos-duration="2000"
+      data-aos-delay="100"
+      />
     </div>
 
     <!-- type three-way -->
-    <div v-else-if="type === 'three-way'" :class="['Heading', 'three-way', align, { pagetop: pagetop }, $store.state.wwsize]">
+    <div v-else-if="type === 'three-way'" :class="['Heading', 'three-way', align, { pagetop: pagetop }, $store.state.wwsize]" :style="styleOverride">
       <h1 class="title">
         <span v-for="(word, i) in titleArray" :key="'title-word-' + i">{{ word }}</span>
       </h1>
@@ -45,7 +46,7 @@
     </div>
 
     <!-- type pale -->
-    <div v-else-if="type === 'pale'" :class="['Heading', 'pale', align, { pagetop: pagetop }, $store.state.wwsize]">
+    <div v-else-if="type === 'pale'" :class="['Heading', 'pale', align, { pagetop: pagetop }, $store.state.wwsize]" :style="styleOverride">
       <Rose class="rose"/>
       <h1 class="title">
         <span v-for="(word, i) in titleArray" :key="'title-word-' + i">{{ word }}</span>
@@ -56,7 +57,7 @@
     </div>
 
     <!-- type basic -->
-    <div v-else :class="['Heading', 'basic', align, { pagetop: pagetop }, $store.state.wwsize]">
+    <div v-else :class="['Heading', 'basic', align, { pagetop: pagetop }, $store.state.wwsize]" :style="styleOverride">
       <h1 class="title">
         <span v-for="(word, i) in titleArray" :key="'title-word-' + i">{{ word }}</span>
       </h1>
@@ -87,12 +88,16 @@ export default {
     subtitle: { type: [String, Number, Array], default: 'insert sub title...' },
     message: { type: [String, Number, Array], default: 'insert message...' },
     align: { type: String, default: 'center' },
+    paddingCutTop: { type: Boolean, default: false },
+    paddingCutBottom: { type: Boolean, default: false },
+    styleOverride: {type: Object, default: () => {} },
   },
   data () {
     return {
       titleArray: typeof this.title === 'object' ? this.title : new Array(this.title),
       subtitleArray: typeof this.subtitle === 'object' ? this.subtitle : new Array(this.subtitle),
       messageArray: typeof this.message === 'object' ? this.message : new Array(this.message),
+      imgPaddingTop: '',
     }
   },
 }
@@ -103,87 +108,110 @@ export default {
 
 .Heading-container{
   overflow: visible;
+  &.paddingCutTop{
+    .Heading{
+      padding-top: 0 !important;
+    }
+  }
+  &.paddingCutBottom{
+    .Heading{
+      padding-bottom: 0 !important;
+    }
+  }
 }
 
 .Heading{
-  .title{ font-family: FuturaBold; }
   span{
     display: inline-block;
-    padding: 0.1em 0.12em;
+    // padding: 0 0.15em;
+    padding: 0;
+  }
+  .title{
+    font-family: FuturaBold;
+    span + span{
+      margin-left: 0.3em;
+    }
   }
   &.center{ text-align: center; }
   &.left{ text-align: left; }
   &.right{ text-align: right; }
 }
 
-.Heading.graffical{
-  background: pink;
+.Heading.image-only{
+  overflow: hidden;
+  margin-bottom: -5vw;
 }
 
 .Heading.photogenic{
+  position: relative;
   font-size: 24rem;
   width: 100%;
   overflow: visible;
   .title-container{
     position: relative;
-    // top: -1em;
     margin: 0 auto;
     padding: 0.65em 0.6em 2em;
     width: 86%;
-    // background: $white;
-    // box-shadow: $shadow-set;
     overflow: visible;
-  }
-  .title{
-    font-size: 30rem;
-    font-weight: bold;
-    color: $grey-9;
-  }
-  .subtitle{
-    font-size: 15rem;
-    padding-top: 0.5em;
-    color: $grey-9;
-    opacity: 0.4;
+    .title{
+      font-size: 30rem;
+      font-weight: bold;
+      color: $grey-9;
+    }
+    .subtitle{
+      font-size: 15rem;
+      padding-top: 0.5em;
+      color: $grey-9;
+      opacity: 0.4;
+    }
   }
 }
 
 .Heading.three-way{
   font-size: 20rem;
-  padding: 2.8em 1em 3.3em;
+  padding: 4.2em 1em 4em;
   color: $grey-9;
   .title{
     font-size: 1em;
-    // color: $primary;
-    color: $secondary;
+    font-family: FuturaBold;
+    color: $grey-green;
+    line-height: 1.4;
   }
   .subtitle{
-    // padding: 0.6em 0 0.5em;
-    padding: 0.42em 0 0.37em;
+    padding: 0.37em 0 0.39em;
     font-size: 1.5em;
     font-weight: bold;
     font-weight: 800;
-    line-height: 1.15;
+    line-height: 1.4;
   }
   .message{
     font-size: 0.8em;
-    line-height: 1.5;
+    line-height: 1.6;
     opacity: 0.5;
+    span + span{
+      margin-top: 0.5em;
+    }
   }
   &.md, &.lg, &.xl{
-    padding: 4.4em 10vw 5em;
+    padding: 4.9em 8vw 4.7em;
     font-size: 2.3vw;
+    box-sizing: content-box;
+    max-width: 1000px;
+    margin: 0 auto;
   }
-  &.xl{
-    // padding: 2.7em 6vw 2em;
-    font-size: 31rem;
+  &.lg, &.xl{
+    font-size: 29rem;
+  }
+  &.pagetop{
+    padding-top: 8em;
   }
 }
 
 .Heading.pale{
   position: relative;
   font-size: 22px;
-  padding: 3.3em 1.2em 3.1em;
-  color: $grey-5;
+  padding: 4.5em 1.2em 3.6em;
+  color: $grey-7;
   .rose{
     width: 3.4em;
     padding-bottom: 0.2em;
@@ -199,67 +227,41 @@ export default {
   }
 
   &.md, &.lg, &.xl{
-    padding-bottom: 3em;
     font-size: 2.4vw;
   }
 }
 
 .Heading.basic{
-  font-size: 24rem;
-  padding: 3.7em 0.6em 2.1em;
+  font-size: 20rem;
+  padding: 4.2em 1em 4em;
   color: $grey-9;
   .title{
-    position: relative;
-    font-size: 1.6em;
-    padding: 0 0 0.4em;
-    color: $primary;
-    font-weight: bold;
-    word-wrap: break-word;
-    letter-spacing: 1px;
-    text-shadow: 0 1px 5px rgba($primary, 0.2);
-    &::before{
-      content: "";
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 0.22em;
-      width: 300px;
-      height: 2px;
-      margin: 0 auto;
-      display: block;
-      background: rgba($primary, 0.24);
-      z-index: -1;
-    }
+    font-size: 1em;
+    font-family: FuturaBold;
+    color: $grey-green;
+    line-height: 1.4;
   }
   .subtitle{
-    font-size: 0.6em;
-    padding: 0;
-    padding-top: 0.1em;
-    font-weight: 400;
+    padding: 0.37em 0 0.39em;
+    font-size: 1.5em;
+    font-weight: bold;
+    font-weight: 800;
+    line-height: 1.4;
   }
-
   &.md, &.lg, &.xl{
-    padding: 8vw 5vw 7vw;
-    font-size: 3.3vw;
+    padding: 4.9em 8vw 4.7em;
+    font-size: 2.3vw;
+    box-sizing: content-box;
+    max-width: 1000px;
+    margin: 0 auto;
   }
-  &.lg, &.xl{
-    font-size: 34rem;
+  &.xl{
+    font-size: 29rem;
   }
 }
 
 .Heading.basic.pagetop{
-  padding: 6em 0 4em;
-  font-size: 30rem;
-  text-transform: uppercase;
-  &.md{
-    font-size: 34rem;
-  }
-  &.lg{
-    font-size: 38rem;
-  }
-  &.xl{
-    font-size: 42rem;
-  }
+  padding-top: 8.2em;
 }
 
 </style>

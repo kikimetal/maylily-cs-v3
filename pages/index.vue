@@ -1,7 +1,7 @@
 <template lang="html">
   <div :class="['page', $store.state.ww.size]">
 
-    <HeroImage />
+    <HeroImage :isHome="true" />
 
     <Heading
     type="pale"
@@ -24,6 +24,9 @@
       :to="row.linkto"
       :modal="row.modal"
       :exact="true"
+      data-aos="fade-up"
+      :data-aos-offset="0"
+      :data-aos-delay="getCardAosDelay(i, $store.state.ww.size)"
       />
       <!-- :imgTransparent="true" -->
       <!-- :imgstyle="{backgroundSize: 'contain'}" -->
@@ -52,6 +55,9 @@
       :to="row.linkto"
       :modal="row.modal"
       :exact="true"
+      data-aos="fade-up"
+      :data-aos-offset="0"
+      :data-aos-delay="getCardAosDelay(i, $store.state.ww.size)"
       />
     </CardContainer>
 
@@ -60,7 +66,7 @@
     align="center"
     :title="['News', 'Release']"
     :subtitle="['最新情報']"
-    :message="['メイリリィの最新の情報をお届けします✨']"
+    :message="['メイリリィの最新の情報をお届けします。']"
     />
 
     <FetchLoader />
@@ -79,6 +85,9 @@
       :to="row.linkto"
       :modal="row.modal"
       :exact="true"
+      data-aos="fade-up"
+      :data-aos-offset="0"
+      :data-aos-delay="getCardAosDelay(i, $store.state.ww.size)"
       />
     </CardContainer>
 
@@ -88,6 +97,7 @@
 
 <script>
 import axios from 'axios'
+import getCardAosDelay from '~/assets/getCardAosDelay.js'
 
 import Heading from '~/components/Heading.vue'
 import Card from '~/components/Card.vue'
@@ -104,6 +114,9 @@ export default {
     HeroImage,
     FetchLoader,
     Footer,
+  },
+  methods: {
+    getCardAosDelay,
   },
   async fetch ({ store, param }) {
     store.commit('setNewsSheet')

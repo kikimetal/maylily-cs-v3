@@ -10,6 +10,7 @@ const common = {
     // { name: 'og:image', content: 'og image' },
   ],
   link: [
+    // { rel: 'stylesheet', href: 'https://fonts.googleapis.com/earlyaccess/notosansjapanese.css' },
   ],
 }
 export default {
@@ -53,8 +54,8 @@ export default {
     ],
     link: [...common.link],
   },
-  '/about/outline': {
-    title: 'Outline' + maylily,
+  '/about/company': {
+    title: 'Company' + maylily,
     meta: [
       { hid: 'description', name: 'description', content: 'カスタマイズしたよ' },
       ...common.meta,

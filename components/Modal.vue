@@ -62,8 +62,10 @@ export default {
     left: 0;
     right: 0;
     bottom: 0;
-    // background: rgba(darken(desaturate($primary, 10%), 10%), 0.88);
-    background: rgba(desaturate($primary, 25%), 0.3);
+    background: $grey-3;
+    background-color: rgba(0,0,0,0.28);
+    -webkit-backdrop-filter: saturate(90%) blur(20px);
+    backdrop-filter: saturate(90%) blur(20px);
     cursor: pointer;
   }
 
@@ -85,7 +87,7 @@ export default {
     box-shadow: $shadow-set;
     overflow-x: hidden;
     overflow-y: scroll;
-    border-radius: 8px;
+    border-radius: $border-radius;
 
     line-height: 2; // TODO: remove this
 

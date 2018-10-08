@@ -1,32 +1,24 @@
 <template lang="html">
-  <!-- <div :class="['HeroImage', $store.state.ww.size]" :style="{height: $store.state.wh.value + 'px'}"> -->
-  <div :class="['HeroImage', $store.state.ww.size]">
+  <div :class="['HeroImage', {isHome}, $store.state.ww.size]">
 
-    <!-- <transition> -->
-    <div :class="['background', {show: isBgLoaded}]">
-      <h1 class="power-word" v-if="isBgLoaded">
-        <!-- <span data-aos="fade-up" data-aos-offset="0" data-aos-delay="1100" data-aos-duration="900">Life</span>
-        <span data-aos="fade-up" data-aos-offset="0" data-aos-delay="1200" data-aos-duration="1300">with</span> -->
-        <span data-aos="fade-down" data-aos-offset="0" data-aos-delay="800" data-aos-duration="1300">Life with</span>
-        <span data-aos="fade-up" data-aos-offset="0" data-aos-delay="1100" data-aos-duration="2100">Fragrance</span>
+    <img src="~/assets/img/rose01.jpg" alt="トップページの背景画像" :style="{display: 'none'}" @load="bgLoaded">
+    <div :class="['background']">
+      <div :class="['image', {isBgLoaded}]" :style="{backgroundPosition: pos}" />
+      <h1 v-if="isBgLoaded" class="power-word">
+        <span v-if="word[0]" data-aos="fade-up" data-aos-offset="0" data-aos-delay="400" data-aos-duration="1000">{{ word[0] }}</span>
+        <span v-if="word[1]" data-aos="fade-up" data-aos-offset="0" data-aos-delay="400" data-aos-duration="1800">{{ word[1] }}</span>
       </h1>
     </div>
-    <!-- </transition> -->
-    <img src="~/assets/img/rose01.jpg" alt="トップページの背景画像" :style="{display: 'none'}" @load="bgLoaded">
-    <!-- <LazyLoadImg class="bg" imgsrc="rose01.jpg" :imgstyle="$store.state.wwsize === 'sm' ? {paddingTop: '92%'} : {paddingTop: '36%', transform: 'scale(1.4)'}" /> -->
 
-    <div class="heading">
-      <!-- <h2 class="main" data-aos="fade-up" data-aos-offset="0" data-aos-delay="1550" data-aos-duration="900"> -->
+    <div v-if="isHome" class="heading">
       <h2 class="main">
-        香りと共に生きるあなたへ</h2>
-      <!-- <h2 class="sub" data-aos="fade-up" data-aos-offset="0" data-aos-delay="1600" data-aos-duration="1200"> -->
+        香りと共に生きるあなたへ
+      </h2>
       <h2 class="sub">
-        <!-- <span>私たちはライフスタイルの創造を通じて</span><span v-if="$store.state.wwsize !== 'sm'">、</span> -->
-        <!-- <span>心豊かな社会の実現に貢献します</span><span v-if="$store.state.wwsize !== 'sm'">。</span> -->
         <span>メイリリィはライフスタイルの創造を通じて<span v-if="$store.state.wwsize !== 'sm'">、</span></span>
         <span>幸せと彩りを届けるデザインカンパニーです<span v-if="$store.state.wwsize !== 'sm'">。</span></span>
       </h2>
-    </div>
+    </div><!-- heading -->
 
   </div>
 </template>
@@ -36,6 +28,11 @@ import LazyLoadImg from '~/components/LazyLoadImg.vue'
 export default {
   components: {
     LazyLoadImg,
+  },
+  props: {
+    isHome: {default: false},
+    pos: {default: 'center'},
+    word: {type: Array, default: () => ['Life with', 'Fragrance']},
   },
   data () {
     return{
@@ -54,21 +51,24 @@ export default {
 @import '~/assets/css/myset.scss';
 
 .HeroImage{
-  // overflow: visible;
+  overflow: visible;
   position: relative;
   font-size: 40rem;
-  // padding-bottom: 10vw;
   width: 100%;
+  z-index: -1;
+  margin-bottom: -0.8em;
+  &.isHome{
+    margin-bottom: 0;
+  }
 
   .background{
+    overflow: visible;
     position: relative;
-    // margin-top: 16vw;
-    margin-top: -2vw;
+    margin-top: 2vw;
     width: 100vw;
     height: 86vw;
-    overflow: hidden;
-    &.show::before{
-      content: "";
+    .image.isBgLoaded{
+      overflow: visible;
       display: block;
       width: 100%;
       height: 100%;
@@ -79,8 +79,8 @@ export default {
       background-size: cover;
       z-index: 1;
       animation:
-        scale-in 11s $ease-out both 0.6s,
-        opacity-in 3.4s ease both 0.6s;
+        scale-in 12s $ease-out both 0.1s,
+        opacity-in 1.5s ease both 0.1s;
       @keyframes scale-in{
         0%{ transform: scale(1.2); }
         100%{ transform: scale(1); }
@@ -96,27 +96,27 @@ export default {
     position: absolute;
     left: 0;
     right: 0;
-    // bottom: 24%;
-    bottom: 29%;
+    bottom: 27%;
     margin: 0 auto;
     width: max-content;
     height: max-content;
     max-width: 86%;
     text-align: center;
     color: $grey-1;
-    opacity: 0.7;
     word-wrap: break-word;
     font-size: 12vw;
     line-height: 0.9;
     letter-spacing: 0.1em;
     font-family: FuturaBold;
     text-shadow:
-      0 0 5px rgba($pinkgrey, 0.5),
-      0 4px 12px rgba($shadow, 0.2);
+      0 0 7px rgba($pinkgrey, 0.4),
+      0 4px 12px rgba($shadow, 0.1);
     z-index: 3;
+    opacity: 0.88;
     & > span{
       overflow: visible;
-      display: inline-block;
+      // display: inline-block;
+      display: block;
       padding: 0 0.2em;
       padding-bottom: 0.2em;
     }
@@ -137,13 +137,12 @@ export default {
       z-index: 4;
     }
     .sub{
-      padding: 0 2em 0.5em;
+      padding: 0 1em;
       text-align: center;
       font-size: 14rem;
       line-height: 1.8;
       font-weight: 400;
       color: $heading-color;
-      border-radius: $border-radius;
       opacity: 0.4;
       z-index: 4;
       line-height: 1.5;
@@ -169,7 +168,7 @@ export default {
       bottom: 21%;
       font-size: 9vw;
       line-height: 0.8;
-      width: min-content;
+      // width: min-content;
     }
     .heading{
       padding: 1.2em 0 1em;

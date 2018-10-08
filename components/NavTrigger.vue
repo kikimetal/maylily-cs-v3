@@ -1,9 +1,13 @@
 <template lang="html">
   <div
-  :class="['NavTrigger', $store.state.ww.size]"
+  :class="['NavTrigger', {hide: $store.state.isShowNav}, $store.state.ww.size]"
   @click="$store.commit('toggleNav', true)">
     <transition name="trigger">
-      <svg v-show="!$store.state.isShowNav" class="bars" viewBox="0 0 53.529 51.852">
+      <svg
+        v-show="!$store.state.isShowNav"
+        :class="['bars', {top: $store.state.isScrollTop}]"
+        viewBox="0 0 53.529 51.852"
+        >
         <defs>
           <style>
             .cls-2 {
@@ -23,7 +27,7 @@
       </svg>
     </transition>
     <transition name="trigger">
-      <div v-show="!$store.state.isShowNav" :class="['circle', {sizeup: !$store.state.isScrollTop}]" />
+      <div v-show="!$store.state.isShowNav" class="circle" />
     </transition>
   </div>
 </template>
@@ -51,6 +55,10 @@ export default {
   user-select: none;
   pointer-events: auto;
 
+  &.hide{
+    pointer-events: none;
+  }
+
   .bars{
     display: block;
     position: absolute;
@@ -63,8 +71,11 @@ export default {
     width: 0.96em;
     height: 0.96em;
     z-index: 2;
-    fill: $grey-5;
+    fill: $grey-7;
     transition: all 0.3s $ease-out;
+    &.top{
+      fill: rgba($grey-7, 0.5);
+    }
   }
   .cls-1, .cls-2 { fill: inherit; }
 
@@ -97,7 +108,7 @@ export default {
     }
     &:hover{
       .bars{
-        fill: $secondary;
+        fill: $grey-green;
       }
     }
   }
@@ -106,17 +117,17 @@ export default {
 @keyframes trigger-fade{
   from{
     opacity: 0;
-    transform: scale(1.6);
+    transform: scale(1.2);
   }
   to{
     opacity: 1;
-    // transform: scale(1);
+    transform: scale(1);
   }
 }
 .trigger-enter-active {
-  animation: trigger-fade 1.5s ease;
+  animation: trigger-fade 0.9s ease both;
 }
 .trigger-leave-active {
-  animation: trigger-fade 0.4s ease reverse;
+  animation: trigger-fade 0.4s ease reverse both;
 }
 </style>

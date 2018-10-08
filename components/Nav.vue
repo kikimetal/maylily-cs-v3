@@ -4,7 +4,8 @@
     :class="['Nav', $store.state.ww.size]" role="navigation"
     v-if="$store.state.isShowNav"
     @click="$store.commit('toggleNav', false)">
-    <!-- @mouseleave="$store.commit('toggleNav', false)" -->
+
+      <ArrowRight class="arrow" />
 
       <router-link
         class="link"
@@ -25,8 +26,10 @@
 
 <script>
 import GlobalRoutes from '~/assets/routes/global.js'
+import ArrowRight from '~/components/svg/ArrowRight.vue'
 export default {
   components: {
+    ArrowRight,
   },
   props: {
     routes: { default: () => GlobalRoutes }
@@ -40,7 +43,7 @@ export default {
   font-size: 8.8vw;
   position: fixed;
   top: 0;
-  // left: 0;
+  left: auto;
   right: 0;
   bottom: 0;
   padding: 0 0 0 5vw;
@@ -52,24 +55,31 @@ export default {
   align-items: flex-start;
 
   background: $white;
-  // background: rgba($white, 0.6);
-  color: $primary;
+  color: $grey-7;
   z-index: 999;
+
+  .arrow{
+    position: absolute;
+    top: 7vw;
+    right: 7vw;
+    transform: scale(1.6);
+    fill: $grey-2;
+    pointer-events: none;
+    z-index: -1;
+  }
 
   .link{
     margin-bottom: 0.5em;
     width: 90vw;
     text-transform: uppercase;
-    border-bottom: 1px solid rgba($primary, 0.2);
+    border-bottom: 1px solid rgba($grey-7, 0.2);
     line-height: 1.1;
     user-select: none;
     cursor: pointer;
     pointer-events: auto;
-
     &:hover{
       color: $grey-9;
     }
-
     .subtitle{
       display: block;
       font-size: 0.36em;
@@ -89,26 +99,30 @@ export default {
   }
 
   &.md, &.lg, &.xl{
-    font-size: 42rem;
+    font-size: 4.2vw;
     padding: 0;
-    padding-left: 7vw;
-    padding-top: calc(0.6em + 3vh);
-    // width: 16em;
-    width: 68%;
+    padding-left: 10vw;
+    padding-top: calc(1em + 8vh);
+    padding-bottom: 100px;
+    // width: 68%;
+    width: 58%;
     justify-content: flex-start;
     overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
-    // border-left: 0.36em solid rgba($primary, 0.8);
-    // border-left: 10% solid rgba($primary, 0.8);
     box-shadow: $shadow-set;
+
+    .arrow{
+      top: 2vw;
+      left: 2.2vw;
+    }
+
     .link{
-      // width: 10em;
-      width: 88%;
+      width: 76%;
       margin-bottom: calc(0.5em + 1.6vh);
     }
   }
-  &.md{
-    font-size: 38rem;
+  &.lg, &.xl{
+    font-size: 36rem;
   }
 }
 
