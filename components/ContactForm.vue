@@ -16,6 +16,18 @@
     </section>
 
     <section class="flex">
+      <h1 class="heading">会社名のおくりがな (任意)</h1>
+      <label>
+        <input
+        type="text"
+        name="companyOkurigana"
+        placeholder="ゆうげんがいしゃめいりりぃ"
+        v-model="companyOkurigana" />
+        <div class="border" />
+      </label>
+    </section>
+
+    <section class="flex">
       <h1 class="heading">お名前 (必須)</h1>
       <label>
         <input
@@ -75,7 +87,7 @@
         name="zipcode"
         placeholder="123-0001"
         v-model="zipcode"
-        v-validate="'required|max:14'">
+        v-validate="'required|max:8'">
         <div class="border" />
         <transition name="page">
           <div class="error-message" v-show="hasError('zipcode')">入力が正しくありません！</div>
@@ -92,7 +104,7 @@
         name="address"
         placeholder="神奈川県横浜市都筑区1-2-3"
         v-model="address"
-        v-validate="'required|max:14'">
+        v-validate="'required'">
         <div class="border" />
         <transition name="page">
           <div class="error-message" v-show="hasError('address')">入力が正しくありません！</div>
@@ -133,7 +145,28 @@
               <div class="lever"><span class="circle" />その他</div>
             </label>
           </div>
+          <transition name="page">
+            <div class="error-message" v-show="hasError('oemProductSelect')">項目を一つ以上選択してください！</div>
+          </transition>
         </section>
+
+        <section class="flex">
+          <h1 class="heading">OEMご希望品名（必須）</h1>
+          <label>
+            <input
+            :class="{ error: hasError('oemProductName') }"
+            type="text"
+            name="oemProductName"
+            placeholder="香水 / ルームディフューザー"
+            v-model="oemProductName"
+            v-validate="'required'">
+            <div class="border" />
+            <transition name="page">
+              <div class="error-message" v-show="hasError('oemProductName')">入力が正しくありません！</div>
+            </transition>
+          </label>
+        </section>
+
         <section>
           <h1 class="heading">OEM製造目的（必須）</h1>
           <div class="checkbox-container">
@@ -150,7 +183,11 @@
               <div class="lever"><span class="circle" />その他</div>
             </label>
           </div>
+          <transition name="page">
+            <div class="error-message" v-show="hasError('oemObjectSelect')">項目を一つ以上選択してください！</div>
+          </transition>
         </section>
+
         <section class="flex">
           <h1 class="heading">OEMご希望数量（必須）</h1>
           <label>
@@ -168,15 +205,16 @@
           </label>
         </section>
         <section class="flex">
-          <h1 class="heading">OEM後希望納期（必須）</h1>
+          <h1 class="heading">OEMご希望納期の年月（必須）</h1>
+          <p>未定の場合は未定とご入力ください。</p>
           <label>
             <input
             :class="{ error: hasError('oemDate') }"
             type="text"
             name="oemDate"
-            placeholder="2019年3月"
+            placeholder="2019年3月頃"
             v-model="oemDate"
-            v-validate="'required|numeric'">
+            v-validate="'required|max:20'">
             <div class="border" />
             <transition name="page">
               <div class="error-message" v-show="hasError('oemDate')">入力が正しくありません！</div>
@@ -206,6 +244,9 @@
               <div class="lever"><span class="circle" />その他のお問い合わせ</div>
             </label>
           </div>
+          <transition name="page">
+            <div class="error-message" v-show="hasError('contactContentSelect')">項目を一つ以上選択してください！</div>
+          </transition>
         </section>
       </div>
 
@@ -218,10 +259,15 @@
         placeholder="お問い合わせ内容を入力してください。"
         v-model="message" />
       </label>
+      <transition name="page">
+        <div class="error-message" v-show="hasError('message')">入力が正しくありません！</div>
+      </transition>
     </section>
 
     <br>
-    <div class="btn submit" @click.prevent="handleCheckAll">CheckAll(開発用)</div>
+    <br>
+    <p :style="{textAlign: 'center', fontSize: '14px', opacity: '0.6'}">内容をご確認の上送信ボタンを押してください。</p>
+    <!-- <div class="btn submit" @click.prevent="handleCheckAll">CheckAll(開発用)</div> -->
     <div class="btn submit" @click.prevent="submit">送信する</div>
 
   </form>
@@ -246,6 +292,7 @@ export default {
       checked: false, // エラーチェックが一度でも走ったかどうか
 
       company: null,
+      companyOkurigana: null,
       name: '',
       email: '',
       phone: '',
@@ -254,6 +301,7 @@ export default {
       contactTypeOEM: false, // OEM 分岐
       contactContentSelect: [],
       oemProductSelect: [],
+      oemProductName: '',
       oemObjectSelect: [],
       oemNum: null,
       oemDate: null,
@@ -272,7 +320,7 @@ export default {
           // _this.locality = addr.locality  // 市区町村
           // _this.street   = addr.street    // 町域
           _this.address = addr.locality + addr.street  // 市区町村
-          console.log(addr)
+          // console.log(addr)
         })
       }
       catch (err) {
@@ -289,17 +337,16 @@ export default {
       const apiUrl = 'https://www.maylily.co.jp/api/sendMail.php'
       const formData = this.getTarget(Object, false)
       // なにこの曲者...
-      console.log('req data', formData) // TODO:remove
+      // console.log('req data', formData) // TODO:remove
       let params = new URLSearchParams(formData)
       const res = await axios.post(apiUrl, params)
-      if (res.data === true) {
-        console.log('res success') // TODO:remove
-        return alert('RES: OK!')
-      } else {
-        console.warn('res error: ', res.data) // TODO:remove
+      if (res.data !== true) {
+        // console.warn('res error: ', res.data) // TODO:remove
         return alert('RES: ERROR!')
       }
-      // this.$router.push({path: '/contact/complete'})
+      // console.log('res success') // TODO:remove
+      // return alert('RES: OK!') // TODO:remove
+      this.$router.push({path: '/contact/complete'})
     },
 
     handleCheckAll () {
@@ -310,15 +357,15 @@ export default {
       const isInputAll = found === undefined
       const isValidAll = !this.errors.items.length
 
-      console.log(this.errors)
+      // console.log(this.errors)
 
       const exist = isInputAll && isValidAll
-      console.log('checkAll Result: ', exist)
+      // console.log('checkAll Result: ', exist)
       return exist
     },
 
     hasError (name) {
-      return this.errors.has(name) || this.checked && !this[name]
+      return this.errors.has(name) || this.checked && !this[name] || this.checked && this[name] == false
     },
 
     /**
@@ -329,6 +376,7 @@ export default {
      */
     getTarget (type, required = false) {
       let target = [
+        // 入力必須項目
         'name',
         'email',
         'phone',
@@ -341,7 +389,8 @@ export default {
         // 入力必須ではない項目を追加
         target = [
           ...target,
-          'company'
+          'company',
+          'companyOkurigana',
         ]
       }
       if (this.contactTypeOEM) {
@@ -393,6 +442,7 @@ export default {
     appearance: none;
     outline: none;
     border-radius: 0;
+    font-size: 16px !important;
   }
 
   section{
@@ -419,7 +469,7 @@ export default {
       transition: all 0.5s ease;
 
       &::placeholder{
-        color: rgba($grey-5, 0.5);
+        color: rgba($grey-5, 0.9);
       }
 
       &:-webkit-autofill{
@@ -606,6 +656,7 @@ export default {
     padding-top: 5em;
     color: $grey-5;
     text-align: center;
+    line-height: 2;
     a{
       color: $primary;
       text-decoration: underline;

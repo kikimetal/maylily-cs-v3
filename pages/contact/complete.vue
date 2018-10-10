@@ -2,15 +2,15 @@
    <div :class="['page', $store.state.ww.size]">
 
     <Heading
-      type="basic"
+      type="pale"
       pagetop
-      :title="['Contact']"
-      subtitle="お問い合わせ"
+      :title="['Contact Us']"
+      subtitle="問い合わせありがとうございます！"
+      :styleOverride="{paddingBottom: '2em'}"
       />
 
     <section>
-      <h3>問い合わせありがとうございます✨</h3>
-      <p>3営業日以内を目処に、入力されたメールアドレス宛にご返信いたします。</p>
+      <p class="message">3営業日目処に、入力されたメールアドレス宛にご返信いたします。</p>
     </section>
 
     <Footer />
@@ -30,15 +30,18 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-// @import '~/assets/css/myset.scss';
+@import '~/assets/css/myset.scss';
 .page{
   text-align: center;
   section{
-    min-height: 40vh;
-    padding-bottom: 10vh;
-    display: flex;
-    flex-flow: column;
-    justify-content: center;
+    p.message{
+      padding-bottom: 2em;
+      display: flex;
+      flex-flow: column;
+      justify-content: center;
+      color: $grey-5;
+      font-weight: 600;
+    }
   }
 }
 

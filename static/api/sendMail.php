@@ -23,7 +23,8 @@ function response_json($obj) {
 // コンタクトフォームよりメールを送信
 function sendEmail ($data) {
 
-  $to = "takahashi@maylily.co.jp";
+  // $to = "takahashi@maylily.co.jp";
+  $to = "info@maylily.co.jp";
   $fromName = "メイリリィ WEBコンタクトフォーム";
   $fromAddress = "info@maylily.co.jp";
 
@@ -53,9 +54,12 @@ function sendEmail ($data) {
       "▼下記のお問い合わせ内容を受付いたしました。\n".
       "確認次第ご連絡いたしますので、少々お待ちください。\n".
       "_______________________________\n\n";
+
     $body_common .=
       "■会社名"."\n".
       $data["company"]."\n\n".
+      "■会社名おくりがな"."\n".
+      $data["companyOkurigana"]."\n\n".
       "■お名前"."\n".
       $data["name"]."\n\n".
       "■メールアドレス"."\n".
@@ -73,6 +77,8 @@ function sendEmail ($data) {
       $body_branch .=
         "■OEM製造品目"."\n".
         str_replace(",", "\n", $data["oemProductSelect"])."\n\n".
+        "■OEM製造品名"."\n".
+        $data["oemProductName"]."\n\n".
         "■OEM製造目的"."\n".
         str_replace(",", "\n", $data["oemObjectSelect"])."\n\n".
         "■OEMご希望数量"."\n".

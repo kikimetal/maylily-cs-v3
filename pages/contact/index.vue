@@ -2,10 +2,10 @@
    <div :class="['page', $store.state.ww.size]">
 
     <Heading
-      type="basic"
-      pagetop
-      :title="['Contact']"
-      subtitle="お問い合わせ"
+      type="pale"
+      :title="['Contact Us']"
+      subtitle="気軽にお問い合わせください"
+      :styleOverride="{paddingTop: '7em'}"
       />
 
     <ContactForm />

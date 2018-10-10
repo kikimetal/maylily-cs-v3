@@ -106,12 +106,12 @@ const store = () => new Vuex.Store({
 
       const sheetName = 'news'
 
-      console.log('Store sheets status: ', state.sheets[sheetName].status) // TODO: remove
+      // console.log('Store sheets status: ', state.sheets[sheetName].status) // TODO: remove
 
       const exist = state.sheets[sheetName].status === 'pending'
       if (!exist) return
 
-      console.log('Store sheets: ', 'fetching...') // TODO: remove
+      // console.log('Store sheets: ', 'fetching...') // TODO: remove
 
       const columns = [
         'separator',
@@ -143,12 +143,12 @@ const store = () => new Vuex.Store({
       const separator = res.data[0].separator.trim() || '<split>'
       const fixedData = res.data.map(row => fixRow(row, separator))
 
-      console.log('Store sheets data: ', fixedData) // TODO: remove
+      // console.log('Store sheets data: ', fixedData) // TODO: remove
 
       state.sheets[sheetName].status = 'fulfilled'
       state.sheets[sheetName].data = fixedData
 
-      console.log('Store sheets status: ', state.sheets[sheetName].status) // TODO: remove
+      // console.log('Store sheets status: ', state.sheets[sheetName].status) // TODO: remove
 
       /**
        * gss-apiから帰ってきた配列の1行分のデータを Card に対応するよう整形
