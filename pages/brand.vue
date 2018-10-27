@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <div :class="['page', $store.state.ww.size]">
 
     <HeroImage pos="-2%" :word="['Presents', 'from Us']" />
@@ -8,11 +8,16 @@
     align="left"
     :title="['Fragrance', 'with', 'Fashion']"
     subtitle="GARMENT"
-    message="GARMENTは洋服と香水の境界を越え、貴方のファッションをより贅沢にします。GARMENTは洋服と香水の境界を越え、貴方のファッションをより贅沢にします。"
+    :message="[
+      'ガーメントはトータルファッションクリエイター 山下 武尊（やました たける）のフレグランスブランドです。',
+      'カメラにレンズフィルターを装着すると表現が多彩になっていくことにインスピレーションを受け、「フレグランスフィルタリング」の哲学を提唱しています。',
+      'ベースフレグランスに、香りの質感を変化させるフレグランスフィルターを重ねることで、その日の気分、シーンに合わせて自由に香りをコーディネートすることができます。',
+      'ガーメントはこだわりを香りで多彩に表現できる、自由で贅沢なファッションスタイルを提案します。',
+    ]"
     :styleOverride="{paddingBottom: '2em'}"
     />
     <section>
-      <a href="https://www.takeruyamashita.com">
+     <a href="https://www.takeruyamashita.com">
         <LazyLoadImg class="img" imgsrc="garment-colorful.jpg" :imgstyle="{borderRadius: '12px', paddingTop: $store.state.ww.size === 'sm' ? '83%' : '57%'}" />
         <div class="btn">
           <ArrowRight class="arrow"/>
@@ -23,9 +28,18 @@
     <Heading
     type="three-way"
     align="left"
-    :title="['Beauty and', 'health care']"
+    :title="['Bulgarian', 'Rosa Damascena']"
     :subtitle="['Rose Darena']"
-    message="ローズダレーナは、ブルガリアンローズのビューティー＆ヘルスケアブランドです。ローズダレーナは、ブルガリアンローズのビューティー＆ヘルスケアブランドです。"
+    message="
+ローズダレーナは、ブルガリアンローズのビューティー＆ヘルスケアブランドです。
+ブルガリア〈バラの谷〉にある自社指定農場で有機栽培された香り高いダマスクローズ。
+そのダマスクローズから抽出される上質なローズオイル、ローズウォーターを贅沢に使用。
+ブルガリアンローズの香りと力を、日本の技術で最大限に活かした製品づくりを心がけています。
+信頼ある日本製品として、食品の一部は日本農林規格（JAS規格）の厳しい生産基準をクリアし、有機JAS認定を取得。
+ローズダレーナとは、ブルガリア語で「天から与えられたバラの豊かな恵み」を意味します。
+健康で美しく、心豊かなライフスタイルを願う方々のために、こだわりのブルガリアンローズをお届けします。
+
+"
     :styleOverride="{paddingBottom: '2em'}"
     />
     <section>

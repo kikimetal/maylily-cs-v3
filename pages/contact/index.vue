@@ -1,10 +1,10 @@
-<template>
+﻿<template>
    <div :class="['page', $store.state.ww.size]">
 
     <Heading
       type="pale"
       :title="['Contact Us']"
-      subtitle="気軽にお問い合わせください"
+      subtitle="お気軽にお問い合わせください"
       :styleOverride="{paddingTop: '7em'}"
       />
 

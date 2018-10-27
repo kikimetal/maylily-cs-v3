@@ -1,13 +1,13 @@
-<template>
+﻿<template>
   <div :class="['page', $store.state.ww.size]">
 
-    <HeroImage pos="102%" :word="['Queen of', 'Fragrance']" />
+    <HeroImage pos="102%" :word="['Bulgarian', 'Rosa Damascena']" />
 
     <Heading
     type="three-way"
     align="left"
     :title="['Bulgarian', 'Rose']"
-    :subtitle="['花香の女王', 'ブルガリアンローズ']"
+    :subtitle="['ブルガリアンローズ']"
     :message="['メイリリィは、ブルガリアから最高品質のローズオイル・ローズウォーターを輸入し、販売しております。']"
     :styleOverride="{paddingBottom: '2em'}"
     />
@@ -41,7 +41,7 @@
       type="three-way"
       :title="['Rosa', 'Damascena', 'Oil']"
       :subtitle="['貴重なローズオイル']"
-      message="ローズオイル1kgを抽出するには、3.5～4トンものバラを必要とします。"
+      message="ローズオイル1kgを抽出するのに、3.5～4トンものバラが必要です。"
       :styleOverride="{paddingBottom: '2em'}"
       />
       <p>
@@ -68,7 +68,7 @@
     :subtitle="['契約農場', 'エニオボンチェフ社']"
     />
     <section>
-      <h2 class="section-heading">エニオボンチェフ社と約20年にわたって信頼関係を築いています。</h2>
+      <h2 class="section-heading">無農薬有機栽培でバラを育てる契約農場</h2>
       <p>
         メイリリィ契約農場のエニオボンチェフ社は、創業100年の歴史と伝統を誇る、ブルガリアで最初のローズオイル蒸留所のひとつです。栽培から製造にいたるまで一貫して管理しており、最高品質のローズオイル・ローズウォーターを製造できるトップメーカーです。その質の高さから、1964年の精油に関する国際会議で、ユネスコから金メダルを受賞しています。
       </p>
@@ -93,7 +93,7 @@
     :subtitle="['独自のダブル蒸留法']"
     />
     <section>
-      <h1 class="section-heading">こだわりの製法 "ダブル蒸留法"</h1>
+      <h1 class="section-heading">高濃度ローズウォーター</h1>
       <p>
         ダマスクローズを水蒸気蒸留して採取される、ローズオイルが溶け込んだ蒸留水をローズウォーターと呼びます。ローズウォーターは、一般的にはローズオイルを抽出する際の副産物とされています。最終工程で蒸留水の水面に浮くローズオイルと分離されてしまうからです。
       </p>
@@ -108,7 +108,7 @@
     :subtitle="['調味料としての', 'ローズウォーター']"
     />
     <section>
-      <h1 class="section-heading">調味料としてのローズウォーター</h1>
+      <h1 class="section-heading">素材を美味しくするローズウォーター</h1>
       <p>
         弊社のローズウォーターは<b>“食品原料”</b>です。ローズウォーターには<b>素材の味を活かし、味をまろやかにし、コクや深みを与える</b>など、香り付けだけではなく調味料としての優れた力があります。
       </p>
@@ -119,7 +119,7 @@
         ※ 化粧品原料としても使用できます。<br/>
         ※ 有機JAS規格製品をご使用の場合は、<b>原材料名に「有機ダマスクローズウォーター」と表示できます。</b>
       </p>
-      
+
       <h1 class="section-heading">取扱製品</h1>
       <p class="section-grid">
         <span>製品名</span><span>ダマスクローズウォーター</span>

@@ -1,31 +1,31 @@
-<template>
+﻿<template>
   <div id="vision" :class="['page', $store.state.ww.size]">
 
-    <HeroImage pos="-2%" :word="['Make new', 'Lifestyle']" />
+    <HeroImage pos="-2%" :word="['Corporate', 'Philosophy']" />
 
     <Heading
     type="three-way"
     align="left"
-    :title="['Our', 'Vision']"
-    :subtitle="['今までにない', '新しい価値を提案する']"
-    message="香りのプロフェッショナルという強みを活かしながら、自由な発想と独自の技術で常識を打破し、感動ある商品を生み出すことで、既存の枠にとらわれない新しい生活文化を提案し、新たなマーケットを開拓し続けるオンリーワン企業をめざします。"
-    alt="企業理念のイメージ画像"
-    paddingCutBottom
-    />
-
-    <Heading
-    type="three-way"
-    align="left"
-    :title="['Our', 'Mission']"
-    :subtitle="['ライフスタイルの創造']"
+    :title="['Our Mission']"
+    :subtitle="['新しいライフスタイルで心豊かな毎日を']"
     message="「衣・食・住・健・美」の生活文化を事業領域に定め、今までにない新しい価値やライフスタイルの創造を通じて、世界中のあらゆる人々の生活に幸せと彩りを届け、心豊かな社会の実現に貢献します。"
     alt="企業理念のイメージ画像"
     paddingCutBottom
     />
 
     <Heading
+    type="three-way"
+    align="left"
+    :title="['Our Vision']"
+    :subtitle="['新しい生活文化を提案するオンリーワン企業をめざす']"
+    message="香りのプロフェッショナルという強みを活かしながら、自由な発想と独自の技術で常識を打破し、感動ある商品を生み出すことで、既存の枠にとらわれない新しい生活文化を提案し、新たなマーケットを開拓し続けるオンリーワン企業をめざします。"
+    alt="企業理念のイメージ画像"
+    paddingCutBottom
+    />
+
+    <Heading
     type="pale"
-    :title="['Our', 'Value']"
+    :title="['Our Value']"
     subtitle="私たちのが大切にしているもの"
     imgsrc="OurValue.jpg"
     alt="企業理念のイメージ画像"
@@ -67,18 +67,18 @@
     <Heading
     type="pale"
     :title="'&quot;Maylily&quot;'"
-    subtitle="メイリリィに込めた想い"
+    subtitle="社名の由来"
     imgsrc="naming.jpg"
     alt="企業理念のイメージ画像"
     />
 
     <section class="naming">
       <h2 class="section-heading">
-        社名の「May lily」は、英語でスズランを意味する言葉です</h2>
+  生命力あふれるスズラン</h2>
       <p>
-        鮮やかな緑の葉の影に、鈴のような小さな白い花が重なって咲くスズランは、清楚で可憐な美しさがある花です。
+社名の「May lily」は、英語でスズランを意味する言葉です。鮮やかな緑の葉の影に、鈴のような小さな白い花が重なって咲くスズランは、清楚で可憐な美しさがある花です。
         その控えめな姿とは裏腹に、寒さにとても強く、必ず春に花を咲かせるたくましい生命力を持つ花でもあります。
-        地中を這うように茎を伸ばし、年を追うごとに驚くべき勢いでに増え、いつしか一面を埋め尽くすようにスズランが咲き広がります。
+        地中を這うように茎を伸ばし、年を追うごとに驚くべき勢いで増え、いつしか一面を埋め尽くすようにスズランが咲き広がります。
       </p>
       <h2 class="section-heading">三大フローラルノート</h2>
       <p>
@@ -102,8 +102,8 @@
 
     <Heading
       type="pale"
-      :title="['Our', 'Mark']"
-      :subtitle="['メイリリィが届ける幸せが', '世界に広がるように']"
+      :title="['Corporate', 'Symbol']"
+      :subtitle="['シンボルマーク']"
       paddingCutBottom
     />
 
@@ -201,9 +201,11 @@ export default {
         position: relative;
         overflow: visible;
         padding: 1.3em 4vw;
+        width: 100%;
         margin-bottom: 0.6em;
         line-height: 1.7;
         color: $grey-7;
+        text-align: center;
         & + .item{
           margin-top: 0.6em;
         }

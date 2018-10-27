@@ -1,16 +1,16 @@
-<template>
+﻿<template>
    <div :class="['page', $store.state.ww.size]">
 
     <Heading
       type="pale"
       pagetop
       :title="['Contact Us']"
-      subtitle="問い合わせありがとうございます！"
+      subtitle="お問い合わせありがとうございます。"
       :styleOverride="{paddingBottom: '2em'}"
       />
 
     <section>
-      <p class="message">3営業日目処に、入力されたメールアドレス宛にご返信いたします。</p>
+      <p class="message">ご入力いただいたメールアドレスにご返信いたします。</p>
     </section>
 
     <Footer />

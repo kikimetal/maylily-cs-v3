@@ -178,18 +178,20 @@ export default {
     line-height: 1.4;
   }
   .subtitle{
-    padding: 0.37em 0 0.39em;
+    // padding: 0.37em 0 0.39em;
+    padding: 0.37em 0 0.42em;
     font-size: 1.5em;
     font-weight: bold;
     font-weight: 800;
     line-height: 1.4;
   }
   .message{
-    font-size: 0.8em;
-    line-height: 1.6;
+    font-size: 0.76em;
+    line-height: 1.7;
     opacity: 0.5;
     span + span{
-      margin-top: 0.5em;
+      // margin-top: 0.5em;
+      margin-top: 1em;
     }
   }
   &.md, &.lg, &.xl{

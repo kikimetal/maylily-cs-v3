@@ -1,16 +1,15 @@
-<template>
+﻿<template>
    <div :class="['page', $store.state.ww.size]">
 
-    <HeroImage pos="-2%" :word="['About', 'Maylily']" />
+    <HeroImage pos="-2%" :word="['Corporate', 'Profile']" />
 
     <Heading
       type="three-way"
       align="left"
-      :title="['Made', 'with', 'Fun']"
-      :subtitle="['私たちもお客様も', '楽しい! 面白い! と感じるものを']"
+      :title="['Create New Lifestyle']"
+      :subtitle="['生活文化創造企業']"
       :message="[
-        '香りのプロフェッショナルという強みを活かし、既存の枠にとらわれない新しいライフスタイルやプロダクトを提案いたします。',
-        '既存の枠にとらわれない新しいライフスタイルやプロダクトを提案いたします。'
+        'メイリリィは「衣・食・住・健・美」を事業領域に定め、生活文化創造企業としてを事業を展開しています。あらゆる事業活動を通じて豊かな社会づくりに貢献し、すべてのステークホルダーから信頼される良き企業市民を目指しています。その礎となる企業理念をはじめ、その実現を支えるビジョン、価値観を紹介します。'
       ]"
     />
 
@@ -59,29 +58,29 @@ export default {
     return {
       linksInAbout: [
         {
-          title: 'Vision',
-          subtitle: '社会貢献活動。香りのプロフェッショナルという強みを活かし、既存の枠にとらわれない新しいライフスタイルやプロダクトを提案いたします。',
+          title: '企業理念',
+          subtitle: '当社の企業理念をご紹介します。',
           to: '/about/vision',
           imgsrc: 'stock01.jpg',
           exact: true,
         },
         {
           title: '代表挨拶',
-          subtitle: '社会貢献活動。香りのプロフェッショナルという強みを活かし、既存の枠にとらわれない新しいライフスタイルやプロダクトを提案いたします。',
+          subtitle: '代表取締役社長 山下文江から皆様にご挨拶申し上げます。',
           to: '/about/message',
           imgsrc: 'stock02.jpg',
           exact: true,
         },
         {
           title: '会社概要',
-          subtitle: '会社概要。香りのプロフェッショナルという強みを活かし、既存の枠にとらわれない新しいライフスタイルやプロダクトを提案いたします。',
+          subtitle: '当社の基本情報をご案内します。',
           to: '/about/company',
           imgsrc: 'stock03.jpg',
           exact: true,
         },
         {
           title: '社会貢献活動',
-          subtitle: '社会貢献活動。香りのプロフェッショナルという強みを活かし、既存の枠にとらわれない新しいライフスタイルやプロダクトを提案いたします。',
+          subtitle: '積極的な社会貢献活動に取り組んでいます。',
           to: '/about/csr',
           imgsrc: 'stock01.jpg',
           exact: true,

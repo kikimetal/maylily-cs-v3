@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <div :class="['page', $store.state.ww.size]">
 
     <Heading
@@ -7,7 +7,7 @@
     align="center"
     :title="['News', 'Release']"
     :subtitle="['最新情報']"
-    :message="['メイリリィの最新の情報をお届けします。']"
+    :message="['メイリリィの最新情報をお届けします。']"
     />
 
     <FetchLoader />

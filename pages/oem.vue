@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <div :class="['page', $store.state.ww.size]">
 
     <HeroImage pos="102%" :word="['Fragrance', 'for you']" />
@@ -6,8 +6,8 @@
     <Heading
     type="three-way"
     align="left"
-    :title="['Made in you']"
-    :subtitle="['あなたの香りを作る']"
+    :title="['Original Fragrance']"
+    :subtitle="['オリジナルフレグランス製作']"
     :message="['メイリリィは、フレグランス関連製品の受託製造を行っております。', '弊社フレグランスデザイナーが、お客様のイメージに合わせた香りを提案いたします。自社工場ならではの迅速な対応で、多品種・小ロットにも対応可能です。今までに培った実績やノウハウをもとに、処方開発から生産、品質保証までサポートし、お客様のご要望に合わせたオリジナル製品を提供いたします。']"
     paddingCutBottom
     />
@@ -19,9 +19,9 @@
     <Heading
     type="three-way"
     align="left"
-    :title="['Our strengths']"
-    :subtitle="['選ばれる理由']"
-    :message="['フレグランスの香り創りでは、香料の化学的知識や技術だけでなく、抽象的なイメージを香りで表現する芸術的な感性が必要です。香料の特性を十分理解した熟練のフレグランスデザイナーが、お客様のご要望にお応えするオリジナルの香りを提案いたします。']"
+    :title="['Our advantage']"
+    :subtitle="['メイリリィの強み']"
+    :message="['商品化を望まれるフレグランス製品がございましたら、私たちにご相談ください。香りの企画提案から製造・品質管理まで、トータルにサポートいたします。これまでの多種多様なフレグランス製品の経験による当社の強みが、お客様のご要望を実現します。']"
     :styleOverride="{paddingBottom: '3em'}"
     />
 
@@ -74,7 +74,7 @@
     />
 
     <section>
-      <h2 class="section-heading">オリジナル香水</h2>
+      <h2 class="section-heading">オリジナル香水50ml</h2>
       <p class="section-grid">
         <span>数量</span><span>100pcs</span>
         <span>単価</span><span>2,200円～</span>
@@ -93,8 +93,8 @@
 
     <heading
     type="pale"
-    title="Process"
-    subtitle="製造の流れ"
+    title="Workflow"
+    subtitle="製品開発の流れ"
     />
     <section>
       <div class="process-container flex3">

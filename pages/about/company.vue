@@ -1,4 +1,4 @@
-<template>
+﻿<template>
    <div :class="['page', $store.state.ww.size]">
 
      <Heading
@@ -24,7 +24,7 @@
             <span>オリジナルブランド事業</span><span>
               ローズダレーナ（化粧品・健康食品・飲料）製造、販売<br/>
               ガーメント（化粧品）製造、販売</span>
-            <span>ブルガリアンロース原料事業</span><span>
+            <span>ブルガリアンローズ原料事業</span><span>
               ダマスクローズウォーター・ローズオイルの輸入、販売</span>
             <span>フレグランス受託製造事業</span><span>
               化粧品・フレグランス関連製品の受託製造<br/>
