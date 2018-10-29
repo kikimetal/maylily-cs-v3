@@ -196,13 +196,13 @@ export default {
   &.md{
     font-size: 27rem;
     .title-container .subtitle{
-      padding: 0 8%;
+      padding: 0 7%;
     }
   }
   &.lg{
     font-size: 28rem;
     .title-container .subtitle{
-      padding: 0 12%;
+      padding: 0 9%;
     }
   }
   &.xl{
