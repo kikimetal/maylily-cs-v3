@@ -15,7 +15,9 @@
     <section>
       <!-- <ImageSet :imgsrcs="['stock01.jpg', 'stock02.jpg', 'stock03.jpg']" /> -->
       <p :style="{marginBottom: '3em'}">
-        <LazyLoadImg :style="{paddingTop: '50%'}"/>
+        <LazyLoadImg
+        imgsrc="bulgarian-rose/rose.jpg"
+        :style="{paddingTop: '55%'}"/>
       </p>
       <p>
         2万種以上あると言われるバラのなかで、ローズオイルを抽出できるバラはわずか数種類しか存在しません。そのなかでも、ダマスクローズは最も香り高い品種として知られています。特に、<b>ブルガリア「バラの谷」で採れるダマスクローズは、高い採油率と上質な香りから世界最高品質と評され、「花香の女王 ブルガリアンローズ」</b>と呼ばれています。
@@ -31,7 +33,7 @@
         <LazyLoadImg
         imgsrc="http://www.eniobonchev.com/media/1572/bgr_sample_185.jpg"
         alt="バラの農場の写真 by Enio Boncev Website"
-        :style="{paddingTop: '50%'}"/>
+        :style="{paddingTop: '55%'}"/>
         <span>引用: バラの農場の写真 by <a href="http://www.eniobonchev.com/about-us/our-fields/">Enio Boncev Website</a></span>
       </p>
     </section>
@@ -57,7 +59,7 @@
         <LazyLoadImg
           imgsrc="http://www.eniobonchev.com/media/1648/eb-rosober_05-2015-16.jpg"
           alt="バラの農場の写真 by Enio Boncev Website"
-          :style="{paddingTop: '50%'}"/>
+          :style="{paddingTop: '55%'}"/>
         <span>引用: 蒸留中の写真 by <a href="http://www.eniobonchev.com/about-us/our-distilleries/disitillery-2/">Enio Boncev Website</a></span>
       </p>
     </section>
@@ -82,7 +84,7 @@
         <LazyLoadImg
           imgsrc="http://www.eniobonchev.com/media/1671/12.jpg"
           alt="バラの農場の写真 by Enio Boncev Website"
-          :style="{paddingTop: '50%'}"/>
+          :style="{paddingTop: '55%'}"/>
         <span>引用: 昔のエニオボンチェフの写真 by <a href="http://www.eniobonchev.com/about-us/our-history/">Enio Boncev Website</a></span>
       </p>
     </section>

@@ -13,7 +13,11 @@
     />
 
     <section>
-      <ImageSet :imgsrcs="['stock01.jpg', 'stock01.jpg', 'stock01.jpg']" />
+      <p :style="{marginTop: '1em'}">
+        <LazyLoadImg
+        imgsrc="oem/top.jpg"
+        :style="{paddingTop: '55%'}"/>
+      </p>
     </section>
 
     <Heading
@@ -99,37 +103,37 @@
     <section>
       <div class="process-container flex3">
         <div>
-          <LazyLoadImg imgsrc="stock02.jpg"/>
+          <LazyLoadImg imgsrc="oem/step01.jpg"/>
           <div class="step">step 01</div>
           <h2 class="process-title">ヒアリング</h2>
           <p>製品コンセプトや香りのイメージなど、お客様のご要望をお伺いいたします。</p>
         </div>
         <div>
-          <LazyLoadImg imgsrc="stock02.jpg"/>
+          <LazyLoadImg imgsrc="oem/step02.jpg"/>
           <div class="step">step 02</div>
           <h2 class="process-title">試作・仕様選定</h2>
           <p>ご要望に合わせた処方でサンプルを作成。容器・化粧箱の仕様やデザインの選定も行います。</p>
         </div>
         <div>
-          <LazyLoadImg imgsrc="stock02.jpg"/>
+          <LazyLoadImg imgsrc="oem/step03.jpg"/>
           <div class="step">step 03</div>
           <h2 class="process-title">見積・契約</h2>
           <p>製品仕様の確定後、御見積書を提出。正式にご契約・ご発注をいただきます。</p>
         </div>
         <div>
-          <LazyLoadImg imgsrc="stock02.jpg"/>
+          <LazyLoadImg imgsrc="oem/step04.jpg"/>
           <div class="step">step 04</div>
           <h2 class="process-title">薬事申請</h2>
           <p>薬事法に基づく販売名申請や、容器・包装資材表示の諸法令適合チェックを行います。</p>
         </div>
         <div>
-          <LazyLoadImg imgsrc="stock02.jpg"/>
+          <LazyLoadImg imgsrc="oem/step05.jpg"/>
           <div class="step">step 05</div>
           <h2 class="process-title">製造</h2>
           <p>自社工場にて徹底した品質管理のもと、安心安全な製品を製造いたします。</p>
         </div>
         <div>
-          <LazyLoadImg imgsrc="stock02.jpg"/>
+          <LazyLoadImg imgsrc="oem/step06.jpg"/>
           <div class="step">step 06</div>
           <h2 class="process-title">検査・出荷</h2>
           <p>検品後、完成した製品を国内ご指定先までお届けいたします。</p>
