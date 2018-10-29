@@ -334,7 +334,7 @@ export default {
         document.body.scrollIntoView()
         return alert('情報の入力が不足しています！')
       }
-      const apiUrl = 'https://www.maylily.co.jp/api/sendMail.php'
+      const apiUrl = 'https://maylily.co.jp/api/sendMail.php'
       const formData = this.getTarget(Object, false)
       // なにこの曲者...
       // console.log('req data', formData) // TODO:remove

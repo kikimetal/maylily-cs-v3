@@ -38,6 +38,7 @@
     :title="['Business Activities']"
     :subtitle="['事業内容']"
     :message="['メイリリィは多角的な事業を展開しています。']"
+    :styleOverride="{paddingLeft: '9%'}"
     />
 
     <FetchLoader />
@@ -63,10 +64,11 @@
 
     <Heading
     type="three-way"
-    align="center"
+    align="left"
     :title="['News', 'Release']"
     :subtitle="['最新情報']"
     :message="['メイリリィの最新情報をお届けします。']"
+    :styleOverride="{paddingLeft: '9%'}"
     />
 
     <FetchLoader />

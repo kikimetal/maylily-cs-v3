@@ -132,7 +132,7 @@ export default {
       text-align: center;
       font-size: 24rem;
       font-weight: bold;
-      font-weight: 900;
+      font-weight: 700;
       padding: 2.7em 0 0.7em;
       z-index: 4;
     }

@@ -132,7 +132,7 @@ const store = () => new Vuex.Store({
         'modal-links-url',
       ]
       const queryString = `?sheetName=${sheetName}&${columns.join('&')}`
-      const apiUrl = 'https://www.maylily.co.jp/api/getSheet.php'
+      const apiUrl = 'https://maylily.co.jp/api/getSheet.php'
       const fetchUrl = apiUrl + queryString
 
       let res = await axios.get(fetchUrl).catch(err => {

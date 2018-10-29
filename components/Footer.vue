@@ -102,6 +102,7 @@ export default {
   }
 
   nav{
+    overflow: visible;
     width: 100%;
     display: flex;
     flex-flow: column;
@@ -119,10 +120,18 @@ export default {
       opacity: 0.8;
       pointer-events: auto;
       cursor: pointer;
+
       &:hover{
         transition: all 0.3s ease;
         opacity: 1;
       }
+      &.nuxt-link-exact-active{
+        cursor: default;
+        color: $grey-6;
+        border-bottom-width: 5px;
+        margin-bottom: -4px;
+      }
+
       .slash{
         display: inline-block;
         margin-left: 0.7em;

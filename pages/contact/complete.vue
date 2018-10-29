@@ -4,13 +4,14 @@
     <Heading
       type="pale"
       pagetop
+      align="left"
       :title="['Contact Us']"
-      subtitle="お問い合わせありがとうございます。"
+      subtitle="お問い合わせありがとうございました。"
       :styleOverride="{paddingBottom: '2em'}"
       />
 
-    <section>
-      <p class="message">ご入力いただいたメールアドレスにご返信いたします。</p>
+    <section class="message">
+      <p>お送りいただきました内容を確認の上、担当者より折り返しご連絡させていただきます。</p>
     </section>
 
     <Footer />
@@ -32,15 +33,13 @@ export default {
 <style lang="scss" scoped>
 @import '~/assets/css/myset.scss';
 .page{
-  text-align: center;
-  section{
-    p.message{
-      padding-bottom: 2em;
-      display: flex;
-      flex-flow: column;
-      justify-content: center;
+  section.message{
+    padding-bottom: 2em;
+    p{
+      padding: 0;
       color: $grey-5;
       font-weight: 600;
+      line-height: 2;
     }
   }
 }

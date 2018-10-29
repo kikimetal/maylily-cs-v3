@@ -74,8 +74,6 @@ export default {
 @import '~/assets/css/myset.scss';
 
 .Card{
-  $radius-min: 32%;
-  $radius-max: 46%;
   font-size: 28rem;
   position: relative;
   text-align: center;
@@ -88,7 +86,6 @@ export default {
     margin: 0 auto;
     width: 100%;
     padding-top: 96%;
-    border-radius: $radius-max;
     z-index: 2;
     transition: all 1.2s ease;
     &.transparent{
@@ -96,11 +93,19 @@ export default {
       box-shadow: none !important;
     }
   }
+  &:nth-of-type(3n+1) .card-img{
+    border-radius: 52% 48% 57% 43% / 54% 55% 45% 46% ;
+  }
+  &:nth-of-type(3n+2) .card-img{
+    border-radius: 57% 43% 47% 53% / 48% 54% 46% 52% ;
+  }
+  &:nth-of-type(3n) .card-img{
+    border-radius: 41% 59% 59% 41% / 49% 50% 50% 51%;
+  }
   &:hover{
     .card-img{
       @include touchme(0.94);
-      transition: all 0.4s $ease-out 0.05s;
-      border-radius: $radius-min;
+      border-radius: 50% 50% 48% 52% / 51% 48% 52% 49%;
     }
   }
   &.md, &.lg, &.xl{
@@ -112,7 +117,7 @@ export default {
 
   .title-container{
     position: relative;
-    padding: 0.2em 0.6em 1em;
+    padding: 0.2em 0.6em 0.9em;
     z-index: 3;
     text-align: center;
     line-height: 1;
@@ -140,16 +145,15 @@ export default {
       font-weight: 800;
       text-transform: uppercase;
       line-height: 1.5;
-      padding: 0.8em 0 0.6em;
+      padding: 1.2em 0 0.5em;
+      color: $grey-6;
     }
     .subtitle{
+      padding-left: 0.1em;
       line-height: 1.5;
       font-size: 0.55em;
       font-weight: 400;
       opacity: 0.4;
-    }
-    .subtitle{
-      padding-left: 0.1em;
       transition: all 0.6s $ease-out;
     }
   }
@@ -163,12 +167,13 @@ export default {
   }
 
   .btn{
-    margin: 0 auto;
     &.left{
       margin-left: 0.5em;
     }
-    width: 3.5em;
-    height: 1.9em;
+    margin: 0 auto;
+    margin-bottom: 0.5em;
+    width: 6em;
+    height: 1.6em;
     display: flex;
     justify-content: center;
     align-items: center;

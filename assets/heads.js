@@ -25,7 +25,7 @@ export default {
   '/news': {
     title: 'News' + maylily,
     meta: [
-      { hid: 'description', name: 'description', content: 'カスタマイズしたよ' },
+      // { hid: 'description', name: 'description', content: 'カスタマイズしたよ' },
       ...common.meta,
     ],
     link: [...common.link],
@@ -33,7 +33,7 @@ export default {
   '/about': {
     title: 'About' + maylily,
     meta: [
-      { hid: 'description', name: 'description', content: 'カスタマイズしたよ' },
+      // { hid: 'description', name: 'description', content: 'カスタマイズしたよ' },
       ...common.meta,
     ],
     link: [...common.link],
@@ -41,7 +41,7 @@ export default {
   '/about/vision': {
     title: 'Vision' + maylily,
     meta: [
-      { hid: 'description', name: 'description', content: 'カスタマイズしたよ' },
+      // { hid: 'description', name: 'description', content: 'カスタマイズしたよ' },
       ...common.meta,
     ],
     link: [...common.link],
@@ -49,7 +49,7 @@ export default {
   '/about/message': {
     title: 'Message' + maylily,
     meta: [
-      { hid: 'description', name: 'description', content: 'カスタマイズしたよ' },
+      // { hid: 'description', name: 'description', content: 'カスタマイズしたよ' },
       ...common.meta,
     ],
     link: [...common.link],
@@ -57,7 +57,7 @@ export default {
   '/about/company': {
     title: 'Company' + maylily,
     meta: [
-      { hid: 'description', name: 'description', content: 'カスタマイズしたよ' },
+      // { hid: 'description', name: 'description', content: 'カスタマイズしたよ' },
       ...common.meta,
     ],
     link: [...common.link],
@@ -65,7 +65,7 @@ export default {
   '/about/csr': {
     title: 'CSR' + maylily,
     meta: [
-      { hid: 'description', name: 'description', content: 'カスタマイズしたよ' },
+      // { hid: 'description', name: 'description', content: 'カスタマイズしたよ' },
       ...common.meta,
     ],
     link: [...common.link],
@@ -73,7 +73,7 @@ export default {
   '/brand': {
     title: 'Brand' + maylily,
     meta: [
-      { hid: 'description', name: 'description', content: 'カスタマイズしたよ' },
+      // { hid: 'description', name: 'description', content: 'カスタマイズしたよ' },
       ...common.meta,
     ],
     link: [...common.link],
@@ -81,7 +81,7 @@ export default {
   '/bulgarian-rose': {
     title: 'Bulgarian Rose' + maylily,
     meta: [
-      { hid: 'description', name: 'description', content: 'カスタマイズしたよ' },
+      // { hid: 'description', name: 'description', content: 'カスタマイズしたよ' },
       ...common.meta,
     ],
     link: [...common.link],
@@ -89,7 +89,7 @@ export default {
   '/oem': {
     title: 'Fragrance OEM' + maylily,
     meta: [
-      { hid: 'description', name: 'description', content: 'カスタマイズしたよ' },
+      // { hid: 'description', name: 'description', content: 'カスタマイズしたよ' },
       ...common.meta,
     ],
     link: [...common.link],
@@ -97,7 +97,7 @@ export default {
   '/terms-of-use': {
     title: 'Terms of use' + maylily,
     meta: [
-      { hid: 'description', name: 'description', content: 'カスタマイズしたよ' },
+      // { hid: 'description', name: 'description', content: 'カスタマイズしたよ' },
       ...common.meta,
     ],
     link: [...common.link],
@@ -105,7 +105,7 @@ export default {
   '/privacy-policy': {
     title: 'Privacy policy' + maylily,
     meta: [
-      { hid: 'description', name: 'description', content: 'カスタマイズしたよ' },
+      // { hid: 'description', name: 'description', content: 'カスタマイズしたよ' },
       ...common.meta,
     ],
     link: [...common.link],
@@ -113,7 +113,7 @@ export default {
   '/contact': {
     title: 'Contact' + maylily,
     meta: [
-      { hid: 'description', name: 'description', content: 'カスタマイズしたよ' },
+      // { hid: 'description', name: 'description', content: 'カスタマイズしたよ' },
       ...common.meta,
     ],
     link: [...common.link],
@@ -121,7 +121,7 @@ export default {
   '/contact/complete': {
     title: 'Contact' + maylily,
     meta: [
-      { hid: 'description', name: 'description', content: 'カスタマイズしたよ' },
+      // { hid: 'description', name: 'description', content: 'カスタマイズしたよ' },
       ...common.meta,
     ],
     link: [...common.link],
