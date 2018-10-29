@@ -22,7 +22,13 @@
      />
     <section class="award">
 
-      <ImageSet reverse :imgsrcs="['stock01.jpg', 'stock02.jpg', 'stock03.jpg']" />
+      <!-- <ImageSet reverse :imgsrcs="['stock01.jpg', 'stock02.jpg', 'stock03.jpg']" /> -->
+      <!-- <p :style="{marginTop: '1em'}">
+        <LazyLoadImg
+        imgsrc="oem/top.jpg"
+        :style="{paddingTop: '55%'}"/>
+      </p> -->
+
       <h1 class="section-heading">「ローズウォーターレシピアワード」へ協賛</h1>
 
       <p>
@@ -54,7 +60,12 @@
         5日間の香楽メソッドプログラムを通じて、子どもたちがそれぞれの個性を発見し、多様な価値観を認め、豊かな感性を育んでいます。
       </p>
 
-      <ImageSet :imgsrcs="['stock01.jpg', 'stock02.jpg', 'stock03.jpg']" />
+      <!-- <ImageSet :imgsrcs="['stock01.jpg', 'stock02.jpg', 'stock03.jpg']" /> -->
+      <!-- <p :style="{marginTop: '1em'}">
+        <LazyLoadImg
+        imgsrc="oem/top.jpg"
+        :style="{paddingTop: '55%'}"/>
+      </p> -->
 
     </section>
 
