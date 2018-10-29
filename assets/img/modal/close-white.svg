@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 57.505 57.505">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <g id="グループ化_1" data-name="グループ化 1" transform="translate(-151.91 -245.247)">
+    <rect id="長方形_1" data-name="長方形 1" class="cls-1" width="71.324" height="10" rx="5" transform="translate(151.91 295.681) rotate(-45)"/>
+    <rect id="長方形_2" data-name="長方形 2" class="cls-1" width="71.324" height="10" rx="5" transform="translate(158.981 245.247) rotate(45)"/>
+  </g>
+</svg>

@@ -33,7 +33,7 @@ const store = () => new Vuex.Store({
         text: ['modal', 'modal', 'modal'],
         links: [{
           external: false,
-          word: 'top',
+          word: null,
           to : '/',
         }],
       },

@@ -1,10 +1,11 @@
 <template lang="html">
-  <div
-  :class="['Modal', $store.state.ww.size]"
-  @click="$store.commit('hideModal')">
+  <div :class="['Modal', $store.state.ww.size]">
 
     <transition name="background">
-      <div class="background" v-show="$store.state.modal.isShow" />
+      <div
+      class="background"
+      v-show="$store.state.modal.isShow"
+      @click="$store.commit('hideModal')"/>
     </transition>
 
     <transition name="content">
@@ -12,7 +13,7 @@
         <h1 class="title">
           <span v-for="(span, i) in $store.state.modal.content.title" :key="'modal-title-span-' + i">{{ span }}</span>
         </h1>
-        <h2 class="subtitle">
+        <h2 class="subtitle" v-if="$store.state.modal.content.subtitle[0]">
           <span v-for="(span, i) in $store.state.modal.content.subtitle" :key="'modal-subtitle-span-' + i">{{ span }}</span>
         </h2>
         <div class="text">
@@ -20,21 +21,24 @@
         </div>
         <div
           class="links"
+          v-if="$store.state.modal.content.links[0].word && $store.state.modal.content.links[0].to">
+          <div
           v-for="(link, i) in $store.state.modal.content.links"
           :key="'modal-link-' + i">
-          <a
-            v-if="link.external"
-            class="link"
-            :href="link.to">
-            {{ link.word }}
-          </a>
-          <router-link
-            v-else
-            class="link"
-            :to="link.to"
-            exact>
-            {{ link.word }}
-          </router-link>
+            <a
+              v-if="link.external"
+              class="link"
+              :href="link.to">
+              {{ link.word }}
+            </a>
+            <router-link
+              v-else
+              class="link"
+              :to="link.to"
+              exact>
+              {{ link.word }}
+            </router-link>
+          </div>
         </div>
       </div>
     </transition>
@@ -44,6 +48,11 @@
 
 <script>
 export default {
+  methods: {
+    log () {
+      console.log(this.$store.state.modal)
+    }
+  }
 }
 </script>
 
@@ -52,10 +61,8 @@ export default {
 
 .Modal{
   position: relative;
-  font-size: 20rem;
   z-index: 9999999;
   overflow: visible;
-
   .background{
     position: fixed;
     top: 0;
@@ -63,36 +70,66 @@ export default {
     right: 0;
     bottom: 0;
     background: $grey-3;
-    background-color: rgba(0,0,0,0.28);
-    -webkit-backdrop-filter: saturate(90%) blur(20px);
-    backdrop-filter: saturate(90%) blur(20px);
+    background-color: rgba(0,0,0,0.4);
+    -webkit-backdrop-filter: saturate(90%) blur(25px);
+    backdrop-filter: saturate(90%) blur(25px);
     cursor: pointer;
+
+    &::before{
+      content: '';
+      display: block;
+      position: absolute;
+      top: 1.5%;
+      right: calc((100vw - 90vmin) / 2);
+      width: 1.3em;
+      height: 1.3em;
+      background-image: url(~assets/img/modal/close-white.svg);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+    }
+  }
+  &.md, &.lg, &.xl{
+    .background::before{
+      top: 5%;
+    }
   }
 
+  /* ------ content ------ */
   .content{
     -webkit-overflow-scrolling: touch;
     position: fixed;
-    top: 0;
+    top: 5.5%;
     left: 0;
     right: 0;
-    bottom: 0;
-    width: 92vmin;
-    height: 95%;
-    padding: 1em;
+    bottom: 5%;
+    width: 94vmin;
+    height: max-content;
+    max-height: 90%;
+    padding: 2em 5%;
     margin: auto;
 
     background: $white;
     color: $grey-9;
-    font-weight: bold;
     box-shadow: $shadow-set;
     overflow-x: hidden;
     overflow-y: scroll;
     border-radius: $border-radius;
 
-    line-height: 2; // TODO: remove this
-
     .title{
-      font-size: 1.3em;
+      padding-bottom: 0.3em;
+      font-size: 1.4em;
+      font-weight: 700;
+      line-height: 1.4;
+      color: $grey-7;
+      span{
+        display: block;
+      }
+    }
+    .subtitle{
+      font-weight: 500;
+      line-height: 1.5;
+      padding: 0.8em 0;
     }
     .title, .subtitle{
       span{
@@ -100,35 +137,55 @@ export default {
       }
     }
     .text{
-      padding: 1.3em 0;
+      padding: 0.5em 0;
       width: 100%;
-      background: $shadow;
+      line-height: 1.6;
+      opacity: 0.7;
+      p{
+        padding: 0.4em 0;
+      }
     }
 
     .links{
+      overflow: visible;
+      *{
+        overflow: visible;
+      }
+      padding: 0.7em 0;
       .link{
-        padding: 1em 2em;
-        background: $primary;
+        margin: 0.6em 0;
+        padding: 0.9em;
+        display: block;
+        font-size: 0.9em;
+        font-weight: 600;
         color: $white;
+        background: $primary;
+        border-radius: 3em;
+        text-align: center;
+        box-shadow: $shadow-set;
+        line-height: 1.4;
       }
     }
   }
-
   &.md{
     .content{
+      padding: 3% 5%;
       width: 96vw;
       height: 92vmin;
     }
   }
   &.lg, &.xl{
     .content{
+      padding: 4% 5%;
       width: 92vmin;
       min-width: 800px;
       height: 84vmin;
     }
   }
+  /* ------ content ------ */
 }
 
+/* animation */
 .background-enter{
   opacity: 0;
   transform: scaleY(0);
