@@ -2,13 +2,13 @@
   <div class="error-page">
     <div v-if="error.statusCode === 404">
       <Heading
-      :title="['ページが', '見つかりません']"
-      :subtitle="['page', 'not', 'found.']"/>
+      :title="['ページが見つかりません']"
+      :subtitle="['page not found.']"/>
     </div>
     <div v-else>
       <Heading
-      :title="['エラーが', '発生しました']"
-      :subtitle="['page', 'not', 'found.']"/>
+      :title="['エラーが発生しました']"
+      :subtitle="['page not found.']"/>
     </div>
     <nuxt-link to="/" class="btn">トップページへ</nuxt-link>
   </div>

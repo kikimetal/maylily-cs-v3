@@ -146,12 +146,12 @@ export default {
       text-transform: uppercase;
       line-height: 1.5;
       padding: 1.2em 0 0.5em;
-      color: $grey-6;
+      color: rgb(85, 88, 88);
     }
     .subtitle{
-      padding-left: 0.1em;
+      padding: 0 5.5%;
       line-height: 1.5;
-      font-size: 0.55em;
+      font-size: 0.69em;
       font-weight: 400;
       opacity: 0.4;
       transition: all 0.6s $ease-out;
@@ -194,13 +194,22 @@ export default {
   }
 
   &.md{
-    font-size: 29rem;
+    font-size: 27rem;
+    .title-container .subtitle{
+      padding: 0 8%;
+    }
   }
   &.lg{
-    font-size: 31rem;
+    font-size: 28rem;
+    .title-container .subtitle{
+      padding: 0 12%;
+    }
   }
   &.xl{
-    font-size: 33rem;
+    font-size: 29rem;
+    .title-container .subtitle{
+      padding: 0 14%;
+    }
   }
 }
 </style>

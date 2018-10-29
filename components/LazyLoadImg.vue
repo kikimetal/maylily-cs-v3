@@ -53,6 +53,7 @@ export default {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+  border-radius: 12px;
 
   .placeholder{
     position: absolute;

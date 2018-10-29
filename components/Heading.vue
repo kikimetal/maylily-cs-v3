@@ -184,9 +184,9 @@ export default {
     line-height: 1.4;
   }
   .message{
-    font-size: 0.76em;
+    font-size: 0.8em;
     line-height: 1.7;
-    opacity: 0.5;
+    opacity: 0.7;
     span + span{
       margin-top: 1em;
     }

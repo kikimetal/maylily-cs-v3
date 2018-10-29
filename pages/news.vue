@@ -14,21 +14,21 @@
 
     <CardContainer>
       <Card
-        v-for="(row, i) in $store.state.sheets.news.data"
-        :key="'card-in-news-' + i"
-        :date="row.date"
-        :title="row.title"
-        :subtitle="row.subtitle"
-        :align="row.align"
-        :imgsrc="row.imgsrc"
-        :type="row.type"
-        :to="row.linkto"
-        :modal="row.modal"
-        :exact="true"
-        data-aos="fade-up"
-        :data-aos-offset="0"
-        :data-aos-delay="getCardAosDelay(i, $store.state.ww.size)"
-        />
+      v-for="(row, i) in $store.state.sheets.news.data.filter(row => row.news)"
+      :key="'card-in-news-' + i"
+      :date="row.date"
+      :title="row.title"
+      :subtitle="row.subtitle"
+      :align="row.align"
+      :imgsrc="row.imgsrc"
+      :type="row.type"
+      :to="row.linkto"
+      :modal="row.modal"
+      :exact="true"
+      data-aos="fade-up"
+      :data-aos-offset="0"
+      :data-aos-delay="getCardAosDelay(i, $store.state.ww.size)"
+      />
     </CardContainer>
 
     <Footer />
