@@ -71,12 +71,11 @@
       </div>
     </section>
 
-    <heading
+    <!-- <heading
     type="pale"
     title="Example"
     subtitle="製作事例"
     />
-
     <section>
       <h2 class="section-heading">オリジナル香水50ml</h2>
       <p class="section-grid">
@@ -93,7 +92,7 @@
         <span>納期</span><span>2ヶ月～</span>
         <span>仕様</span><span>弊社有り型ボトル・キャップ<br/>ボトル1色印刷／化粧箱1色印刷</span>
       </p>
-    </section>
+    </section> -->
 
     <heading
     type="pale"
@@ -147,42 +146,45 @@
 </template>
 
 <script>
-import Heading from '~/components/Heading.vue'
-import HeroImage from '~/components/HeroImage.vue'
-import ImageSet from '~/components/ImageSet.vue'
-import LazyLoadImg from '~/components/LazyLoadImg.vue'
-import Footer from '~/components/Footer.vue'
+import Heading from "~/components/Heading.vue";
+import HeroImage from "~/components/HeroImage.vue";
+import ImageSet from "~/components/ImageSet.vue";
+import LazyLoadImg from "~/components/LazyLoadImg.vue";
+import Footer from "~/components/Footer.vue";
 export default {
   components: {
     Heading,
     HeroImage,
     ImageSet,
     LazyLoadImg,
-    Footer,
+    Footer
   },
-  head () { return this.$store.state.heads[this.$route.path] },
-}
+  head() {
+    return this.$store.state.heads[this.$route.path];
+  }
+};
 </script>
 
 <style lang="scss" scoped>
-@import '~/assets/css/myset.scss';
-section{
-  .products-container{
+@import "~/assets/css/myset.scss";
+section {
+  .products-container {
     padding: 2em 0 4em;
-    .product{
+    .product {
       padding: 0.5em 0;
       display: flex;
       flex-flow: column;
       justify-content: center;
       align-items: center;
-      .en, .ja{
+      .en,
+      .ja {
         line-height: 1.5;
       }
-      .en{
+      .en {
         font-size: 0.9em;
         opacity: 0.5;
       }
-      .ja{
+      .ja {
         font-size: 1.2em;
         font-weight: 700;
         color: $grey-7;
@@ -190,15 +192,15 @@ section{
     }
   }
 
-  .process-container{
+  .process-container {
     color: $grey-9;
-    .step{
+    .step {
       padding-top: 1em;
       line-height: 1.3;
       opacity: 0.4;
       font-weight: 500;
     }
-    .process-title{
+    .process-title {
       padding-top: 0.7em;
       padding-bottom: 0.2em;
       font-size: 1.5em;
